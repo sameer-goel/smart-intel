@@ -4,74 +4,145 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Smart Intel — AI-Powered Intelligence Feed</title>
-<meta name="description" content="Auto-generated tech intelligence by Scout AI.">
+<meta name="description" content="Premium AI-generated tech intelligence dashboard by Scout.">
 <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🔭</text></svg>">
 <style>
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap');
 *{margin:0;padding:0;box-sizing:border-box}
-body{font-family:-apple-system,system-ui,'Segoe UI',sans-serif;background:#08090a;color:#9ca3af}
-a{color:inherit;text-decoration:none}
+:root{
+  --bg:#050507;--surface:rgba(14,15,20,.6);--glass:rgba(255,255,255,.03);
+  --glass-border:rgba(255,255,255,.06);--glass-hover:rgba(255,255,255,.08);
+  --text:#9ca3af;--text2:#6b7280;--heading:#f1f3f5;
+  --ai:#60a5fa;--tech:#2dd4bf;--biz:#fbbf24;--geo:#a78bfa;--cloud:#38bdf8;--sec:#f87171;
+}
+body{font-family:'Inter',system-ui,sans-serif;background:var(--bg);color:var(--text);min-height:100vh;overflow-x:hidden}
 
-/* Compact header */
-.header{display:flex;align-items:center;justify-content:space-between;padding:14px 24px;border-bottom:1px solid #16181d;background:#0c0d10;position:sticky;top:0;z-index:10}
-.header .brand{display:flex;align-items:center;gap:10px}
-.header .brand h1{font-size:1.15em;font-weight:700;color:#f1f3f5}
-.header .live{display:flex;align-items:center;gap:5px;font-size:.72em;color:#4ade80}
+/* Animated mesh background */
+body::before{content:'';position:fixed;top:0;left:0;right:0;bottom:0;
+  background:
+    radial-gradient(ellipse 80% 60% at 20% 10%,rgba(96,165,250,.04) 0%,transparent 60%),
+    radial-gradient(ellipse 60% 80% at 80% 90%,rgba(167,139,250,.04) 0%,transparent 60%),
+    radial-gradient(ellipse 50% 50% at 50% 50%,rgba(45,212,191,.02) 0%,transparent 50%);
+  pointer-events:none;z-index:0;animation:meshDrift 20s ease-in-out infinite alternate}
+@keyframes meshDrift{
+  0%{background-position:0% 0%,100% 100%,50% 50%}
+  100%{background-position:20% 30%,80% 70%,40% 60%}
+}
+
+/* Sticky header */
+.header{position:sticky;top:0;z-index:100;display:flex;align-items:center;justify-content:space-between;padding:14px 28px;
+  background:rgba(5,5,7,.85);backdrop-filter:blur(20px) saturate(1.4);-webkit-backdrop-filter:blur(20px) saturate(1.4);
+  border-bottom:1px solid rgba(255,255,255,.04)}
+.header .brand{display:flex;align-items:center;gap:12px}
+.header .brand h1{font-size:1.15em;font-weight:800;color:var(--heading);letter-spacing:-.02em}
+.header .live{display:flex;align-items:center;gap:5px;font-size:.72em;color:#4ade80;padding:3px 10px;background:rgba(74,222,128,.08);border:1px solid rgba(74,222,128,.12);border-radius:20px}
 .header .live .dot{width:5px;height:5px;border-radius:50%;background:#4ade80;animation:pulse 2s infinite}
 .header .links{display:flex;gap:16px;font-size:.82em;color:#4b5563}
-.header .links a:hover{color:#60a5fa}
+.header .links a{color:#4b5563;text-decoration:none;transition:color .2s}.header .links a:hover{color:var(--ai)}
 @keyframes pulse{0%,100%{opacity:1}50%{opacity:.3}}
 
 /* Section */
-.section{max-width:1100px;margin:0 auto;padding:24px 24px 0}
-.section-head{display:flex;align-items:center;gap:10px;margin-bottom:16px}
-.section-head .icon{font-size:1.3em}
-.section-head h2{font-size:1em;font-weight:700;color:#e5e7eb}
-.section-head .badge{font-size:.7em;padding:2px 8px;border-radius:4px;font-weight:500;text-transform:uppercase;letter-spacing:.3px}
-.badge.ai{background:rgba(96,165,250,.1);color:#60a5fa}
-.badge.tech{background:rgba(45,212,191,.1);color:#2dd4bf}
-.badge.biz{background:rgba(251,191,36,.1);color:#fbbf24}
-.badge.geo{background:rgba(167,139,250,.1);color:#a78bfa}
-.badge.cloud{background:rgba(96,165,250,.1);color:#60a5fa}
-.badge.sec{background:rgba(248,113,113,.1);color:#f87171}
+.section{max-width:1140px;margin:0 auto;padding:28px 28px 0;position:relative;z-index:1;opacity:0;transform:translateY(16px);animation:fadeUp .5s ease forwards}
+.section:nth-child(2){animation-delay:.05s}
+.section:nth-child(3){animation-delay:.1s}
+.section:nth-child(4){animation-delay:.15s}
+.section:nth-child(5){animation-delay:.2s}
+.section:nth-child(6){animation-delay:.25s}
+@keyframes fadeUp{to{opacity:1;transform:translateY(0)}}
 
-/* Insight tiles */
-.insights{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-bottom:8px}
-.insight{background:#0c0d10;border:1px solid #16181d;border-radius:8px;padding:16px;position:relative;transition:border-color .15s;cursor:pointer;text-decoration:none;display:block}
-.insight:hover{border-color:#2a2d36;background:#0e1014}
-.insight .source{font-size:.7em;color:#4b5563;margin-top:8px;display:flex;align-items:center;gap:4px}
-.insight:hover .source{color:#60a5fa}
-.insight .num{position:absolute;top:12px;right:14px;font-size:.7em;font-weight:700;color:#2a2d36}
-.insight .headline{font-size:.88em;font-weight:600;color:#d1d5db;line-height:1.45;margin-bottom:6px}
-.insight .detail{font-size:.78em;color:#6b7280;line-height:1.5}
-.insight .detail strong{color:#9ca3af}
+.section-head{display:flex;align-items:center;gap:10px;margin-bottom:14px}
+.section-head .icon{font-size:1.2em;filter:drop-shadow(0 0 8px currentColor)}
+.section-head h2{font-size:.95em;font-weight:700;color:var(--heading);letter-spacing:-.01em}
+.section-head .badge{font-size:.65em;padding:3px 10px;border-radius:20px;font-weight:600;text-transform:uppercase;letter-spacing:.5px}
+
+/* Badge colors */
+.badge-ai{background:rgba(96,165,250,.1);color:var(--ai);box-shadow:0 0 12px rgba(96,165,250,.1)}
+.badge-tech{background:rgba(45,212,191,.1);color:var(--tech);box-shadow:0 0 12px rgba(45,212,191,.1)}
+.badge-biz{background:rgba(251,191,36,.1);color:var(--biz);box-shadow:0 0 12px rgba(251,191,36,.1)}
+.badge-geo{background:rgba(167,139,250,.1);color:var(--geo);box-shadow:0 0 12px rgba(167,139,250,.1)}
+.badge-cloud{background:rgba(56,189,248,.1);color:var(--cloud);box-shadow:0 0 12px rgba(56,189,248,.1)}
+.badge-sec{background:rgba(248,113,113,.1);color:var(--sec);box-shadow:0 0 12px rgba(248,113,113,.1)}
+
+/* Insight grid */
+.insights{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}
+
+/* LIQUID GLASS TILE */
+.glass-tile{
+  position:relative;display:block;text-decoration:none;padding:20px;border-radius:14px;overflow:hidden;
+  background:var(--glass);border:1px solid var(--glass-border);
+  backdrop-filter:blur(12px) saturate(1.2);-webkit-backdrop-filter:blur(12px) saturate(1.2);
+  transition:transform .3s ease,box-shadow .3s ease,border-color .3s ease;
+  transform-style:preserve-3d;perspective:800px;cursor:pointer}
+
+/* Inner light spot — follows mouse via JS */
+.glass-tile .light-spot{position:absolute;width:200px;height:200px;border-radius:50%;pointer-events:none;
+  background:radial-gradient(circle,rgba(255,255,255,.06) 0%,transparent 70%);
+  transform:translate(-50%,-50%);opacity:0;transition:opacity .3s}
+.glass-tile:hover .light-spot{opacity:1}
+
+/* Glass reflection line */
+.glass-tile::before{content:'';position:absolute;top:0;left:0;right:0;height:1px;
+  background:linear-gradient(90deg,transparent 10%,rgba(255,255,255,.1) 50%,transparent 90%);z-index:2}
+
+/* Gradient border glow on hover */
+.glass-tile::after{content:'';position:absolute;inset:-1px;border-radius:14px;padding:1px;
+  background:linear-gradient(135deg,var(--glow-color,rgba(96,165,250,.3)),transparent 60%);
+  -webkit-mask:linear-gradient(#fff 0 0) content-box,linear-gradient(#fff 0 0);
+  -webkit-mask-composite:xor;mask-composite:exclude;opacity:0;transition:opacity .3s;pointer-events:none}
+.glass-tile:hover::after{opacity:1}
+
+.glass-tile:hover{border-color:rgba(255,255,255,.1);
+  box-shadow:0 8px 32px rgba(0,0,0,.4),0 0 20px var(--glow-shadow,rgba(96,165,250,.08))}
+
+.glass-tile .num{position:absolute;top:14px;right:16px;font-size:.68em;font-weight:700;color:rgba(255,255,255,.08)}
+.glass-tile .headline{font-size:.88em;font-weight:600;color:#e0e2e6;line-height:1.45;margin-bottom:8px;position:relative;z-index:1}
+.glass-tile .detail{font-size:.78em;color:#7a7f89;line-height:1.55;position:relative;z-index:1}
+.glass-tile .detail strong{color:#a0a5af}
+.glass-tile .source{font-size:.68em;color:#3d4250;margin-top:10px;display:flex;align-items:center;gap:4px;position:relative;z-index:1;transition:color .2s}
+.glass-tile:hover .source{color:var(--glow-color,var(--ai))}
+
+/* Category-specific glow */
+.glow-ai{--glow-color:var(--ai);--glow-shadow:rgba(96,165,250,.1)}
+.glow-tech{--glow-color:var(--tech);--glow-shadow:rgba(45,212,191,.1)}
+.glow-biz{--glow-color:var(--biz);--glow-shadow:rgba(251,191,36,.1)}
+.glow-geo{--glow-color:var(--geo);--glow-shadow:rgba(167,139,250,.1)}
+.glow-cloud{--glow-color:var(--cloud);--glow-shadow:rgba(56,189,248,.1)}
+.glow-sec{--glow-color:var(--sec);--glow-shadow:rgba(248,113,113,.1)}
 
 /* Divider */
-.divider{border:none;border-top:1px solid #111;margin:24px auto 0;max-width:1100px}
+.divider{border:none;border-top:1px solid rgba(255,255,255,.03);margin:24px auto 0;max-width:1140px}
 
-/* Report tiles below */
-.reports-section{max-width:1100px;margin:0 auto;padding:24px}
-.reports-section h2{font-size:1em;font-weight:700;color:#e5e7eb;margin-bottom:16px;display:flex;align-items:center;gap:8px}
-.reports{display:grid;grid-template-columns:repeat(auto-fill,minmax(320px,1fr));gap:10px}
-.tile{background:#0c0d10;border:1px solid #16181d;border-radius:8px;padding:18px;display:flex;flex-direction:column;transition:all .15s;position:relative;overflow:hidden}
-.tile:hover{border-color:#2a2d36;transform:translateY(-1px)}
-.tile .accent{position:absolute;top:0;left:0;right:0;height:2px;background:linear-gradient(90deg,#60a5fa,#a78bfa);opacity:0;transition:opacity .15s}
-.tile:hover .accent{opacity:1}
-.tile .top{display:flex;align-items:center;justify-content:space-between;margin-bottom:8px}
-.tile .date{font-size:.72em;color:#4b5563}
-.tile .tags{display:flex;gap:3px}
-.tile .tag{font-size:.6em;padding:2px 6px;border-radius:3px;font-weight:500;text-transform:uppercase;letter-spacing:.3px}
-.tile h3{font-size:.92em;font-weight:600;color:#d1d5db;margin-bottom:6px;line-height:1.4}
-.tile:hover h3{color:#f1f3f5}
-.tile .excerpt{font-size:.78em;color:#6b7280;line-height:1.5;flex:1;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
-.tile .read{font-size:.75em;color:#60a5fa;margin-top:10px;font-weight:500}
+/* Reports section */
+.reports-section{max-width:1140px;margin:0 auto;padding:28px;position:relative;z-index:1}
+.reports-section h2{font-size:.95em;font-weight:700;color:var(--heading);margin-bottom:14px;display:flex;align-items:center;gap:8px}
+.reports{display:grid;grid-template-columns:repeat(auto-fill,minmax(320px,1fr));gap:12px}
 
-.footer{text-align:center;padding:24px;border-top:1px solid #111;margin-top:16px;font-size:.75em;color:#374151}
-.footer a{color:#4b5563}.footer a:hover{color:#60a5fa}
+.report-tile{display:block;text-decoration:none;padding:18px;border-radius:12px;
+  background:var(--glass);border:1px solid var(--glass-border);
+  backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);
+  transition:all .25s ease;position:relative;overflow:hidden}
+.report-tile::before{content:'';position:absolute;top:0;left:0;right:0;height:1px;
+  background:linear-gradient(90deg,transparent 10%,rgba(255,255,255,.06) 50%,transparent 90%)}
+.report-tile:hover{border-color:rgba(255,255,255,.08);transform:translateY(-2px);
+  box-shadow:0 6px 24px rgba(0,0,0,.3)}
+.report-tile .top{display:flex;align-items:center;justify-content:space-between;margin-bottom:8px}
+.report-tile .date{font-size:.72em;color:#4b5563}
+.report-tile .tags{display:flex;gap:3px}
+.report-tile .tag{font-size:.6em;padding:2px 6px;border-radius:3px;font-weight:500;text-transform:uppercase;letter-spacing:.3px}
+.report-tile h3{font-size:.92em;font-weight:600;color:#d1d5db;margin-bottom:6px;line-height:1.4}
+.report-tile:hover h3{color:var(--heading)}
+.report-tile .excerpt{font-size:.78em;color:#5a5f69;line-height:1.5;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
+.report-tile .read{font-size:.72em;color:var(--ai);margin-top:10px;font-weight:500;display:inline-block}
 
-@media(max-width:768px){
+.footer{text-align:center;padding:28px;border-top:1px solid rgba(255,255,255,.03);margin-top:16px;font-size:.75em;color:#2a2e36;position:relative;z-index:1}
+.footer a{color:#3d4250;text-decoration:none;transition:color .2s}.footer a:hover{color:var(--ai)}
+
+@media(max-width:900px){.insights{grid-template-columns:1fr 1fr}}
+@media(max-width:640px){
+  .header{flex-direction:column;gap:8px;align-items:flex-start;padding:12px 16px}
   .insights{grid-template-columns:1fr}
   .reports{grid-template-columns:1fr}
-  .header{flex-direction:column;gap:8px;align-items:flex-start}
+  .section,.reports-section{padding-left:16px;padding-right:16px}
 }
 </style>
 </head>
@@ -88,12 +159,10 @@ a{color:inherit;text-decoration:none}
   </div>
 </div>
 
-<!-- Dynamic insights loaded from insights.json -->
 <div id="insightsContainer"></div>
 
 <hr class="divider">
 
-<!-- FULL REPORTS -->
 <div class="reports-section">
   <h2>📄 Full Reports</h2>
   <div class="reports" id="feed"></div>
@@ -104,8 +173,28 @@ a{color:inherit;text-decoration:none}
 </div>
 
 <script>
-const tagColors={ai:'ai',tech:'tech',business:'biz',geopolitics:'geo',cloud:'cloud',security:'sec'};
-const badgeMap={ai:'ai',tech:'tech',business:'biz',geopolitics:'geo',cloud:'cloud',security:'sec'};
+const catBadge={ai:'badge-ai',tech:'badge-tech',business:'badge-biz',geopolitics:'badge-geo',cloud:'badge-cloud',security:'badge-sec'};
+const catGlow={ai:'glow-ai',tech:'glow-tech',business:'glow-biz',geopolitics:'glow-geo',cloud:'glow-cloud',security:'glow-sec'};
+const tagBadge={ai:'badge-ai',tech:'badge-tech',business:'badge-biz',geopolitics:'badge-geo',cloud:'badge-cloud',security:'badge-sec'};
+
+// 3D tilt + light spot tracking
+function initTilt(){
+  document.querySelectorAll('.glass-tile').forEach(tile=>{
+    const spot=tile.querySelector('.light-spot');
+    tile.addEventListener('mousemove',e=>{
+      const r=tile.getBoundingClientRect();
+      const x=(e.clientX-r.left)/r.width;
+      const y=(e.clientY-r.top)/r.height;
+      const rotY=(x-.5)*12;
+      const rotX=(y-.5)*-8;
+      tile.style.transform=`perspective(800px) rotateX(${rotX}deg) rotateY(${rotY}deg) scale(1.02)`;
+      if(spot){spot.style.left=e.clientX-r.left+'px';spot.style.top=e.clientY-r.top+'px'}
+    });
+    tile.addEventListener('mouseleave',()=>{
+      tile.style.transform='perspective(800px) rotateX(0) rotateY(0) scale(1)';
+    });
+  });
+}
 
 // Load insights
 async function loadInsights(){
@@ -115,22 +204,31 @@ async function loadInsights(){
     const d=await r.json();
     let html='';
     const order=['ai','tech','business','geopolitics','cloud','security'];
-    for(const key of order){
+    order.forEach((key,si)=>{
       const cat=d.categories[key];
-      if(!cat)continue;
-      html+=`<div class="section"><div class="section-head"><span class="icon">${cat.icon}</span><h2>${cat.label}</h2><span class="badge ${badgeMap[key]||'ai'}">TOP 3</span></div><div class="insights">`;
+      if(!cat)return;
+      html+=`<div class="section" style="animation-delay:${si*.06}s">`;
+      html+=`<div class="section-head"><span class="icon">${cat.icon}</span><h2>${cat.label}</h2><span class="badge ${catBadge[key]||''}">TOP 3</span></div>`;
+      html+=`<div class="insights">`;
       (cat.insights||[]).forEach((ins,i)=>{
         const domain=ins.url?new URL(ins.url).hostname.replace('www.',''):'';
-        const tag=ins.url?`<a class="insight" href="${ins.url}" target="_blank" rel="noopener">`:`<div class="insight">`;
-        const end=ins.url?`</a>`:`</div>`;
-        html+=`${tag}<span class="num">#${i+1}</span><div class="headline">${ins.headline}</div><div class="detail">${ins.detail}</div>${domain?`<div class="source">↗ ${domain}</div>`:''}${end}`;
+        html+=`<a class="glass-tile ${catGlow[key]||''}" href="${ins.url||'#'}" target="_blank" rel="noopener">`;
+        html+=`<div class="light-spot"></div>`;
+        html+=`<span class="num">#${i+1}</span>`;
+        html+=`<div class="headline">${ins.headline}</div>`;
+        html+=`<div class="detail">${ins.detail}</div>`;
+        if(domain)html+=`<div class="source">↗ ${domain}</div>`;
+        html+=`</a>`;
       });
-      html+=`</div></div><hr class="divider">`;
-    }
+      html+=`</div></div>`;
+      if(si<order.length-1)html+=`<hr class="divider">`;
+    });
     c.innerHTML=html;
+    initTilt();
   }catch(e){c.innerHTML=''}
 }
 
+// Load reports
 async function loadFeed(){
   const feed=document.getElementById('feed');
   try{
@@ -138,11 +236,10 @@ async function loadFeed(){
     const d=await r.json();
     if(!d.articles||!d.articles.length){feed.innerHTML='<p style="color:#4b5563;padding:20px">No reports yet.</p>';return}
     feed.innerHTML=d.articles.map(a=>`
-      <a class="tile" href="./intel/${a.slug}.html">
-        <div class="accent"></div>
+      <a class="report-tile" href="./intel/${a.slug}.html">
         <div class="top">
           <span class="date">${a.date}</span>
-          <div class="tags">${(a.tags||[]).slice(0,3).map(t=>`<span class="tag badge ${tagColors[t]||'ai'}">${t}</span>`).join('')}</div>
+          <div class="tags">${(a.tags||[]).slice(0,3).map(t=>`<span class="tag ${tagBadge[t]||''}">${t}</span>`).join('')}</div>
         </div>
         <h3>${a.title}</h3>
         <p class="excerpt">${a.excerpt}</p>
@@ -151,6 +248,7 @@ async function loadFeed(){
     `).join('');
   }catch(e){feed.innerHTML='<p style="color:#4b5563;padding:20px">Loading...</p>'}
 }
+
 loadInsights();
 loadFeed();
 </script>
