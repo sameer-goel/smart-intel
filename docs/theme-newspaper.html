@@ -1,0 +1,330 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Smart Intel — The AI Intelligence Gazette</title>
+<meta name="description" content="AI-powered intelligence briefing. 6 domains, 18 insights, updated nightly.">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🔭</text></svg>">
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;800;900&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap');
+*{margin:0;padding:0;box-sizing:border-box}
+:root{
+  --bg:#0a0a0c;--paper:#0e0f12;--ink:#d4d4d8;--ink2:#a1a1aa;--ink3:#71717a;
+  --rule:rgba(255,255,255,.08);--rule2:rgba(255,255,255,.04);
+  --ai:#60a5fa;--tech:#2dd4bf;--biz:#fbbf24;--geo:#a78bfa;--cloud:#38bdf8;--sec:#f87171;
+  --serif:'Playfair Display',Georgia,'Times New Roman',serif;
+  --sans:'Inter',system-ui,sans-serif;
+  --mono:'JetBrains Mono',monospace;
+}
+body{font-family:var(--sans);background:var(--bg);color:var(--ink2);min-height:100vh}
+
+/* === MASTHEAD === */
+.masthead{text-align:center;padding:28px 24px 0;max-width:960px;margin:0 auto}
+.masthead .top-bar{display:flex;justify-content:space-between;align-items:center;margin-bottom:6px}
+.masthead .dateline{font-family:var(--mono);font-size:.68em;color:var(--ink3);letter-spacing:1.5px;text-transform:uppercase}
+.masthead .dateline a{color:var(--ink3);text-decoration:none}.masthead .dateline a:hover{color:var(--ai)}
+.masthead .edition-tag{font-family:var(--mono);font-size:.65em;color:#52525b;letter-spacing:1px}
+.rule-double{height:4px;border-top:2px solid var(--rule);border-bottom:1px solid var(--rule);margin:0 auto}
+.masthead-title{padding:16px 0 8px}
+.masthead h1{font-family:var(--serif);font-size:4em;font-weight:900;color:#f4f4f5;letter-spacing:-.03em;
+  line-height:.95;margin:0;background:linear-gradient(180deg,#f4f4f5 60%,#a1a1aa);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+.masthead .subtitle{font-size:.78em;text-transform:uppercase;letter-spacing:4px;font-weight:600;
+  color:var(--ai);margin-top:6px;display:flex;align-items:center;justify-content:center;gap:8px}
+.masthead .subtitle .divider-dot{width:3px;height:3px;border-radius:50%;background:var(--ink3)}
+.masthead .tagline{font-family:var(--serif);font-size:1.05em;font-style:italic;color:var(--ink3);margin-top:10px;margin-bottom:4px}
+.rule-single{height:1px;background:var(--rule);margin:0 auto}
+.masthead .nav{display:flex;justify-content:center;gap:4px;padding:10px 0;flex-wrap:wrap}
+.masthead .nav a{font-size:.7em;text-transform:uppercase;letter-spacing:1px;font-weight:600;
+  color:var(--ink3);text-decoration:none;padding:5px 10px;border-radius:4px;transition:all .15s}
+.masthead .nav a:hover{color:var(--ai);background:rgba(96,165,250,.06)}
+.masthead .nav .subscribe-btn{color:#0a0a0c;background:var(--ai);border:none;font-weight:700}
+.masthead .nav .subscribe-btn:hover{background:#93c5fd;box-shadow:0 0 16px rgba(96,165,250,.3)}
+.live-badge{display:inline-flex;align-items:center;gap:4px;font-size:.65em;color:#4ade80}
+.live-badge .dot{width:5px;height:5px;border-radius:50%;background:#4ade80;animation:pulse 2s infinite}
+@keyframes pulse{0%,100%{opacity:1}50%{opacity:.3}}
+
+/* === NEWSPAPER BODY === */
+.paper{max-width:960px;margin:0 auto;padding:0 24px}
+
+/* === HEADLINE SECTION (Top story) === */
+.headline-section{padding:28px 0 24px;border-bottom:2px solid var(--rule)}
+.headline-section .label{font-size:.65em;text-transform:uppercase;letter-spacing:1.5px;font-weight:700;margin-bottom:8px}
+.headline-section h2{font-family:var(--serif);font-size:2em;font-weight:800;color:#f4f4f5;line-height:1.25;margin-bottom:10px}
+.headline-section h2 a{color:inherit;text-decoration:none;transition:color .2s}
+.headline-section h2 a:hover{color:var(--ai)}
+.headline-section .deck{font-family:var(--serif);font-size:1.05em;font-style:italic;color:var(--ink3);line-height:1.5;margin-bottom:10px}
+.headline-section .byline{font-size:.72em;color:var(--ink3)}
+.headline-section .byline a{color:var(--ink3);text-decoration:none}.headline-section .byline a:hover{color:var(--ai)}
+
+/* === COLUMNS GRID === */
+.columns{display:grid;grid-template-columns:1fr 1px 1fr 1px 1fr;gap:0;padding:24px 0;border-bottom:1px solid var(--rule)}
+.col-divider{background:var(--rule);margin:0 16px}
+.column{padding:0 4px}
+
+/* Category header in column */
+.col-cat{display:flex;align-items:center;gap:8px;margin-bottom:14px;padding-bottom:8px;border-bottom:1px solid var(--rule2)}
+.col-cat .cat-dot{width:8px;height:8px;border-radius:50%}
+.col-cat h3{font-family:var(--serif);font-size:.85em;font-weight:700;color:var(--ink)}
+.col-cat .cat-dot.ai{background:var(--ai)}.col-cat .cat-dot.tech{background:var(--tech)}.col-cat .cat-dot.biz{background:var(--biz)}
+.col-cat .cat-dot.geo{background:var(--geo)}.col-cat .cat-dot.cloud{background:var(--cloud)}.col-cat .cat-dot.sec{background:var(--sec)}
+
+/* Story in column */
+.story{margin-bottom:18px}
+.story a{text-decoration:none;display:block;transition:all .15s}
+.story a:hover .story-hed{color:var(--ai)}
+.story .story-num{font-family:var(--mono);font-size:.6em;color:var(--ink3);margin-bottom:4px}
+.story .story-hed{font-family:var(--serif);font-size:.95em;font-weight:700;color:var(--ink);line-height:1.35;margin-bottom:5px;transition:color .15s}
+.story .story-dek{font-size:.8em;color:var(--ink3);line-height:1.5}
+.story .story-dek strong{color:var(--ink2)}
+.story .story-src{font-size:.65em;color:#52525b;margin-top:6px;transition:color .15s}
+.story a:hover .story-src{color:var(--ai)}
+
+/* === TWO-COLUMN SECTION === */
+.two-col{display:grid;grid-template-columns:1fr 1px 1fr;gap:0;padding:24px 0;border-bottom:1px solid var(--rule)}
+
+/* === NEWSLETTER CTA (Classified Ad style) === */
+.classified{padding:28px 0;border-bottom:1px solid var(--rule)}
+.classified-inner{border:2px solid var(--rule);border-radius:2px;padding:28px;text-align:center;position:relative}
+.classified-inner::before{content:'SUBSCRIBE';position:absolute;top:-9px;left:50%;transform:translateX(-50%);
+  background:var(--bg);padding:0 12px;font-size:.6em;letter-spacing:3px;font-weight:700;color:var(--ink3)}
+.classified h2{font-family:var(--serif);font-size:1.4em;font-weight:800;color:#f4f4f5;margin-bottom:4px}
+.classified .tagline{font-family:var(--serif);font-style:italic;color:var(--ai);font-size:.88em;margin-bottom:14px}
+.classified .nl-sub{font-size:.82em;color:var(--ink3);margin-bottom:16px;max-width:480px;margin-left:auto;margin-right:auto;line-height:1.6}
+.classified .nl-form{display:flex;gap:8px;justify-content:center;max-width:400px;margin:0 auto 12px}
+.classified .nl-form input{flex:1;padding:10px 14px;background:rgba(255,255,255,.04);border:1px solid var(--rule);
+  border-radius:4px;color:var(--ink);font-size:.85em;font-family:var(--sans);outline:none;transition:border-color .2s}
+.classified .nl-form input:focus{border-color:var(--ai)}
+.classified .nl-form input::placeholder{color:#52525b}
+.classified .nl-form button{padding:10px 22px;background:var(--ai);border:none;border-radius:4px;
+  color:#0a0a0c;font-size:.85em;font-weight:700;cursor:pointer;font-family:var(--sans);transition:all .15s;white-space:nowrap}
+.classified .nl-form button:hover{background:#93c5fd;box-shadow:0 0 16px rgba(96,165,250,.3)}
+.classified .nl-props{display:flex;gap:16px;justify-content:center;flex-wrap:wrap;margin-bottom:12px}
+.classified .nl-props span{font-size:.72em;color:var(--ink3)}
+.classified .nl-props span::before{content:'✦ ';color:var(--ai)}
+.classified .nl-note{font-size:.65em;color:#3f3f46}
+.nl-success{display:none;color:#4ade80;font-size:.88em;padding:10px;font-weight:500}
+
+/* === REPORTS (Back page) === */
+.reports-section{padding:24px 0}
+.reports-section h2{font-family:var(--serif);font-size:1em;font-weight:700;color:var(--ink);margin-bottom:14px;
+  border-bottom:1px solid var(--rule);padding-bottom:8px}
+.report{display:flex;text-decoration:none;align-items:baseline;gap:12px;padding:8px 0;border-bottom:1px solid var(--rule2);transition:all .15s}
+.report:hover{padding-left:6px}
+.report .r-date{font-family:var(--mono);font-size:.7em;color:#52525b;white-space:nowrap;min-width:90px}
+.report h3{font-family:var(--serif);font-size:.88em;font-weight:600;color:var(--ink2);flex:1}
+.report:hover h3{color:var(--ai)}
+.report .r-arrow{color:#3f3f46;font-size:.8em}
+.report:hover .r-arrow{color:var(--ai)}
+
+/* === FOOTER (Colophon) === */
+.colophon{text-align:center;padding:24px;border-top:2px solid var(--rule);margin-top:8px}
+.colophon p{font-size:.72em;color:#3f3f46;font-family:var(--serif);font-style:italic}
+.colophon a{color:#52525b;text-decoration:none}.colophon a:hover{color:var(--ai)}
+
+/* === EDITION STAMP === */
+.edition{font-family:var(--mono);font-size:.6em;color:#3f3f46;text-align:center;padding:6px;letter-spacing:1px}
+
+@media(max-width:768px){
+  .masthead h1{font-size:2.6em}
+  .masthead .subtitle{font-size:.65em;flex-wrap:wrap}
+  .masthead .top-bar{flex-direction:column;gap:4px;align-items:center}
+  .columns{grid-template-columns:1fr;gap:0}
+  .col-divider{display:none;height:1px;background:var(--rule);margin:16px 0}
+  .two-col{grid-template-columns:1fr}
+  .two-col .col-divider{display:none}
+  .column{padding:0;margin-bottom:16px;border-bottom:1px solid var(--rule2);padding-bottom:16px}
+  .headline-section h2{font-size:1.5em}
+}
+@media(max-width:768px){.col-divider{display:block;height:1px;margin:0 0 16px 0}}
+</style>
+</head>
+<body>
+
+<div class="masthead">
+  <div class="top-bar">
+    <div class="dateline">
+      <span id="lastUpdated"></span>
+      <span class="live-badge"><span class="dot"></span>Live</span>
+    </div>
+    <div class="edition-tag" id="edition"></div>
+  </div>
+  <div class="rule-double"></div>
+  <div class="masthead-title">
+    <h1>Smart Intel</h1>
+    <p class="subtitle">
+      Autonomous Research
+      <span class="divider-dot"></span>
+      AI-Generated Intelligence
+      <span class="divider-dot"></span>
+      Updated Nightly
+    </p>
+    <p class="tagline">"AI reads everything. You get the signal."</p>
+  </div>
+  <div class="rule-single"></div>
+  <div class="nav">
+    <a href="#ai">AI & Agents</a>
+    <a href="#tech">Technology</a>
+    <a href="#business">Business</a>
+    <a href="#geopolitics">Geopolitics</a>
+    <a href="#cloud">Cloud</a>
+    <a href="#security">Security</a>
+    <a href="subscribe.html" class="subscribe-btn">📧 Subscribe</a>
+  </div>
+  <div class="rule-double"></div>
+</div>
+
+<div class="paper">
+  <!-- Headline story (dynamically filled) -->
+  <div class="headline-section" id="topStory"></div>
+
+  <!-- 3-column section: AI, Tech, Business -->
+  <div class="columns" id="row1"></div>
+
+  <!-- 3-column section: Geo, Cloud, Security -->
+  <div class="columns" id="row2"></div>
+
+  <!-- Newsletter CTA -->
+  <div class="classified">
+    <div class="classified-inner">
+      <h2>The Tech Briefing That Never Sleeps</h2>
+      <p class="tagline">AI reads everything. You get the signal.</p>
+      <p class="nl-sub">Every Monday: 18 insights across 6 domains, researched by an AI agent scanning hundreds of sources nightly.</p>
+      <div class="nl-props">
+        <span>Weekly delivery</span>
+        <span>Source-linked</span>
+        <span>Zero fluff</span>
+      </div>
+      <form class="nl-form" id="nlForm" action="https://buttondown.com/smartintel" method="post" target="_blank">
+        <input type="email" name="email" placeholder="you@company.com" required>
+        <button type="submit">Get the briefing →</button>
+      </form>
+      <div class="nl-success" id="nlSuccess">🎉 You're in! First edition arrives Monday 8 AM CET.</div>
+      <p class="nl-note">One email per week. No spam. Unsubscribe in one click.</p>
+    </div>
+  </div>
+
+  <!-- Full Reports -->
+  <div class="reports-section">
+    <h2>📄 Archives</h2>
+    <div id="feed"></div>
+  </div>
+</div>
+
+<div class="colophon">
+  <p>Published by <a href="https://nl.linkedin.com/in/sameer-goel">Sameer Goel</a> · Researched by <a href="https://github.com/sameer-goel/smart-intel">Scout 🔭</a></p>
+</div>
+
+<script>
+const catMeta={
+  ai:{dot:'ai',label:'AI & Agents',color:'var(--ai)'},
+  tech:{dot:'tech',label:'Technology',color:'var(--tech)'},
+  business:{dot:'biz',label:'Business',color:'var(--biz)'},
+  geopolitics:{dot:'geo',label:'Geopolitics',color:'var(--geo)'},
+  cloud:{dot:'cloud',label:'Cloud',color:'var(--cloud)'},
+  security:{dot:'sec',label:'Security',color:'var(--sec)'}
+};
+
+function storyHtml(ins,i){
+  const domain=ins.url?new URL(ins.url).hostname.replace('www.',''):'';
+  return `<div class="story"><a href="${ins.url||'#'}" target="_blank" rel="noopener">
+    <div class="story-num">${String(i+1).padStart(2,'0')}</div>
+    <div class="story-hed">${ins.headline}</div>
+    <div class="story-dek">${ins.detail}</div>
+    ${domain?`<div class="story-src">↗ ${domain}</div>`:''}
+  </a></div>`;
+}
+
+function colHtml(key,cat){
+  const m=catMeta[key]||{dot:'ai',label:key};
+  let h=`<div class="column" id="${key}">`;
+  h+=`<div class="col-cat"><div class="cat-dot ${m.dot}"></div><h3>${m.label}</h3></div>`;
+  (cat.insights||[]).forEach((ins,i)=>{h+=storyHtml(ins,i)});
+  return h+'</div>';
+}
+
+async function loadInsights(){
+  try{
+    const r=await fetch('./intel/insights.json');
+    const d=await r.json();
+    const cats=d.categories||{};
+    
+    // Top story = first AI insight (or first available)
+    const topCat=cats.ai||Object.values(cats)[0];
+    if(topCat && topCat.insights && topCat.insights[0]){
+      const top=topCat.insights[0];
+      const domain=top.url?new URL(top.url).hostname.replace('www.',''):'';
+      document.getElementById('topStory').innerHTML=`
+        <div class="label" style="color:var(--ai)">▎ LEAD STORY</div>
+        <h2><a href="${top.url||'#'}" target="_blank" rel="noopener">${top.headline}</a></h2>
+        <p class="deck">${top.detail}</p>
+        <p class="byline">Source: <a href="${top.url||'#'}" target="_blank">${domain}</a> · Researched by Scout 🔭</p>
+      `;
+    }
+    
+    // Row 1: AI, Tech, Business
+    const r1=document.getElementById('row1');
+    let row1='';
+    ['ai','tech','business'].forEach((k,i)=>{
+      if(i>0)row1+='<div class="col-divider"></div>';
+      if(cats[k])row1+=colHtml(k,cats[k]);
+    });
+    r1.innerHTML=row1;
+    
+    // Row 2: Geo, Cloud, Security
+    const r2=document.getElementById('row2');
+    let row2='';
+    ['geopolitics','cloud','security'].forEach((k,i)=>{
+      if(i>0)row2+='<div class="col-divider"></div>';
+      if(cats[k])row2+=colHtml(k,cats[k]);
+    });
+    r2.innerHTML=row2;
+  }catch(e){}
+}
+
+async function loadFeed(){
+  try{
+    const r=await fetch('./intel/index.json');
+    const d=await r.json();
+    const feed=document.getElementById('feed');
+    if(!d.articles||!d.articles.length){feed.innerHTML='<p style="color:#52525b">No archives yet.</p>';return}
+    feed.innerHTML=d.articles.map(a=>`
+      <a class="report" href="./intel/${a.slug}.html">
+        <span class="r-date">${a.date}</span>
+        <h3>${a.title}</h3>
+        <span class="r-arrow">→</span>
+      </a>
+    `).join('');
+  }catch(e){}
+}
+
+async function loadMeta(){
+  // Edition number (days since launch)
+  const launch=new Date('2026-03-17');
+  const now=new Date();
+  const ed=Math.max(1,Math.ceil((now-launch)/(86400000))); 
+  const opts={weekday:'long',year:'numeric',month:'long',day:'numeric'};
+  document.getElementById('edition').textContent=`Vol. 1 · No. ${ed} · ${now.toLocaleDateString('en-US',opts)}`;
+  
+  // Last updated from GitHub
+  try{
+    const r=await fetch('https://api.github.com/repos/sameer-goel/smart-intel/commits?per_page=1');
+    const d=await r.json();
+    if(d[0]){
+      const s=Math.floor((Date.now()-new Date(d[0].commit.committer.date))/1000);
+      const ago=s<60?'just now':s<3600?Math.floor(s/60)+'m ago':s<86400?Math.floor(s/3600)+'h ago':Math.floor(s/86400)+'d ago';
+      document.getElementById('lastUpdated').innerHTML=`Updated ${ago} · <a href="https://github.com/sameer-goel/smart-intel/commit/${d[0].sha}" target="_blank">${d[0].sha.substring(0,7)}</a> ·`;
+    }
+  }catch(e){
+    document.getElementById('lastUpdated').textContent=now.toLocaleDateString('en-US',opts)+' ·';
+  }
+}
+
+document.getElementById('nlForm')?.addEventListener('submit',function(){
+  setTimeout(()=>{this.style.display='none';document.getElementById('nlSuccess').style.display='block'},500);
+});
+
+loadInsights();loadFeed();loadMeta();
+</script>
+</body>
+</html>

@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Smart Intel — AI-Powered Intelligence Feed</title>
+<meta name="description" content="Premium AI-generated tech intelligence. 6 domains, 18 insights, updated nightly.">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🔭</text></svg>">
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap');
+*{margin:0;padding:0;box-sizing:border-box}
+:root{
+  --bg:#050507;--glass:rgba(255,255,255,.03);--glass-border:rgba(255,255,255,.06);
+  --text:#9ca3af;--text2:#6b7280;--heading:#f1f3f5;
+  --ai:#60a5fa;--tech:#2dd4bf;--biz:#fbbf24;--geo:#a78bfa;--cloud:#38bdf8;--sec:#f87171;
+}
+body{font-family:'Inter',system-ui,sans-serif;background:var(--bg);color:var(--text);min-height:100vh;overflow-x:hidden}
+body::before{content:'';position:fixed;inset:0;
+  background:radial-gradient(ellipse 80% 60% at 20% 10%,rgba(96,165,250,.04),transparent 60%),
+    radial-gradient(ellipse 60% 80% at 80% 90%,rgba(167,139,250,.04),transparent 60%);
+  pointer-events:none;z-index:0}
+
+/* Header */
+.header{position:sticky;top:0;z-index:100;display:flex;align-items:center;justify-content:space-between;padding:12px 28px;
+  background:rgba(5,5,7,.88);backdrop-filter:blur(20px) saturate(1.4);-webkit-backdrop-filter:blur(20px) saturate(1.4);
+  border-bottom:1px solid rgba(255,255,255,.04)}
+.header .brand{display:flex;align-items:center;gap:12px}
+.header .brand h1{font-size:1.15em;font-weight:800;color:var(--heading)}
+.header .live{display:flex;align-items:center;gap:5px;font-size:.7em;color:#4ade80;padding:3px 10px;background:rgba(74,222,128,.08);border:1px solid rgba(74,222,128,.12);border-radius:20px}
+.header .live .dot{width:5px;height:5px;border-radius:50%;background:#4ade80;animation:pulse 2s infinite}
+.header .links{display:flex;gap:14px;font-size:.82em;color:#4b5563;align-items:center}
+.header .links a{color:#4b5563;text-decoration:none;transition:color .2s}.header .links a:hover{color:var(--ai)}
+.header .updated{font-size:.7em;color:#2a2e36}
+.header .updated a{color:#374151;font-family:monospace}
+@keyframes pulse{0%,100%{opacity:1}50%{opacity:.3}}
+
+/* Main container */
+.main{max-width:900px;margin:0 auto;padding:0 24px;position:relative;z-index:1}
+
+/* Category block — newsletter style */
+.cat-block{padding:32px 0 24px;border-bottom:1px solid rgba(255,255,255,.04)}
+.cat-block:last-of-type{border-bottom:none}
+
+.cat-header{display:flex;align-items:center;gap:10px;margin-bottom:18px}
+.cat-header .cat-icon{width:36px;height:36px;border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:1.1em}
+.cat-header h2{font-size:1.05em;font-weight:700;letter-spacing:-.01em}
+.cat-header .cat-badge{font-size:.6em;padding:3px 8px;border-radius:12px;font-weight:600;text-transform:uppercase;letter-spacing:.5px;margin-left:auto}
+
+/* Color themes per category */
+.cat-ai .cat-icon{background:rgba(96,165,250,.12)}.cat-ai h2{color:var(--ai)}.cat-ai .cat-badge{background:rgba(96,165,250,.1);color:var(--ai)}
+.cat-ai .item:hover{border-left-color:var(--ai)}.cat-ai .item .idx{color:var(--ai)}
+.cat-tech .cat-icon{background:rgba(45,212,191,.12)}.cat-tech h2{color:var(--tech)}.cat-tech .cat-badge{background:rgba(45,212,191,.1);color:var(--tech)}
+.cat-tech .item:hover{border-left-color:var(--tech)}.cat-tech .item .idx{color:var(--tech)}
+.cat-biz .cat-icon{background:rgba(251,191,36,.12)}.cat-biz h2{color:var(--biz)}.cat-biz .cat-badge{background:rgba(251,191,36,.1);color:var(--biz)}
+.cat-biz .item:hover{border-left-color:var(--biz)}.cat-biz .item .idx{color:var(--biz)}
+.cat-geo .cat-icon{background:rgba(167,139,250,.12)}.cat-geo h2{color:var(--geo)}.cat-geo .cat-badge{background:rgba(167,139,250,.1);color:var(--geo)}
+.cat-geo .item:hover{border-left-color:var(--geo)}.cat-geo .item .idx{color:var(--geo)}
+.cat-cloud .cat-icon{background:rgba(56,189,248,.12)}.cat-cloud h2{color:var(--cloud)}.cat-cloud .cat-badge{background:rgba(56,189,248,.1);color:var(--cloud)}
+.cat-cloud .item:hover{border-left-color:var(--cloud)}.cat-cloud .item .idx{color:var(--cloud)}
+.cat-sec .cat-icon{background:rgba(248,113,113,.12)}.cat-sec h2{color:var(--sec)}.cat-sec .cat-badge{background:rgba(248,113,113,.1);color:var(--sec)}
+.cat-sec .item:hover{border-left-color:var(--sec)}.cat-sec .item .idx{color:var(--sec)}
+
+/* Featured item (#1) */
+.featured{display:block;text-decoration:none;background:var(--glass);border:1px solid var(--glass-border);
+  border-radius:12px;padding:24px;margin-bottom:10px;position:relative;overflow:hidden;
+  transition:all .25s ease;border-left:3px solid transparent}
+.featured:hover{border-color:rgba(255,255,255,.1);transform:translateY(-1px);
+  box-shadow:0 8px 32px rgba(0,0,0,.4)}
+.featured .light-spot{position:absolute;width:250px;height:250px;border-radius:50%;pointer-events:none;
+  background:radial-gradient(circle,rgba(255,255,255,.05),transparent 70%);
+  transform:translate(-50%,-50%);opacity:0;transition:opacity .3s}
+.featured:hover .light-spot{opacity:1}
+.featured .idx{font-size:2em;font-weight:800;opacity:.12;position:absolute;top:16px;right:20px}
+.featured .headline{font-size:1.1em;font-weight:700;color:var(--heading);line-height:1.4;margin-bottom:8px;position:relative}
+.featured .detail{font-size:.88em;color:#7a7f89;line-height:1.6;position:relative}
+.featured .detail strong{color:#a0a5af}
+.featured .source{font-size:.72em;color:#3d4250;margin-top:12px;position:relative;transition:color .2s}
+.featured:hover .source{color:var(--ai)}
+
+/* Secondary items (#2, #3) — side by side */
+.secondary{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.item{display:block;text-decoration:none;background:var(--glass);border:1px solid var(--glass-border);
+  border-radius:10px;padding:18px;transition:all .2s ease;border-left:3px solid transparent;position:relative;overflow:hidden}
+.item:hover{border-color:rgba(255,255,255,.08);transform:translateY(-1px);box-shadow:0 4px 16px rgba(0,0,0,.3)}
+.item .light-spot{position:absolute;width:180px;height:180px;border-radius:50%;pointer-events:none;
+  background:radial-gradient(circle,rgba(255,255,255,.04),transparent 70%);
+  transform:translate(-50%,-50%);opacity:0;transition:opacity .3s}
+.item:hover .light-spot{opacity:1}
+.item .idx{font-size:.7em;font-weight:700;margin-bottom:6px;display:inline-block}
+.item .headline{font-size:.9em;font-weight:600;color:#d1d5db;line-height:1.4;margin-bottom:6px;position:relative}
+.item:hover .headline{color:var(--heading)}
+.item .detail{font-size:.78em;color:#6b7280;line-height:1.5;position:relative}
+.item .source{font-size:.68em;color:#3d4250;margin-top:8px;position:relative;transition:color .2s}
+.item:hover .source{color:var(--ai)}
+
+/* Newsletter CTA */
+.nl-section{padding:36px 0;border-bottom:1px solid rgba(255,255,255,.04)}
+.nl-card{background:linear-gradient(135deg,rgba(96,165,250,.06),rgba(167,139,250,.06));
+  border:1px solid rgba(96,165,250,.12);border-radius:14px;padding:36px;text-align:center;
+  position:relative;overflow:hidden}
+.nl-card::before{content:'';position:absolute;top:0;left:0;right:0;height:1px;
+  background:linear-gradient(90deg,transparent,rgba(255,255,255,.1),transparent)}
+.nl-tagline{font-size:.75em;font-weight:600;text-transform:uppercase;letter-spacing:1.5px;
+  background:linear-gradient(90deg,var(--ai),var(--geo));-webkit-background-clip:text;-webkit-text-fill-color:transparent;
+  background-clip:text;margin-bottom:8px}
+.nl-card h2{font-size:1.4em;font-weight:800;color:var(--heading);margin-bottom:8px}
+.nl-card .nl-sub{color:var(--text2);font-size:.88em;margin-bottom:18px;max-width:520px;margin-left:auto;margin-right:auto;line-height:1.6}
+.nl-form{display:flex;gap:8px;justify-content:center;max-width:420px;margin:0 auto 14px}
+.nl-form input{flex:1;padding:11px 16px;background:rgba(0,0,0,.4);border:1px solid rgba(255,255,255,.08);
+  border-radius:10px;color:var(--heading);font-size:.88em;font-family:inherit;outline:none;transition:border-color .2s}
+.nl-form input:focus{border-color:var(--ai)}
+.nl-form input::placeholder{color:#4b5563}
+.nl-form button{padding:11px 24px;background:linear-gradient(135deg,var(--ai),var(--geo));border:none;
+  border-radius:10px;color:#fff;font-size:.88em;font-weight:600;cursor:pointer;font-family:inherit;
+  transition:transform .15s,box-shadow .15s;white-space:nowrap}
+.nl-form button:hover{transform:translateY(-1px);box-shadow:0 4px 20px rgba(96,165,250,.3)}
+.nl-props{display:flex;gap:16px;justify-content:center;flex-wrap:wrap;margin-bottom:14px}
+.nl-props span{font-size:.78em;color:#6b7280;display:flex;align-items:center;gap:4px}
+.nl-props span::before{content:'✓';color:#4ade80;font-weight:700}
+.nl-note{font-size:.7em;color:#374151}
+.nl-success{display:none;color:#4ade80;font-size:.9em;padding:12px;font-weight:500}
+
+/* Reports */
+.reports-block{padding:28px 0}
+.reports-block h2{font-size:1em;font-weight:700;color:var(--heading);margin-bottom:14px}
+.reports{display:flex;flex-direction:column;gap:8px}
+.report{display:flex;text-decoration:none;align-items:center;gap:16px;padding:14px 18px;
+  background:var(--glass);border:1px solid var(--glass-border);border-radius:10px;transition:all .2s}
+.report:hover{border-color:rgba(255,255,255,.08);background:rgba(255,255,255,.04)}
+.report .r-date{font-size:.72em;color:#4b5563;white-space:nowrap;min-width:100px}
+.report h3{font-size:.9em;font-weight:600;color:#d1d5db;flex:1}
+.report:hover h3{color:var(--heading)}
+.report .r-arrow{color:#3d4250;font-size:.85em;transition:color .2s}
+.report:hover .r-arrow{color:var(--ai)}
+
+.footer{text-align:center;padding:24px;border-top:1px solid rgba(255,255,255,.03);font-size:.75em;color:#2a2e36;position:relative;z-index:1}
+.footer a{color:#3d4250;text-decoration:none}.footer a:hover{color:var(--ai)}
+
+@media(max-width:640px){
+  .header{flex-direction:column;gap:8px;align-items:flex-start;padding:12px 16px}
+  .main{padding:0 16px}
+  .secondary{grid-template-columns:1fr}
+  .nl-form{flex-direction:column}
+}
+</style>
+</head>
+<body>
+
+<div class="header">
+  <div class="brand">
+    <h1>🔭 Smart Intel</h1>
+    <span class="live"><span class="dot"></span>Live</span>
+  </div>
+  <div class="links">
+    <span class="updated" id="lastUpdated"></span>
+    <a href="subscribe.html" style="color:#60a5fa;font-weight:600">📧 Subscribe</a>
+    <a href="https://nl.linkedin.com/in/sameer-goel">LinkedIn</a>
+    <a href="https://github.com/sameer-goel/smart-intel">GitHub</a>
+  </div>
+</div>
+
+<div class="main">
+  <div id="insightsContainer"></div>
+
+  <!-- Newsletter CTA -->
+  <div class="nl-section">
+    <div class="nl-card">
+      <p class="nl-tagline">AI reads everything. You get the signal.</p>
+      <h2>The tech briefing that never sleeps</h2>
+      <p class="nl-sub">Every Monday: 18 sharpest insights across AI, cloud, security & geopolitics. Zero fluff. Zero interns.</p>
+      <div class="nl-props">
+        <span>6 domains weekly</span>
+        <span>Source-linked</span>
+        <span>Built for architects</span>
+      </div>
+      <form class="nl-form" id="nlForm" action="https://buttondown.com/smartintel" method="post" target="_blank">
+        <input type="email" name="email" placeholder="you@company.com" required>
+        <button type="submit">Get the briefing →</button>
+      </form>
+      <div class="nl-success" id="nlSuccess">🎉 You're in! First briefing drops Monday 8 AM CET.</div>
+      <p class="nl-note">One email per week. No spam. Unsubscribe in one click.</p>
+    </div>
+  </div>
+
+  <!-- Full Reports -->
+  <div class="reports-block">
+    <h2>📄 Full Reports</h2>
+    <div class="reports" id="feed"></div>
+  </div>
+</div>
+
+<div class="footer">
+  <a href="https://nl.linkedin.com/in/sameer-goel">Sameer Goel</a> · <a href="https://github.com/sameer-goel/smart-intel">Scout 🔭</a> · Updated nightly
+</div>
+
+<script>
+const catMap={ai:{cls:'cat-ai',icon:'🤖'},tech:{cls:'cat-tech',icon:'⚙️'},business:{cls:'cat-biz',icon:'💰'},
+  geopolitics:{cls:'cat-geo',icon:'🌍'},cloud:{cls:'cat-cloud',icon:'☁️'},security:{cls:'cat-sec',icon:'🔒'}};
+const tagBadge={ai:'cat-ai',tech:'cat-tech',business:'cat-biz',geopolitics:'cat-geo',cloud:'cat-cloud',security:'cat-sec'};
+
+function initTilt(){
+  document.querySelectorAll('.featured, .item').forEach(el=>{
+    const spot=el.querySelector('.light-spot');
+    el.addEventListener('mousemove',e=>{
+      const r=el.getBoundingClientRect();
+      if(spot){spot.style.left=e.clientX-r.left+'px';spot.style.top=e.clientY-r.top+'px'}
+    });
+    el.addEventListener('mouseenter',()=>{if(spot)spot.style.opacity='1'});
+    el.addEventListener('mouseleave',()=>{if(spot)spot.style.opacity='0'});
+  });
+}
+
+async function loadInsights(){
+  const c=document.getElementById('insightsContainer');
+  try{
+    const r=await fetch('./intel/insights.json');
+    const d=await r.json();
+    let html='';
+    const order=['ai','tech','business','geopolitics','cloud','security'];
+    order.forEach(key=>{
+      const cat=d.categories[key];if(!cat)return;
+      const m=catMap[key]||{cls:'cat-ai',icon:'📊'};
+      html+=`<div class="cat-block ${m.cls}">`;
+      html+=`<div class="cat-header"><div class="cat-icon">${m.icon}</div><h2>${cat.label}</h2><span class="cat-badge">TOP 3</span></div>`;
+      const ins=cat.insights||[];
+      // #1 = Featured
+      if(ins[0]){
+        const domain=ins[0].url?new URL(ins[0].url).hostname.replace('www.',''):'';
+        html+=`<a class="featured" href="${ins[0].url||'#'}" target="_blank" rel="noopener">
+          <div class="light-spot"></div><span class="idx">01</span>
+          <div class="headline">${ins[0].headline}</div>
+          <div class="detail">${ins[0].detail}</div>
+          ${domain?`<div class="source">↗ ${domain}</div>`:''}
+        </a>`;
+      }
+      // #2, #3 = Side by side
+      if(ins.length>1){
+        html+=`<div class="secondary">`;
+        ins.slice(1,3).forEach((it,i)=>{
+          const domain=it.url?new URL(it.url).hostname.replace('www.',''):'';
+          html+=`<a class="item" href="${it.url||'#'}" target="_blank" rel="noopener">
+            <div class="light-spot"></div><span class="idx">0${i+2}</span>
+            <div class="headline">${it.headline}</div>
+            <div class="detail">${it.detail}</div>
+            ${domain?`<div class="source">↗ ${domain}</div>`:''}
+          </a>`;
+        });
+        html+=`</div>`;
+      }
+      html+=`</div>`;
+    });
+    c.innerHTML=html;
+    initTilt();
+  }catch(e){c.innerHTML=''}
+}
+
+async function loadFeed(){
+  const feed=document.getElementById('feed');
+  try{
+    const r=await fetch('./intel/index.json');
+    const d=await r.json();
+    if(!d.articles||!d.articles.length){feed.innerHTML='<p style="color:#4b5563">No reports yet.</p>';return}
+    feed.innerHTML=d.articles.map(a=>`
+      <a class="report" href="./intel/${a.slug}.html">
+        <span class="r-date">${a.date}</span>
+        <h3>${a.title}</h3>
+        <span class="r-arrow">→</span>
+      </a>
+    `).join('');
+  }catch(e){}
+}
+
+async function loadLastUpdated(){
+  try{
+    const r=await fetch('https://api.github.com/repos/sameer-goel/smart-intel/commits?per_page=1');
+    const d=await r.json();
+    if(d[0]){
+      const s=Math.floor((Date.now()-new Date(d[0].commit.committer.date))/1000);
+      const ago=s<60?'just now':s<3600?Math.floor(s/60)+'m ago':s<86400?Math.floor(s/3600)+'h ago':Math.floor(s/86400)+'d ago';
+      document.getElementById('lastUpdated').innerHTML=`${ago} · <a href="https://github.com/sameer-goel/smart-intel/commit/${d[0].sha}" target="_blank">${d[0].sha.substring(0,7)}</a>`;
+    }
+  }catch(e){}
+}
+
+document.getElementById('nlForm')?.addEventListener('submit',function(){
+  setTimeout(()=>{this.style.display='none';document.getElementById('nlSuccess').style.display='block'},500);
+});
+
+loadInsights();loadFeed();loadLastUpdated();
+</script>
+</body>
+</html>
