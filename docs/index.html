@@ -4,106 +4,158 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Smart Intel — AI-Powered Intelligence Feed</title>
+<meta name="description" content="Auto-generated tech intelligence by Scout AI. Covering AI, Cloud, Geopolitics, Security.">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🔭</text></svg>">
 <style>
 *{margin:0;padding:0;box-sizing:border-box}
-body{font-family:-apple-system,system-ui,'Segoe UI',sans-serif;background:#050505;color:#e0e0e0}
-.header{text-align:center;padding:50px 20px 30px;border-bottom:1px solid #151515}
-.header h1{font-size:2.5em;font-weight:800;background:linear-gradient(135deg,#4fc3f7,#ab47bc);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
-.header .sub{color:#888;margin-top:8px;font-size:1.1em}
-.header .meta{color:#555;margin-top:12px;font-size:.85em}
-.nav{display:flex;justify-content:center;gap:12px;padding:16px 20px;border-bottom:1px solid #111;flex-wrap:wrap}
-.nav a{color:#888;text-decoration:none;padding:8px 16px;border-radius:6px;font-size:.9em;transition:all .2s;border:1px solid transparent}
-.nav a:hover,.nav a.active{color:#4fc3f7;border-color:#4fc3f7}
-.container{max-width:900px;margin:0 auto;padding:30px 20px}
-.feed{display:flex;flex-direction:column;gap:20px}
-.card{background:#0f0f0f;border:1px solid #1a1a1a;border-radius:12px;padding:24px;transition:border-color .2s}
-.card:hover{border-color:#333}
-.card .date{color:#4fc3f7;font-size:.8em;font-weight:600;margin-bottom:6px}
-.card .tag{display:inline-block;background:#1a1a2e;color:#ab47bc;padding:2px 8px;border-radius:4px;font-size:.7em;margin-right:6px;margin-bottom:8px}
-.card h2{color:#fff;font-size:1.2em;margin-bottom:8px}
-.card h2 a{color:#fff;text-decoration:none}
-.card h2 a:hover{color:#4fc3f7}
-.card .excerpt{color:#999;font-size:.9em;line-height:1.6}
-.card .read-more{display:inline-block;margin-top:12px;color:#4fc3f7;text-decoration:none;font-size:.85em;font-weight:600}
-.card .read-more:hover{text-decoration:underline}
-.empty{text-align:center;padding:60px 20px;color:#555}
-.footer{text-align:center;padding:40px 20px;border-top:1px solid #111;margin-top:40px}
-.footer p{color:#444;font-size:.85em}
-.footer a{color:#4fc3f7;text-decoration:none}
-#loading{text-align:center;padding:40px;color:#555}
+:root{--bg:#08090a;--surface:#0c0d10;--border:#16181d;--border2:#1e2028;--text:#9ca3af;--text2:#6b7280;--heading:#f1f3f5;--accent:#60a5fa;--accent2:#a78bfa;--accent-bg:rgba(96,165,250,.08)}
+body{font-family:'Inter',-apple-system,system-ui,'Segoe UI',sans-serif;background:var(--bg);color:var(--text);min-height:100vh}
+
+/* Header */
+.header{padding:64px 24px 32px;text-align:center;position:relative}
+.header::after{content:'';position:absolute;bottom:0;left:50%;transform:translateX(-50%);width:120px;height:1px;background:linear-gradient(90deg,transparent,var(--border2),transparent)}
+.logo{font-size:3em;margin-bottom:8px;filter:drop-shadow(0 0 20px rgba(96,165,250,.3))}
+.header h1{font-size:2em;font-weight:800;color:var(--heading);letter-spacing:-.02em}
+.header .sub{color:var(--text2);margin-top:8px;font-size:1em}
+.header .pulse{display:inline-flex;align-items:center;gap:6px;margin-top:16px;padding:6px 14px;background:rgba(34,197,94,.08);border:1px solid rgba(34,197,94,.15);border-radius:20px;font-size:.8em;color:#4ade80}
+.header .pulse .dot{width:6px;height:6px;border-radius:50%;background:#4ade80;animation:pulse 2s infinite}
+@keyframes pulse{0%,100%{opacity:1}50%{opacity:.3}}
+
+/* Nav filters */
+.nav{display:flex;justify-content:center;gap:8px;padding:20px 24px;flex-wrap:wrap;max-width:700px;margin:0 auto}
+.nav button{background:transparent;border:1px solid var(--border);color:var(--text2);padding:7px 16px;border-radius:20px;font-size:.82em;cursor:pointer;transition:all .2s;font-family:inherit}
+.nav button:hover{border-color:var(--text2);color:var(--text)}
+.nav button.active{background:var(--accent-bg);border-color:var(--accent);color:var(--accent)}
+
+/* Stats bar */
+.stats{display:flex;justify-content:center;gap:32px;padding:16px 24px 24px;flex-wrap:wrap}
+.stat{text-align:center}
+.stat .num{font-size:1.4em;font-weight:700;color:var(--heading)}
+.stat .label{font-size:.75em;color:var(--text2);margin-top:2px}
+
+/* Feed */
+.container{max-width:740px;margin:0 auto;padding:8px 24px 40px}
+.feed{display:flex;flex-direction:column;gap:2px}
+
+/* Card */
+.card{display:block;padding:24px 0;border-bottom:1px solid var(--border);text-decoration:none;transition:all .15s}
+.card:hover{padding-left:8px}
+.card .top{display:flex;align-items:center;gap:10px;margin-bottom:8px;flex-wrap:wrap}
+.card .date{color:var(--text2);font-size:.8em;font-weight:500}
+.card .tag{display:inline-block;background:var(--accent-bg);color:var(--accent);padding:2px 8px;border-radius:12px;font-size:.7em;font-weight:500;text-transform:uppercase;letter-spacing:.4px}
+.card .tag.geo{background:rgba(167,139,250,.08);color:var(--accent2)}
+.card .tag.biz{background:rgba(251,191,36,.08);color:#fbbf24}
+.card .tag.sec{background:rgba(248,113,113,.08);color:#f87171}
+.card h2{color:var(--heading);font-size:1.15em;font-weight:600;margin-bottom:6px;line-height:1.4}
+.card:hover h2{color:var(--accent)}
+.card .excerpt{color:var(--text2);font-size:.88em;line-height:1.6}
+
+.empty{text-align:center;padding:80px 24px;color:var(--text2)}
+.empty .icon{font-size:2.5em;margin-bottom:12px}
+
+/* Footer */
+.footer{text-align:center;padding:48px 24px;border-top:1px solid var(--border);margin-top:40px}
+.footer p{color:#374151;font-size:.82em}
+.footer a{color:var(--text2)}
+.footer a:hover{color:var(--accent)}
+
+@media(max-width:640px){
+  .header{padding:40px 16px 24px}
+  .header h1{font-size:1.6em}
+  .container{padding:8px 16px 40px}
+  .stats{gap:20px}
+}
 </style>
 </head>
 <body>
 
 <div class="header">
-  <h1>🔭 Smart Intel</h1>
+  <div class="logo">🔭</div>
+  <h1>Smart Intel</h1>
   <p class="sub">AI-Powered Intelligence Feed</p>
-  <p class="meta">Auto-generated research by Scout — updated nightly</p>
+  <div class="pulse"><span class="dot"></span>Updated nightly by Scout</div>
 </div>
 
+<div class="stats" id="stats"></div>
+
 <div class="nav" id="navFilters">
-  <a href="#" class="active" data-filter="all">All</a>
-  <a href="#" data-filter="tech">Technology</a>
-  <a href="#" data-filter="business">Business</a>
-  <a href="#" data-filter="geopolitics">Geopolitics</a>
-  <a href="#" data-filter="ai">AI & Agents</a>
-  <a href="#" data-filter="cloud">Cloud</a>
-  <a href="#" data-filter="security">Security</a>
+  <button class="active" data-filter="all">All</button>
+  <button data-filter="ai">AI & Agents</button>
+  <button data-filter="tech">Technology</button>
+  <button data-filter="business">Business</button>
+  <button data-filter="geopolitics">Geopolitics</button>
+  <button data-filter="cloud">Cloud</button>
+  <button data-filter="security">Security</button>
 </div>
 
 <div class="container">
   <div class="feed" id="feed">
-    <div id="loading">Loading intelligence feed...</div>
+    <div class="empty"><div class="icon">📡</div><p>Loading intelligence feed...</p></div>
   </div>
 </div>
 
 <div class="footer">
-  <p>Built by <a href="https://nl.linkedin.com/in/sameer-goel">Sameer Goel</a> with Scout 🔭 | <a href="https://github.com/sameer-goel/smart-intel">GitHub</a></p>
+  <p>Built by <a href="https://nl.linkedin.com/in/sameer-goel">Sameer Goel</a> · Powered by <a href="https://github.com/sameer-goel/smart-intel">Scout 🔭</a></p>
 </div>
 
 <script>
-// Load intel index and render cards
+const tagColors = {geopolitics:'geo',business:'biz',security:'sec'};
+
 async function loadFeed() {
   const feed = document.getElementById('feed');
+  const stats = document.getElementById('stats');
   try {
     const res = await fetch('./intel/index.json');
     const data = await res.json();
     if (!data.articles || data.articles.length === 0) {
-      feed.innerHTML = '<div class="empty">No intelligence reports yet. Check back tomorrow.</div>';
+      feed.innerHTML = '<div class="empty"><div class="icon">📡</div><p>No intelligence reports yet. Check back tomorrow.</p></div>';
       return;
     }
     window._articles = data.articles;
+    
+    // Stats
+    const tagSet = new Set();
+    data.articles.forEach(a => (a.tags||[]).forEach(t => tagSet.add(t)));
+    stats.innerHTML = `
+      <div class="stat"><div class="num">${data.articles.length}</div><div class="label">Reports</div></div>
+      <div class="stat"><div class="num">${tagSet.size}</div><div class="label">Categories</div></div>
+      <div class="stat"><div class="num">${data.articles[0]?.date || '—'}</div><div class="label">Latest</div></div>
+    `;
+    
     renderArticles(data.articles);
   } catch(e) {
-    feed.innerHTML = '<div class="empty">Intelligence feed loading... First reports publish nightly.</div>';
+    feed.innerHTML = '<div class="empty"><div class="icon">📡</div><p>Intelligence feed loading... First reports publish nightly.</p></div>';
   }
 }
 
 function renderArticles(articles) {
   const feed = document.getElementById('feed');
+  if (!articles.length) {
+    feed.innerHTML = '<div class="empty"><div class="icon">🔍</div><p>No reports in this category yet.</p></div>';
+    return;
+  }
   feed.innerHTML = articles.map(a => `
-    <div class="card" data-tags="${(a.tags||[]).join(' ')}">
-      <div class="date">${a.date}</div>
-      ${(a.tags||[]).map(t => `<span class="tag">${t}</span>`).join('')}
-      <h2><a href="./intel/${a.slug}.html">${a.title}</a></h2>
+    <a class="card" href="./intel/${a.slug}.html">
+      <div class="top">
+        <span class="date">${a.date}</span>
+        ${(a.tags||[]).slice(0,3).map(t => `<span class="tag ${tagColors[t]||''}">${t}</span>`).join('')}
+      </div>
+      <h2>${a.title}</h2>
       <p class="excerpt">${a.excerpt}</p>
-      <a href="./intel/${a.slug}.html" class="read-more">Read full report →</a>
-    </div>
+    </a>
   `).join('');
 }
 
-// Filter by category
 document.getElementById('navFilters').addEventListener('click', e => {
-  if (e.target.tagName !== 'A') return;
-  e.preventDefault();
-  document.querySelectorAll('.nav a').forEach(a => a.classList.remove('active'));
+  if (e.target.tagName !== 'BUTTON') return;
+  document.querySelectorAll('.nav button').forEach(b => b.classList.remove('active'));
   e.target.classList.add('active');
   const filter = e.target.dataset.filter;
   if (filter === 'all') {
     renderArticles(window._articles || []);
   } else {
     const filtered = (window._articles || []).filter(a => (a.tags||[]).includes(filter));
-    renderArticles(filtered.length ? filtered : window._articles || []);
+    renderArticles(filtered);
   }
 });
 
