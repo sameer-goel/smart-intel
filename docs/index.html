@@ -36,8 +36,10 @@ a{color:inherit;text-decoration:none}
 
 /* Insight tiles */
 .insights{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-bottom:8px}
-.insight{background:#0c0d10;border:1px solid #16181d;border-radius:8px;padding:16px;position:relative;transition:border-color .15s}
-.insight:hover{border-color:#2a2d36}
+.insight{background:#0c0d10;border:1px solid #16181d;border-radius:8px;padding:16px;position:relative;transition:border-color .15s;cursor:pointer;text-decoration:none;display:block}
+.insight:hover{border-color:#2a2d36;background:#0e1014}
+.insight .source{font-size:.7em;color:#4b5563;margin-top:8px;display:flex;align-items:center;gap:4px}
+.insight:hover .source{color:#60a5fa}
 .insight .num{position:absolute;top:12px;right:14px;font-size:.7em;font-weight:700;color:#2a2d36}
 .insight .headline{font-size:.88em;font-weight:600;color:#d1d5db;line-height:1.45;margin-bottom:6px}
 .insight .detail{font-size:.78em;color:#6b7280;line-height:1.5}
@@ -118,7 +120,10 @@ async function loadInsights(){
       if(!cat)continue;
       html+=`<div class="section"><div class="section-head"><span class="icon">${cat.icon}</span><h2>${cat.label}</h2><span class="badge ${badgeMap[key]||'ai'}">TOP 3</span></div><div class="insights">`;
       (cat.insights||[]).forEach((ins,i)=>{
-        html+=`<div class="insight"><span class="num">#${i+1}</span><div class="headline">${ins.headline}</div><div class="detail">${ins.detail}</div></div>`;
+        const domain=ins.url?new URL(ins.url).hostname.replace('www.',''):'';
+        const tag=ins.url?`<a class="insight" href="${ins.url}" target="_blank" rel="noopener">`:`<div class="insight">`;
+        const end=ins.url?`</a>`:`</div>`;
+        html+=`${tag}<span class="num">#${i+1}</span><div class="headline">${ins.headline}</div><div class="detail">${ins.detail}</div>${domain?`<div class="source">↗ ${domain}</div>`:''}${end}`;
       });
       html+=`</div></div><hr class="divider">`;
     }

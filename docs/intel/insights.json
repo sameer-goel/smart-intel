@@ -5,54 +5,54 @@
       "icon": "🤖",
       "label": "AI & Agents",
       "insights": [
-        {"headline": "OpenClaw hits 250K GitHub stars — #1 repo ever", "detail": "Surpassed React and Linux in 60 days. 2M+ monthly active users, 1.5M agents built, 13K+ skills on ClawHub."},
-        {"headline": "OpenAI hires OpenClaw creator, funds independent foundation", "detail": "Peter Steinberger (Austrian, ex-PSPDFKit €100M exit) joins OpenAI. OpenClaw stays MIT-licensed under new foundation."},
-        {"headline": "⚠️ \"ClawHavoc\" malware campaign hits ClawHub skills", "detail": "Credential stealers and backdoors in community skills. Skills run with agent-level system access."}
+        {"headline": "OpenClaw hits 250K GitHub stars — #1 repo ever", "detail": "Surpassed React and Linux in 60 days. 2M+ monthly active users, 1.5M agents built, 13K+ skills on ClawHub.", "url": "https://dev.to/andreagriffiths11/openclaw-just-passed-react-heres-what-the-github-star-leaderboard-actually-looks-like-3d5g"},
+        {"headline": "OpenAI hires OpenClaw creator, funds independent foundation", "detail": "Peter Steinberger (Austrian, ex-PSPDFKit €100M exit) joins OpenAI. OpenClaw stays MIT-licensed under new foundation.", "url": "https://www.forbes.com/sites/ronschmelzer/2026/02/16/openai-hires-openclaw-creator-peter-steinberger-and-sets-up-foundation/"},
+        {"headline": "⚠️ \"ClawHavoc\" malware campaign hits ClawHub skills", "detail": "Credential stealers and backdoors in community skills. Skills run with agent-level system access.", "url": "https://snyk.io/articles/clawdhub-malicious-campaign-ai"}
       ]
     },
     "tech": {
       "icon": "⚙️",
       "label": "Technology",
       "insights": [
-        {"headline": "NVIDIA NemoClaw — enterprise agent stack at GTC 2026", "detail": "Single-command deploy of OpenClaw + OpenShell sandbox + Nemotron models + Red Hat AI. Deny-by-default, K8s-native."},
-        {"headline": "ACP bridge connects coding IDEs to agents", "detail": "OpenClaw's acpx connects Zed and JetBrains. Current gap: no full file access or per-session MCP servers."},
-        {"headline": "Model-agnostic: Claude, GPT, Gemini, DeepSeek, local Ollama", "detail": "Switch models via config, not code. Bedrock, Qwen, Mistral all supported. Run fully local for zero API cost."}
+        {"headline": "NVIDIA NemoClaw — enterprise agent stack at GTC 2026", "detail": "Single-command deploy of OpenClaw + OpenShell sandbox + Nemotron models + Red Hat AI. Deny-by-default, K8s-native.", "url": "https://nvidianews.nvidia.com/news/nvidia-announces-nemoclaw"},
+        {"headline": "ACP bridge connects coding IDEs to agents", "detail": "OpenClaw's acpx connects Zed and JetBrains. Current gap: no full file access or per-session MCP servers.", "url": "https://docs.openclaw.ai/cli/acp"},
+        {"headline": "Model-agnostic: Claude, GPT, Gemini, DeepSeek, local Ollama", "detail": "Switch models via config, not code. Bedrock, Qwen, Mistral all supported. Run fully local for zero API cost.", "url": "https://docs.openclaw.ai/concepts/model-providers"}
       ]
     },
     "business": {
       "icon": "💰",
       "label": "Business",
       "insights": [
-        {"headline": "Hostinger leads OpenClaw hosting at $9/mo — 1-click deploy", "detail": "Cheapest quality: Hetzner $4/mo. Managed: OpenClaw Cloud $59/mo. Enterprise stacks $499-999/mo."},
-        {"headline": "Consulting market booming: $50-$5,000 per setup", "detail": "Enterprise implementations: $2.5K-5K setup + recurring management fees. Booming freelancer market."},
-        {"headline": "Linux playbook: free core, commercial ecosystem", "detail": "OpenClaw generates zero direct revenue. Value captured by hosting, NVIDIA, model APIs, and consultants."}
+        {"headline": "Hostinger leads OpenClaw hosting at $9/mo — 1-click deploy", "detail": "Cheapest quality: Hetzner $4/mo. Managed: OpenClaw Cloud $59/mo. Enterprise stacks $499-999/mo.", "url": "https://www.hostinger.com/vps/openclaw-hosting"},
+        {"headline": "Consulting market booming: $50-$5,000 per setup", "detail": "Enterprise implementations: $2.5K-5K setup + recurring management fees. Booming freelancer market.", "url": "https://www.businessinsider.com/china-openclaw-cash-subsidies-housing-office-startups-developers-raise-lobster-2026-3"},
+        {"headline": "Linux playbook: free core, commercial ecosystem", "detail": "OpenClaw generates zero direct revenue. Value captured by hosting, NVIDIA, model APIs, and consultants.", "url": "https://en.wikipedia.org/wiki/OpenClaw"}
       ]
     },
     "geopolitics": {
       "icon": "🌍",
       "label": "Geopolitics",
       "insights": [
-        {"headline": "China's \"Lobster Fever\": ¥1B+ in OpenClaw subsidies", "detail": "Shanghai ¥1B AI fund. Shenzhen ¥2M/project. \"One-person company\" initiative — target 1,000+ startups by 2027."},
-        {"headline": "Baidu DuClaw — browser-based OpenClaw for 700M users", "detail": "Zero-deployment, built-in Baidu Search/Scholar. Tencent and Alibaba building variants."},
-        {"headline": "EU AI Act: autonomous agents \"high-risk\" by Aug 2027", "detail": "Risk assessment, transparency, human oversight required. New field: \"Agentic Law.\""}
+        {"headline": "China's \"Lobster Fever\": ¥1B+ in OpenClaw subsidies", "detail": "Shanghai ¥1B AI fund. Shenzhen ¥2M/project. \"One-person company\" initiative — target 1,000+ startups by 2027.", "url": "https://the-decoder.com/china-pushes-openclaw-one-person-companies-with-millions-in-ai-agent-subsidies/"},
+        {"headline": "Baidu DuClaw — browser-based OpenClaw for 700M users", "detail": "Zero-deployment, built-in Baidu Search/Scholar. Tencent and Alibaba building variants.", "url": "https://www.prnewswire.com/news-releases/baidu-launches-duclaw-enables-zero-deployment-access-to-openclaw-302710924.html"},
+        {"headline": "EU AI Act: autonomous agents \"high-risk\" by Aug 2027", "detail": "Risk assessment, transparency, human oversight required. New field: \"Agentic Law.\"", "url": "https://thefuturesociety.org/how-ai-agents-are-governed-under-the-eu-ai-act/"}
       ]
     },
     "cloud": {
       "icon": "☁️",
       "label": "Cloud",
       "insights": [
-        {"headline": "AWS European Sovereign Cloud goes GA — Frankfurt ops", "detail": "Physically separate from commercial AWS. EU-resident staff only. Targets DORA, NIS2."},
-        {"headline": "Microsoft completes EU Data Boundary for all core services", "detail": "Azure, M365, Dynamics data stays in EU. Includes support data and diagnostic logs."},
-        {"headline": "EU Data Act: zero cloud switching charges by Jan 2027", "detail": "Interoperability standards mandatory. Creates market opening for local EU providers."}
+        {"headline": "AWS European Sovereign Cloud goes GA — Frankfurt ops", "detail": "Physically separate from commercial AWS. EU-resident staff only. Targets DORA, NIS2.", "url": "https://aws.amazon.com/blogs/security/aws-european-sovereign-cloud/"},
+        {"headline": "Microsoft completes EU Data Boundary for all core services", "detail": "Azure, M365, Dynamics data stays in EU. Includes support data and diagnostic logs.", "url": "https://blogs.microsoft.com/eupolicy/2023/12/14/eu-data-boundary-cloud-rollout/"},
+        {"headline": "EU Data Act: zero cloud switching charges by Jan 2027", "detail": "Interoperability standards mandatory. Creates market opening for local EU providers.", "url": "https://digital-strategy.ec.europa.eu/en/policies/data-act"}
       ]
     },
     "security": {
       "icon": "🔒",
       "label": "Security",
       "insights": [
-        {"headline": "NVIDIA OpenShell: deny-by-default sandbox for agents", "detail": "Docker-based isolation. No network by default. Fine-grained policy engine, K8s-native."},
-        {"headline": "Cisco AI Defense integrates with NemoClaw stack", "detail": "Enterprise agent security: threat detection, access control, audit trails."},
-        {"headline": "Most OpenClaw deployments run with zero security hardening", "detail": "Default configs expose full system. No sandboxing, no tool restrictions, no audit logging."}
+        {"headline": "NVIDIA OpenShell: deny-by-default sandbox for agents", "detail": "Docker-based isolation. No network by default. Fine-grained policy engine, K8s-native.", "url": "https://developer.nvidia.com/blog/run-autonomous-self-evolving-agents-more-safely-with-nvidia-openshell/"},
+        {"headline": "Cisco AI Defense integrates with NemoClaw stack", "detail": "Enterprise agent security: threat detection, access control, audit trails.", "url": "https://blogs.cisco.com/ai/securing-enterprise-agents-with-nvidia-and-cisco-ai-defense"},
+        {"headline": "Most OpenClaw deployments run with zero security hardening", "detail": "Default configs expose full system. No sandboxing, no tool restrictions, no audit logging.", "url": "https://aibusiness.com/agentic-ai/nvidia-devises-secure-openclaw-stack-for-enterprises"}
       ]
     }
   }
