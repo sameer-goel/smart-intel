@@ -132,13 +132,31 @@ function extractMeta(content, filename) {
   if (lower.includes('cloud') || lower.includes('aws') || lower.includes('azure') || lower.includes('bedrock') || lower.includes('gcp')) tags.push('cloud');
   if (lower.includes('security') || lower.includes('malware') || lower.includes('sandbox') || lower.includes('vulnerability')) tags.push('security');
   
-  // First real paragraph as excerpt
-  const paras = content.split('\n\n').filter(p => 
-    !p.startsWith('#') && !p.startsWith('*Date') && !p.startsWith('---') && 
-    !p.startsWith('|') && !p.startsWith('```') && p.trim().length > 40
-  );
-  excerpt = (paras[0] || '').replace(/[#*`\[\]]/g, '').replace(/\(.*?\)/g, '').trim().substring(0, 220);
-  if (excerpt.length >= 220) excerpt += '...';
+  // First real paragraph as excerpt — skip headers, tables, metadata, code, short lines
+  const allLines = content.split('\n');
+  let excerptText = '';
+  for (let i = 0; i < allLines.length; i++) {
+    const line = allLines[i].trim();
+    // Skip empty, headers, dividers, metadata, tables, code fences, list-only blocks
+    if (!line || line.startsWith('#') || line.startsWith('---') || line.startsWith('```')) continue;
+    if (line.startsWith('|') || line.includes('|---|')) continue;
+    if (line.startsWith('*Date') || line.startsWith('**Date') || line.startsWith('**Author')) continue;
+    if (line.length < 50) continue;
+    // Skip lines that are pure list items
+    if (line.startsWith('- ') && !line.includes('. ')) continue;
+    // Found a good line
+    excerptText = line;
+    // Grab next line too if it's a continuation
+    if (i + 1 < allLines.length) {
+      const next = allLines[i + 1].trim();
+      if (next && !next.startsWith('#') && !next.startsWith('-') && !next.startsWith('|') && !next.startsWith('*') && next.length > 20) {
+        excerptText += ' ' + next;
+      }
+    }
+    break;
+  }
+  excerpt = excerptText.replace(/\*\*/g, '').replace(/[#`\[\]]/g, '').replace(/\(.*?\)/g, '').trim().substring(0, 200);
+  if (excerpt.length >= 200) excerpt += '...';
   
   return { title: title.trim(), date, excerpt, tags: [...new Set(tags)] };
 }

@@ -4,159 +4,142 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Smart Intel — AI-Powered Intelligence Feed</title>
-<meta name="description" content="Auto-generated tech intelligence by Scout AI. Covering AI, Cloud, Geopolitics, Security.">
+<meta name="description" content="Auto-generated tech intelligence by Scout AI.">
 <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🔭</text></svg>">
 <style>
 *{margin:0;padding:0;box-sizing:border-box}
-:root{--bg:#08090a;--surface:#0c0d10;--border:#16181d;--border2:#1e2028;--text:#9ca3af;--text2:#6b7280;--heading:#f1f3f5;--accent:#60a5fa;--accent2:#a78bfa;--accent-bg:rgba(96,165,250,.08)}
-body{font-family:'Inter',-apple-system,system-ui,'Segoe UI',sans-serif;background:var(--bg);color:var(--text);min-height:100vh}
+body{font-family:-apple-system,system-ui,'Segoe UI',sans-serif;background:#08090a;color:#9ca3af}
 
-/* Header */
-.header{padding:64px 24px 32px;text-align:center;position:relative}
-.header::after{content:'';position:absolute;bottom:0;left:50%;transform:translateX(-50%);width:120px;height:1px;background:linear-gradient(90deg,transparent,var(--border2),transparent)}
-.logo{font-size:3em;margin-bottom:8px;filter:drop-shadow(0 0 20px rgba(96,165,250,.3))}
-.header h1{font-size:2em;font-weight:800;color:var(--heading);letter-spacing:-.02em}
-.header .sub{color:var(--text2);margin-top:8px;font-size:1em}
-.header .pulse{display:inline-flex;align-items:center;gap:6px;margin-top:16px;padding:6px 14px;background:rgba(34,197,94,.08);border:1px solid rgba(34,197,94,.15);border-radius:20px;font-size:.8em;color:#4ade80}
-.header .pulse .dot{width:6px;height:6px;border-radius:50%;background:#4ade80;animation:pulse 2s infinite}
+/* Compact header */
+.header{display:flex;align-items:center;justify-content:space-between;padding:16px 24px;border-bottom:1px solid #16181d;background:#0c0d10}
+.header .brand{display:flex;align-items:center;gap:10px}
+.header .brand h1{font-size:1.2em;font-weight:700;color:#f1f3f5}
+.header .live{display:flex;align-items:center;gap:5px;font-size:.75em;color:#4ade80}
+.header .live .dot{width:5px;height:5px;border-radius:50%;background:#4ade80;animation:pulse 2s infinite}
+.header .stats{display:flex;gap:20px;font-size:.8em;color:#6b7280}
+.header .stats strong{color:#d1d5db}
 @keyframes pulse{0%,100%{opacity:1}50%{opacity:.3}}
 
-/* Nav filters */
-.nav{display:flex;justify-content:center;gap:8px;padding:20px 24px;flex-wrap:wrap;max-width:700px;margin:0 auto}
-.nav button{background:transparent;border:1px solid var(--border);color:var(--text2);padding:7px 16px;border-radius:20px;font-size:.82em;cursor:pointer;transition:all .2s;font-family:inherit}
-.nav button:hover{border-color:var(--text2);color:var(--text)}
-.nav button.active{background:var(--accent-bg);border-color:var(--accent);color:var(--accent)}
+/* Filters */
+.filters{padding:12px 24px;border-bottom:1px solid #111;display:flex;gap:6px;flex-wrap:wrap;align-items:center}
+.filters .label{font-size:.75em;color:#4b5563;margin-right:4px}
+.filters button{background:transparent;border:1px solid #1e2028;color:#6b7280;padding:5px 12px;border-radius:6px;font-size:.78em;cursor:pointer;transition:all .15s;font-family:inherit}
+.filters button:hover{border-color:#374151;color:#9ca3af}
+.filters button.active{background:rgba(96,165,250,.1);border-color:rgba(96,165,250,.3);color:#60a5fa}
+.filters .count{background:#1e2028;color:#6b7280;padding:1px 6px;border-radius:4px;font-size:.7em;margin-left:4px}
 
-/* Stats bar */
-.stats{display:flex;justify-content:center;gap:32px;padding:16px 24px 24px;flex-wrap:wrap}
-.stat{text-align:center}
-.stat .num{font-size:1.4em;font-weight:700;color:var(--heading)}
-.stat .label{font-size:.75em;color:var(--text2);margin-top:2px}
+/* Tile grid */
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(340px,1fr));gap:12px;padding:16px 24px;max-width:1200px;margin:0 auto}
 
-/* Feed */
-.container{max-width:740px;margin:0 auto;padding:8px 24px 40px}
-.feed{display:flex;flex-direction:column;gap:2px}
+/* Tile card */
+.tile{background:#0c0d10;border:1px solid #16181d;border-radius:10px;padding:20px;text-decoration:none;display:flex;flex-direction:column;transition:all .15s;cursor:pointer;position:relative;overflow:hidden}
+.tile:hover{border-color:#2a2d36;transform:translateY(-1px);box-shadow:0 4px 20px rgba(0,0,0,.3)}
+.tile .accent-bar{position:absolute;top:0;left:0;right:0;height:2px;background:linear-gradient(90deg,#60a5fa,#a78bfa);opacity:0;transition:opacity .15s}
+.tile:hover .accent-bar{opacity:1}
+.tile .top{display:flex;align-items:center;justify-content:space-between;margin-bottom:10px}
+.tile .date{font-size:.75em;color:#4b5563}
+.tile .tags{display:flex;gap:4px;flex-wrap:wrap}
+.tile .tag{font-size:.65em;padding:2px 7px;border-radius:4px;font-weight:500;text-transform:uppercase;letter-spacing:.3px}
+.tile .tag.ai{background:rgba(96,165,250,.1);color:#60a5fa}
+.tile .tag.tech{background:rgba(45,212,191,.1);color:#2dd4bf}
+.tile .tag.business{background:rgba(251,191,36,.1);color:#fbbf24}
+.tile .tag.geopolitics{background:rgba(167,139,250,.1);color:#a78bfa}
+.tile .tag.cloud{background:rgba(96,165,250,.1);color:#60a5fa}
+.tile .tag.security{background:rgba(248,113,113,.1);color:#f87171}
+.tile h2{font-size:1em;font-weight:600;color:#e5e7eb;line-height:1.4;margin-bottom:8px}
+.tile:hover h2{color:#f1f3f5}
+.tile .excerpt{font-size:.82em;color:#6b7280;line-height:1.5;flex:1;display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden}
+.tile .read{font-size:.78em;color:#60a5fa;margin-top:12px;font-weight:500}
 
-/* Card */
-.card{display:block;padding:24px 0;border-bottom:1px solid var(--border);text-decoration:none;transition:all .15s}
-.card:hover{padding-left:8px}
-.card .top{display:flex;align-items:center;gap:10px;margin-bottom:8px;flex-wrap:wrap}
-.card .date{color:var(--text2);font-size:.8em;font-weight:500}
-.card .tag{display:inline-block;background:var(--accent-bg);color:var(--accent);padding:2px 8px;border-radius:12px;font-size:.7em;font-weight:500;text-transform:uppercase;letter-spacing:.4px}
-.card .tag.geo{background:rgba(167,139,250,.08);color:var(--accent2)}
-.card .tag.biz{background:rgba(251,191,36,.08);color:#fbbf24}
-.card .tag.sec{background:rgba(248,113,113,.08);color:#f87171}
-.card h2{color:var(--heading);font-size:1.15em;font-weight:600;margin-bottom:6px;line-height:1.4}
-.card:hover h2{color:var(--accent)}
-.card .excerpt{color:var(--text2);font-size:.88em;line-height:1.6}
+.empty{grid-column:1/-1;text-align:center;padding:60px 24px;color:#4b5563}
+.empty .icon{font-size:2em;margin-bottom:8px}
 
-.empty{text-align:center;padding:80px 24px;color:var(--text2)}
-.empty .icon{font-size:2.5em;margin-bottom:12px}
-
-/* Footer */
-.footer{text-align:center;padding:48px 24px;border-top:1px solid var(--border);margin-top:40px}
-.footer p{color:#374151;font-size:.82em}
-.footer a{color:var(--text2)}
-.footer a:hover{color:var(--accent)}
+.footer{text-align:center;padding:24px;border-top:1px solid #111;margin-top:8px;font-size:.78em;color:#374151}
+.footer a{color:#4b5563;text-decoration:none}
+.footer a:hover{color:#60a5fa}
 
 @media(max-width:640px){
-  .header{padding:40px 16px 24px}
-  .header h1{font-size:1.6em}
-  .container{padding:8px 16px 40px}
-  .stats{gap:20px}
+  .header{flex-direction:column;gap:8px;align-items:flex-start}
+  .grid{grid-template-columns:1fr;padding:12px 16px;gap:10px}
 }
 </style>
 </head>
 <body>
 
 <div class="header">
-  <div class="logo">🔭</div>
-  <h1>Smart Intel</h1>
-  <p class="sub">AI-Powered Intelligence Feed</p>
-  <div class="pulse"><span class="dot"></span>Updated nightly by Scout</div>
+  <div class="brand">
+    <h1>🔭 Smart Intel</h1>
+    <span class="live"><span class="dot"></span>Live</span>
+  </div>
+  <div class="stats" id="stats"></div>
 </div>
 
-<div class="stats" id="stats"></div>
-
-<div class="nav" id="navFilters">
+<div class="filters" id="navFilters">
+  <span class="label">Filter:</span>
   <button class="active" data-filter="all">All</button>
-  <button data-filter="ai">AI & Agents</button>
-  <button data-filter="tech">Technology</button>
+  <button data-filter="ai">AI</button>
+  <button data-filter="tech">Tech</button>
   <button data-filter="business">Business</button>
-  <button data-filter="geopolitics">Geopolitics</button>
+  <button data-filter="geopolitics">Geo</button>
   <button data-filter="cloud">Cloud</button>
   <button data-filter="security">Security</button>
 </div>
 
-<div class="container">
-  <div class="feed" id="feed">
-    <div class="empty"><div class="icon">📡</div><p>Loading intelligence feed...</p></div>
-  </div>
+<div class="grid" id="feed">
+  <div class="empty"><div class="icon">📡</div><p>Loading...</p></div>
 </div>
 
 <div class="footer">
-  <p>Built by <a href="https://nl.linkedin.com/in/sameer-goel">Sameer Goel</a> · Powered by <a href="https://github.com/sameer-goel/smart-intel">Scout 🔭</a></p>
+  <a href="https://nl.linkedin.com/in/sameer-goel">Sameer Goel</a> · <a href="https://github.com/sameer-goel/smart-intel">GitHub</a>
 </div>
 
 <script>
-const tagColors = {geopolitics:'geo',business:'biz',security:'sec'};
+const tagClass = t => ({ai:'ai',tech:'tech',business:'business',geopolitics:'geopolitics',cloud:'cloud',security:'security'}[t]||'ai');
 
-async function loadFeed() {
-  const feed = document.getElementById('feed');
-  const stats = document.getElementById('stats');
-  try {
-    const res = await fetch('./intel/index.json');
-    const data = await res.json();
-    if (!data.articles || data.articles.length === 0) {
-      feed.innerHTML = '<div class="empty"><div class="icon">📡</div><p>No intelligence reports yet. Check back tomorrow.</p></div>';
-      return;
-    }
-    window._articles = data.articles;
-    
-    // Stats
-    const tagSet = new Set();
-    data.articles.forEach(a => (a.tags||[]).forEach(t => tagSet.add(t)));
-    stats.innerHTML = `
-      <div class="stat"><div class="num">${data.articles.length}</div><div class="label">Reports</div></div>
-      <div class="stat"><div class="num">${tagSet.size}</div><div class="label">Categories</div></div>
-      <div class="stat"><div class="num">${data.articles[0]?.date || '—'}</div><div class="label">Latest</div></div>
-    `;
-    
-    renderArticles(data.articles);
-  } catch(e) {
-    feed.innerHTML = '<div class="empty"><div class="icon">📡</div><p>Intelligence feed loading... First reports publish nightly.</p></div>';
-  }
+async function loadFeed(){
+  const feed=document.getElementById('feed'), stats=document.getElementById('stats');
+  try{
+    const r=await fetch('./intel/index.json');
+    const d=await r.json();
+    if(!d.articles||!d.articles.length){feed.innerHTML='<div class="empty"><div class="icon">📡</div><p>No reports yet.</p></div>';return}
+    window._articles=d.articles;
+    // Tag counts
+    const tc={};
+    d.articles.forEach(a=>(a.tags||[]).forEach(t=>{tc[t]=(tc[t]||0)+1}));
+    // Add counts to buttons
+    document.querySelectorAll('.filters button[data-filter]').forEach(b=>{
+      const f=b.dataset.filter;
+      if(f==='all')b.innerHTML=`All<span class="count">${d.articles.length}</span>`;
+      else if(tc[f])b.innerHTML=`${b.textContent}<span class="count">${tc[f]}</span>`;
+    });
+    stats.innerHTML=`<span><strong>${d.articles.length}</strong> reports</span><span>Latest: <strong>${d.articles[0]?.date||'—'}</strong></span>`;
+    renderArticles(d.articles);
+  }catch(e){feed.innerHTML='<div class="empty"><div class="icon">📡</div><p>Loading...</p></div>'}
 }
 
-function renderArticles(articles) {
-  const feed = document.getElementById('feed');
-  if (!articles.length) {
-    feed.innerHTML = '<div class="empty"><div class="icon">🔍</div><p>No reports in this category yet.</p></div>';
-    return;
-  }
-  feed.innerHTML = articles.map(a => `
-    <a class="card" href="./intel/${a.slug}.html">
+function renderArticles(articles){
+  const feed=document.getElementById('feed');
+  if(!articles.length){feed.innerHTML='<div class="empty"><div class="icon">🔍</div><p>No reports in this category.</p></div>';return}
+  feed.innerHTML=articles.map(a=>`
+    <a class="tile" href="./intel/${a.slug}.html">
+      <div class="accent-bar"></div>
       <div class="top">
         <span class="date">${a.date}</span>
-        ${(a.tags||[]).slice(0,3).map(t => `<span class="tag ${tagColors[t]||''}">${t}</span>`).join('')}
+        <div class="tags">${(a.tags||[]).slice(0,3).map(t=>`<span class="tag ${tagClass(t)}">${t}</span>`).join('')}</div>
       </div>
       <h2>${a.title}</h2>
       <p class="excerpt">${a.excerpt}</p>
+      <span class="read">Read report →</span>
     </a>
   `).join('');
 }
 
-document.getElementById('navFilters').addEventListener('click', e => {
-  if (e.target.tagName !== 'BUTTON') return;
-  document.querySelectorAll('.nav button').forEach(b => b.classList.remove('active'));
+document.getElementById('navFilters').addEventListener('click',e=>{
+  if(e.target.tagName!=='BUTTON')return;
+  document.querySelectorAll('.filters button').forEach(b=>b.classList.remove('active'));
   e.target.classList.add('active');
-  const filter = e.target.dataset.filter;
-  if (filter === 'all') {
-    renderArticles(window._articles || []);
-  } else {
-    const filtered = (window._articles || []).filter(a => (a.tags||[]).includes(filter));
-    renderArticles(filtered);
-  }
+  const f=e.target.dataset.filter;
+  renderArticles(f==='all'?window._articles||[]:(window._articles||[]).filter(a=>(a.tags||[]).includes(f)));
 });
 
 loadFeed();
