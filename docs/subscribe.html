@@ -1,0 +1,346 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Subscribe — Smart Intel Weekly</title>
+<meta name="description" content="Get the sharpest AI & tech intelligence delivered weekly. Curated by Scout AI.">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🔭</text></svg>">
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap');
+*{margin:0;padding:0;box-sizing:border-box}
+:root{
+  --bg:#050507;--surface:#0a0a0f;--glass:rgba(255,255,255,.03);
+  --glass-border:rgba(255,255,255,.06);--glass-hover:rgba(255,255,255,.08);
+  --text:#9ca3af;--text2:#6b7280;--heading:#f1f3f5;
+  --ai:#60a5fa;--accent:#a78bfa;--green:#4ade80;--teal:#2dd4bf;
+}
+body{font-family:'Inter',system-ui,-apple-system,sans-serif;background:var(--bg);color:var(--text);min-height:100vh;overflow-x:hidden}
+
+/* Animated background */
+body::before{content:'';position:fixed;top:0;left:0;right:0;bottom:0;
+  background:
+    radial-gradient(ellipse 80% 50% at 50% 0%,rgba(96,165,250,.06) 0%,transparent 60%),
+    radial-gradient(ellipse 60% 60% at 20% 80%,rgba(167,139,250,.04) 0%,transparent 60%),
+    radial-gradient(ellipse 50% 50% at 80% 60%,rgba(45,212,191,.03) 0%,transparent 50%);
+  pointer-events:none;z-index:0;animation:meshDrift 25s ease-in-out infinite alternate}
+@keyframes meshDrift{
+  0%{opacity:.8}50%{opacity:1}100%{opacity:.8}
+}
+
+/* Sticky header */
+.header{position:sticky;top:0;z-index:100;display:flex;align-items:center;justify-content:space-between;padding:14px 28px;
+  background:rgba(5,5,7,.85);backdrop-filter:blur(20px) saturate(1.4);-webkit-backdrop-filter:blur(20px) saturate(1.4);
+  border-bottom:1px solid rgba(255,255,255,.04)}
+.header .brand{display:flex;align-items:center;gap:12px;text-decoration:none}
+.header .brand h1{font-size:1.15em;font-weight:800;color:var(--heading);letter-spacing:-.02em}
+.header .links{display:flex;gap:16px;font-size:.82em}
+.header .links a{color:#4b5563;text-decoration:none;transition:color .2s}.header .links a:hover{color:var(--ai)}
+
+/* Container */
+.container{max-width:640px;margin:0 auto;padding:60px 24px 80px;position:relative;z-index:1}
+
+/* Hero */
+.hero{text-align:center;margin-bottom:48px;opacity:0;animation:fadeUp .6s ease forwards}
+@keyframes fadeUp{to{opacity:1;transform:translateY(0)}}
+.hero{transform:translateY(20px)}
+.hero .telescope{font-size:64px;margin-bottom:24px;display:block;filter:drop-shadow(0 0 40px rgba(96,165,250,.2))}
+.hero h2{font-size:2.2em;font-weight:900;color:var(--heading);letter-spacing:-.03em;line-height:1.2;margin-bottom:16px}
+.hero h2 .gradient{background:linear-gradient(135deg,#60a5fa,#a78bfa,#2dd4bf);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+.hero .tagline{font-size:1.1em;color:var(--text2);line-height:1.6;max-width:480px;margin:0 auto}
+
+/* Social proof */
+.social-proof{text-align:center;margin-bottom:40px;opacity:0;animation:fadeUp .6s ease .1s forwards;transform:translateY(20px)}
+.social-proof p{font-size:.85em;color:#374151;display:flex;align-items:center;justify-content:center;gap:8px}
+.social-proof .avatars{display:flex;margin-right:4px}
+.social-proof .avatar{width:28px;height:28px;border-radius:50%;border:2px solid var(--bg);margin-left:-8px;display:flex;align-items:center;justify-content:center;font-size:12px;font-weight:600}
+.social-proof .avatar:first-child{margin-left:0}
+.social-proof .avatar.a1{background:linear-gradient(135deg,#60a5fa,#3b82f6);color:white}
+.social-proof .avatar.a2{background:linear-gradient(135deg,#a78bfa,#8b5cf6);color:white}
+.social-proof .avatar.a3{background:linear-gradient(135deg,#2dd4bf,#14b8a6);color:white}
+.social-proof .avatar.a4{background:linear-gradient(135deg,#fbbf24,#f59e0b);color:white}
+.social-proof strong{color:#6b7280}
+
+/* Subscribe form card */
+.subscribe-card{background:var(--glass);border:1px solid var(--glass-border);border-radius:16px;padding:36px;margin-bottom:40px;
+  backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);position:relative;overflow:hidden;
+  opacity:0;animation:fadeUp .6s ease .15s forwards;transform:translateY(20px)}
+.subscribe-card::before{content:'';position:absolute;top:0;left:0;right:0;height:1px;
+  background:linear-gradient(90deg,transparent 10%,rgba(255,255,255,.08) 50%,transparent 90%)}
+.subscribe-card::after{content:'';position:absolute;inset:-1px;border-radius:16px;padding:1px;
+  background:linear-gradient(135deg,rgba(96,165,250,.2),transparent 50%,rgba(167,139,250,.15));
+  -webkit-mask:linear-gradient(#fff 0 0) content-box,linear-gradient(#fff 0 0);
+  -webkit-mask-composite:xor;mask-composite:exclude;pointer-events:none}
+
+.subscribe-card h3{font-size:1.1em;font-weight:700;color:var(--heading);margin-bottom:6px;text-align:center}
+.subscribe-card .sub{font-size:.85em;color:var(--text2);text-align:center;margin-bottom:24px}
+
+/* Form */
+.form-row{display:flex;gap:10px}
+.form-row input[type="email"]{flex:1;background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.08);border-radius:10px;
+  padding:14px 18px;font-family:inherit;font-size:.92em;color:var(--heading);outline:none;transition:all .25s}
+.form-row input[type="email"]::placeholder{color:#4b5563}
+.form-row input[type="email"]:focus{border-color:rgba(96,165,250,.4);box-shadow:0 0 0 3px rgba(96,165,250,.1);background:rgba(255,255,255,.06)}
+.form-row button{background:linear-gradient(135deg,#60a5fa,#a78bfa);border:none;border-radius:10px;
+  padding:14px 28px;font-family:inherit;font-size:.92em;font-weight:700;color:#fff;cursor:pointer;
+  transition:all .25s;white-space:nowrap;position:relative;overflow:hidden}
+.form-row button::before{content:'';position:absolute;inset:0;background:linear-gradient(135deg,#3b82f6,#7c3aed);opacity:0;transition:opacity .25s}
+.form-row button:hover::before{opacity:1}
+.form-row button:hover{transform:translateY(-1px);box-shadow:0 8px 24px rgba(96,165,250,.25)}
+.form-row button:active{transform:translateY(0)}
+.form-row button span{position:relative;z-index:1}
+
+/* Success message */
+.success-msg{display:none;text-align:center;padding:20px 0}
+.success-msg.show{display:block}
+.success-msg .check{font-size:48px;margin-bottom:12px;display:block}
+.success-msg h3{font-size:1.1em;color:var(--heading);font-weight:700;margin-bottom:6px}
+.success-msg p{font-size:.85em;color:var(--text2)}
+
+/* What you get */
+.features{opacity:0;animation:fadeUp .6s ease .2s forwards;transform:translateY(20px);margin-bottom:40px}
+.features h3{font-size:.8em;font-weight:700;color:#4b5563;text-transform:uppercase;letter-spacing:1.5px;margin-bottom:16px;text-align:center}
+.feature-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.feature{background:var(--glass);border:1px solid var(--glass-border);border-radius:10px;padding:16px;display:flex;align-items:flex-start;gap:12px;
+  transition:all .2s}
+.feature:hover{border-color:rgba(255,255,255,.1);background:var(--glass-hover)}
+.feature .icon{font-size:1.3em;flex-shrink:0;margin-top:2px}
+.feature .text h4{font-size:.82em;font-weight:600;color:#d1d5db;margin-bottom:3px}
+.feature .text p{font-size:.75em;color:#5a5f69;line-height:1.5}
+
+/* Trust signals */
+.trust{text-align:center;opacity:0;animation:fadeUp .6s ease .25s forwards;transform:translateY(20px);margin-bottom:40px}
+.trust-items{display:flex;justify-content:center;gap:24px;flex-wrap:wrap}
+.trust-item{display:flex;align-items:center;gap:6px;font-size:.78em;color:#4b5563}
+.trust-item .icon{font-size:1em}
+
+/* Privacy */
+.privacy{text-align:center;font-size:.78em;color:#374151;line-height:1.7;margin-bottom:16px;
+  opacity:0;animation:fadeUp .6s ease .3s forwards;transform:translateY(20px)}
+.privacy a{color:#4b5563;text-decoration:none;border-bottom:1px solid rgba(255,255,255,.06)}
+.privacy a:hover{color:var(--ai)}
+
+/* Footer */
+.footer{text-align:center;padding:24px 0;border-top:1px solid rgba(255,255,255,.03);margin-top:20px;font-size:.75em;color:#2a2e36}
+.footer a{color:#3d4250;text-decoration:none;transition:color .2s}.footer a:hover{color:var(--ai)}
+
+/* Sample email preview */
+.preview-section{margin-bottom:40px;opacity:0;animation:fadeUp .6s ease .22s forwards;transform:translateY(20px)}
+.preview-section h3{font-size:.8em;font-weight:700;color:#4b5563;text-transform:uppercase;letter-spacing:1.5px;margin-bottom:16px;text-align:center}
+.email-preview{background:var(--glass);border:1px solid var(--glass-border);border-radius:12px;overflow:hidden}
+.email-preview-header{background:rgba(255,255,255,.02);padding:12px 16px;border-bottom:1px solid var(--glass-border);display:flex;align-items:center;gap:8px}
+.email-preview-header .dots{display:flex;gap:5px}
+.email-preview-header .dot{width:8px;height:8px;border-radius:50%;background:rgba(255,255,255,.08)}
+.email-preview-header .subject{font-size:.78em;color:#6b7280;flex:1;text-align:center}
+.email-preview-body{padding:20px}
+.email-preview-body .line{height:8px;background:rgba(255,255,255,.04);border-radius:4px;margin-bottom:8px}
+.email-preview-body .line.short{width:60%}
+.email-preview-body .line.med{width:80%}
+.email-preview-body .line.accent{background:rgba(96,165,250,.1);border:1px solid rgba(96,165,250,.08)}
+.email-preview-body .cat-badge{display:inline-block;font-size:.65em;font-weight:600;padding:3px 8px;border-radius:4px;margin:8px 4px 8px 0;letter-spacing:.5px}
+.cat-ai{background:rgba(96,165,250,.1);color:#60a5fa}
+.cat-tech{background:rgba(45,212,191,.1);color:#2dd4bf}
+.cat-biz{background:rgba(251,191,36,.1);color:#fbbf24}
+.cat-geo{background:rgba(167,139,250,.1);color:#a78bfa}
+.cat-cloud{background:rgba(56,189,248,.1);color:#38bdf8}
+.cat-sec{background:rgba(248,113,113,.1);color:#f87171}
+
+@media(max-width:640px){
+  .container{padding:40px 16px 60px}
+  .hero h2{font-size:1.7em}
+  .form-row{flex-direction:column}
+  .form-row button{padding:14px}
+  .feature-grid{grid-template-columns:1fr}
+  .header{padding:12px 16px}
+}
+</style>
+</head>
+<body>
+
+<!-- Header -->
+<div class="header">
+  <a class="brand" href="index.html">
+    <h1>🔭 Smart Intel</h1>
+  </a>
+  <div class="links">
+    <a href="index.html">Dashboard</a>
+    <a href="https://nl.linkedin.com/in/sameer-goel">LinkedIn</a>
+  </div>
+</div>
+
+<div class="container">
+
+  <!-- Hero -->
+  <div class="hero">
+    <span class="telescope">🔭</span>
+    <h2>The sharpest AI & tech<br><span class="gradient">intelligence, weekly.</span></h2>
+    <p class="tagline">Curated signals for Solutions Architects and tech leaders. Skip the noise — get the insights that matter in 5 minutes.</p>
+  </div>
+
+  <!-- Social proof -->
+  <div class="social-proof">
+    <p>
+      <span class="avatars">
+        <span class="avatar a1">S</span>
+        <span class="avatar a2">A</span>
+        <span class="avatar a3">M</span>
+        <span class="avatar a4">+</span>
+      </span>
+      Join <strong>tech leaders</strong> staying ahead of the curve
+    </p>
+  </div>
+
+  <!-- Subscribe form -->
+  <div class="subscribe-card" id="subscribeCard">
+    <h3>Get your weekly briefing</h3>
+    <p class="sub">Every week, straight to your inbox. Free forever.</p>
+
+    <!-- Primary: Buttondown embed form -->
+    <form
+      action="https://buttondown.com/smartintel"
+      method="post"
+      target="popupwindow"
+      onsubmit="handleSubmit(event)"
+      class="embeddable-buttondown-form"
+      id="subscribeForm"
+    >
+      <div class="form-row">
+        <input
+          type="email"
+          name="email"
+          id="bd-email"
+          placeholder="your@email.com"
+          required
+          autocomplete="email"
+          aria-label="Email address"
+        >
+        <button type="submit"><span>Subscribe →</span></button>
+      </div>
+      <input type="hidden" name="tag" value="smart-intel-web">
+      <input type="hidden" name="embed" value="1">
+    </form>
+
+    <!-- Success state -->
+    <div class="success-msg" id="successMsg">
+      <span class="check">✅</span>
+      <h3>You're in!</h3>
+      <p>Check your inbox for a confirmation email. Welcome aboard.</p>
+    </div>
+  </div>
+
+  <!-- What you get -->
+  <div class="features">
+    <h3>What you'll get</h3>
+    <div class="feature-grid">
+      <div class="feature">
+        <span class="icon">🤖</span>
+        <div class="text">
+          <h4>AI & Agents</h4>
+          <p>New models, agent frameworks, reasoning breakthroughs</p>
+        </div>
+      </div>
+      <div class="feature">
+        <span class="icon">☁️</span>
+        <div class="text">
+          <h4>Cloud Architecture</h4>
+          <p>AWS, multi-cloud, sovereign cloud, infrastructure shifts</p>
+        </div>
+      </div>
+      <div class="feature">
+        <span class="icon">🔒</span>
+        <div class="text">
+          <h4>Security</h4>
+          <p>Threat alerts, hardening practices, compliance updates</p>
+        </div>
+      </div>
+      <div class="feature">
+        <span class="icon">💰</span>
+        <div class="text">
+          <h4>Business & Strategy</h4>
+          <p>Market moves, pricing changes, FinOps strategies</p>
+        </div>
+      </div>
+      <div class="feature">
+        <span class="icon">🌍</span>
+        <div class="text">
+          <h4>Geopolitics</h4>
+          <p>AI regulation, sovereign tech, regional initiatives</p>
+        </div>
+      </div>
+      <div class="feature">
+        <span class="icon">⚙️</span>
+        <div class="text">
+          <h4>Technology</h4>
+          <p>Developer tools, platforms, open source releases</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Email preview -->
+  <div class="preview-section">
+    <h3>What it looks like</h3>
+    <div class="email-preview">
+      <div class="email-preview-header">
+        <div class="dots"><span class="dot"></span><span class="dot"></span><span class="dot"></span></div>
+        <span class="subject">🔭 Smart Intel Weekly — Mar 17, 2026</span>
+        <div style="width:44px"></div>
+      </div>
+      <div class="email-preview-body">
+        <span class="cat-badge cat-ai">🤖 AI & AGENTS</span>
+        <span class="cat-badge cat-cloud">☁️ CLOUD</span>
+        <span class="cat-badge cat-sec">🔒 SECURITY</span>
+        <div class="line accent" style="margin-top:12px"></div>
+        <div class="line"></div>
+        <div class="line med"></div>
+        <div class="line accent" style="margin-top:16px"></div>
+        <div class="line"></div>
+        <div class="line short"></div>
+        <div class="line accent" style="margin-top:16px"></div>
+        <div class="line"></div>
+        <div class="line med"></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Trust signals -->
+  <div class="trust">
+    <div class="trust-items">
+      <div class="trust-item"><span class="icon">🔒</span> No spam, ever</div>
+      <div class="trust-item"><span class="icon">⚡</span> 5-minute read</div>
+      <div class="trust-item"><span class="icon">🤖</span> AI-curated</div>
+      <div class="trust-item"><span class="icon">🚪</span> Unsubscribe anytime</div>
+    </div>
+  </div>
+
+  <!-- Privacy -->
+  <div class="privacy">
+    No spam. Unsubscribe anytime. Powered by <a href="https://buttondown.com" target="_blank" rel="noopener">Buttondown</a>.<br>
+    Your email is only used to send the weekly newsletter.
+  </div>
+
+  <!-- Footer -->
+  <div class="footer">
+    <a href="https://nl.linkedin.com/in/sameer-goel">Sameer Goel</a> · Powered by <a href="index.html">Scout 🔭</a>
+  </div>
+
+</div>
+
+<script>
+function handleSubmit(e) {
+  // Let the form submit to Buttondown, then show success
+  const form = document.getElementById('subscribeForm');
+  const card = document.getElementById('subscribeCard');
+  const success = document.getElementById('successMsg');
+
+  // Small delay to let the form POST go through
+  setTimeout(() => {
+    form.style.display = 'none';
+    card.querySelector('h3').style.display = 'none';
+    card.querySelector('.sub').style.display = 'none';
+    success.classList.add('show');
+  }, 500);
+}
+</script>
+</body>
+</html>
