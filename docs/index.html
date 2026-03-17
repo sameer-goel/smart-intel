@@ -116,8 +116,11 @@ body::before{content:'';position:fixed;top:0;left:0;right:0;bottom:0;
   backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px);position:relative;overflow:hidden}
 .nl-card::before{content:'';position:absolute;top:0;left:0;right:0;height:1px;
   background:linear-gradient(90deg,transparent,rgba(255,255,255,.1),transparent)}
-.nl-card h2{font-size:1.5em;font-weight:800;color:var(--heading);margin-bottom:6px}
-.nl-card .nl-sub{color:var(--text2);font-size:.95em;margin-bottom:20px}
+.nl-card h2{font-size:1.5em;font-weight:800;color:var(--heading);margin-bottom:8px}
+.nl-card .nl-tagline{font-size:.8em;font-weight:600;text-transform:uppercase;letter-spacing:1.5px;
+  background:linear-gradient(90deg,var(--ai),var(--geo));-webkit-background-clip:text;-webkit-text-fill-color:transparent;
+  background-clip:text;margin-bottom:8px}
+.nl-card .nl-sub{color:var(--text2);font-size:.92em;margin-bottom:20px;max-width:560px;margin-left:auto;margin-right:auto;line-height:1.6}
 .nl-form{display:flex;gap:8px;justify-content:center;max-width:440px;margin:0 auto 16px}
 .nl-form input{flex:1;padding:12px 16px;background:rgba(0,0,0,.4);border:1px solid rgba(255,255,255,.08);
   border-radius:10px;color:var(--heading);font-size:.9em;font-family:inherit;outline:none;transition:border-color .2s}
@@ -190,19 +193,20 @@ body::before{content:'';position:fixed;top:0;left:0;right:0;bottom:0;
 <!-- NEWSLETTER CTA -->
 <div class="newsletter">
   <div class="nl-card">
-    <h2>🔭 Get Smarter Every Week</h2>
-    <p class="nl-sub">The sharpest AI, cloud & geopolitics intel — delivered every Monday.</p>
+    <p class="nl-tagline">AI reads everything. You get the signal.</p>
+    <h2>The tech briefing that never sleeps</h2>
+    <p class="nl-sub">Every Monday: 18 sharpest insights across AI, cloud, security & geopolitics — researched by an AI agent scanning hundreds of sources nightly. Zero fluff. Zero interns.</p>
     <div class="nl-props">
-      <span>6 categories, 18 key insights</span>
-      <span>Source links included</span>
-      <span>AI-curated, zero fluff</span>
+      <span>6 domains, 18 insights weekly</span>
+      <span>Source-linked & opinionated</span>
+      <span>Built for architects & founders</span>
     </div>
     <form class="nl-form" id="nlForm" action="https://buttondown.com/smartintel" method="post" target="_blank">
-      <input type="email" name="email" placeholder="your@email.com" required>
-      <button type="submit">Subscribe Free</button>
+      <input type="email" name="email" placeholder="you@company.com" required>
+      <button type="submit">Get the briefing →</button>
     </form>
-    <div class="nl-success" id="nlSuccess">🎉 You're in! Check your inbox.</div>
-    <p class="nl-note">Free forever. No spam. Unsubscribe anytime.</p>
+    <div class="nl-success" id="nlSuccess">🎉 You're in! First briefing drops Monday 8 AM CET.</div>
+    <p class="nl-note">One email per week. No spam. Unsubscribe in one click.</p>
   </div>
 </div>
 
