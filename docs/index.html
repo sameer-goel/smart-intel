@@ -109,6 +109,30 @@ body::before{content:'';position:fixed;top:0;left:0;right:0;bottom:0;
 .glow-cloud{--glow-color:var(--cloud);--glow-shadow:rgba(56,189,248,.1)}
 .glow-sec{--glow-color:var(--sec);--glow-shadow:rgba(248,113,113,.1)}
 
+/* Newsletter CTA */
+.newsletter{max-width:1140px;margin:0 auto;padding:28px;position:relative;z-index:1}
+.nl-card{background:linear-gradient(135deg,rgba(96,165,250,.06),rgba(167,139,250,.06));
+  border:1px solid rgba(96,165,250,.12);border-radius:16px;padding:40px;text-align:center;
+  backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px);position:relative;overflow:hidden}
+.nl-card::before{content:'';position:absolute;top:0;left:0;right:0;height:1px;
+  background:linear-gradient(90deg,transparent,rgba(255,255,255,.1),transparent)}
+.nl-card h2{font-size:1.5em;font-weight:800;color:var(--heading);margin-bottom:6px}
+.nl-card .nl-sub{color:var(--text2);font-size:.95em;margin-bottom:20px}
+.nl-form{display:flex;gap:8px;justify-content:center;max-width:440px;margin:0 auto 16px}
+.nl-form input{flex:1;padding:12px 16px;background:rgba(0,0,0,.4);border:1px solid rgba(255,255,255,.08);
+  border-radius:10px;color:var(--heading);font-size:.9em;font-family:inherit;outline:none;transition:border-color .2s}
+.nl-form input:focus{border-color:var(--ai)}
+.nl-form input::placeholder{color:#4b5563}
+.nl-form button{padding:12px 28px;background:linear-gradient(135deg,var(--ai),var(--geo));border:none;
+  border-radius:10px;color:#fff;font-size:.9em;font-weight:600;cursor:pointer;font-family:inherit;
+  transition:transform .15s,box-shadow .15s;white-space:nowrap}
+.nl-form button:hover{transform:translateY(-1px);box-shadow:0 4px 20px rgba(96,165,250,.3)}
+.nl-props{display:flex;gap:20px;justify-content:center;flex-wrap:wrap;margin-bottom:16px}
+.nl-props span{font-size:.8em;color:#6b7280;display:flex;align-items:center;gap:4px}
+.nl-props span::before{content:'✓';color:#4ade80;font-weight:700}
+.nl-note{font-size:.72em;color:#374151}
+.nl-success{display:none;color:#4ade80;font-size:.9em;padding:12px;font-weight:500}
+
 /* Divider */
 .divider{border:none;border-top:1px solid rgba(255,255,255,.03);margin:24px auto 0;max-width:1140px}
 
@@ -160,6 +184,27 @@ body::before{content:'';position:fixed;top:0;left:0;right:0;bottom:0;
 </div>
 
 <div id="insightsContainer"></div>
+
+<hr class="divider">
+
+<!-- NEWSLETTER CTA -->
+<div class="newsletter">
+  <div class="nl-card">
+    <h2>🔭 Get Smarter Every Week</h2>
+    <p class="nl-sub">The sharpest AI, cloud & geopolitics intel — delivered every Monday.</p>
+    <div class="nl-props">
+      <span>6 categories, 18 key insights</span>
+      <span>Source links included</span>
+      <span>AI-curated, zero fluff</span>
+    </div>
+    <form class="nl-form" id="nlForm" action="https://buttondown.com/smartintel" method="post" target="_blank">
+      <input type="email" name="email" placeholder="your@email.com" required>
+      <button type="submit">Subscribe Free</button>
+    </form>
+    <div class="nl-success" id="nlSuccess">🎉 You're in! Check your inbox.</div>
+    <p class="nl-note">Free forever. No spam. Unsubscribe anytime.</p>
+  </div>
+</div>
 
 <hr class="divider">
 
@@ -251,6 +296,14 @@ async function loadFeed(){
 
 loadInsights();
 loadFeed();
+
+// Newsletter form — show success on submit
+document.getElementById('nlForm')?.addEventListener('submit',function(){
+  setTimeout(()=>{
+    this.style.display='none';
+    document.getElementById('nlSuccess').style.display='block';
+  },500);
+});
 </script>
 </body>
 </html>

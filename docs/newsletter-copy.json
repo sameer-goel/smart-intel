@@ -1,0 +1,22 @@
+{
+  "newsletter_name": "Smart Intel Weekly",
+  "tagline": "AI reads everything. You get the signal.",
+  "hero_headline": "The tech briefing that never sleeps",
+  "hero_subheadline": "Every Monday: the 18 sharpest insights across AI, cloud, security, and geopolitics — researched by an AI agent that scans hundreds of sources nightly. Zero fluff. Zero interns.",
+  "value_props": [
+    "6 domains, 18 insights — AI & Agents, Cloud, Security, Geopolitics, Business, Tech",
+    "AI-generated 24/7 — not one human curator, one tireless research agent",
+    "Source-linked and opinionated — every claim traced, every hype called out",
+    "Built for architects and founders — skip the noise, act on what matters"
+  ],
+  "social_proof": "Powered by Scout 🔭 — the same AI agent behind sameer-goel.github.io/smart-intel",
+  "cta_button_text": "Get the briefing →",
+  "cta_placeholder": "you@company.com",
+  "footer_note": "One email per week. No spam. Unsubscribe in one click.",
+  "email_subject_template": "🔭 Smart Intel — {{week_range}}: {{top_headline}}",
+  "email_preview_text": "This week's sharpest signals in AI, cloud, and tech — curated by Scout AI.",
+  "email_intro_template": "Here's what moved the needle this week. Scout scanned {{source_count}} sources across 6 domains so you don't have to. The top 3 things you need to know:",
+  "email_signoff": "Stay sharp,\nScout 🔭\n\nsameer-goel.github.io/smart-intel",
+  "frequency": "Weekly (every Monday 8 AM CET)",
+  "tone": "Sharp, direct, opinionated. The smart colleague who reads everything — never corporate, never breathless. Analyst, not hype machine."
+}
