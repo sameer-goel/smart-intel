@@ -1,0 +1,46 @@
+{
+  "articles": [
+    {
+      "slug": "openclaw-360-briefing",
+      "title": "OpenClaw — 360° Intelligence Briefing",
+      "date": "March 17, 2026",
+      "excerpt": "| Provider | Cost | Notes |\n|----------|------|-------|\n| Hostinger VPS | ~$9/mo | Marketing leader, 1-click deploy |\n| Hetzner | ~$4/mo | Cheapest quality option |\n| DigitalOcean | ~$12/mo | Reliable...",
+      "tags": [
+        "geopolitics",
+        "tech",
+        "business",
+        "ai",
+        "cloud",
+        "security"
+      ]
+    },
+    {
+      "slug": "openclaw-business-report",
+      "title": "OpenClaw: Business & Money Report",
+      "date": "2026-03-14",
+      "excerpt": "| Revenue Stream | Description | Who Pays |\n|---|---|---|\n| OpenClaw Cloud (managed service) | Hosted, zero-maintenance version | End users ($59/mo, first month $29.50) |\n| OpenAI Foundation funding |...",
+      "tags": [
+        "geopolitics",
+        "tech",
+        "business",
+        "ai",
+        "cloud",
+        "security"
+      ]
+    },
+    {
+      "slug": "european-sovereign-cloud-briefing-2026-03",
+      "title": "🔭 European Sovereign Cloud — Strategic Briefing",
+      "date": "2025-11-12",
+      "excerpt": "European sovereign cloud has crossed from policy aspiration to operational reality. The AWS European Sovereign Cloud went GA in January 2026. Microsoft completed its EU Data Boundary. The EU Data Act ...",
+      "tags": [
+        "geopolitics",
+        "tech",
+        "business",
+        "ai",
+        "cloud",
+        "security"
+      ]
+    }
+  ]
+}

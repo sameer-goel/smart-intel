@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Smart Intel — AI-Powered Intelligence Feed</title>
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:-apple-system,system-ui,'Segoe UI',sans-serif;background:#050505;color:#e0e0e0}
+.header{text-align:center;padding:50px 20px 30px;border-bottom:1px solid #151515}
+.header h1{font-size:2.5em;font-weight:800;background:linear-gradient(135deg,#4fc3f7,#ab47bc);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+.header .sub{color:#888;margin-top:8px;font-size:1.1em}
+.header .meta{color:#555;margin-top:12px;font-size:.85em}
+.nav{display:flex;justify-content:center;gap:12px;padding:16px 20px;border-bottom:1px solid #111;flex-wrap:wrap}
+.nav a{color:#888;text-decoration:none;padding:8px 16px;border-radius:6px;font-size:.9em;transition:all .2s;border:1px solid transparent}
+.nav a:hover,.nav a.active{color:#4fc3f7;border-color:#4fc3f7}
+.container{max-width:900px;margin:0 auto;padding:30px 20px}
+.feed{display:flex;flex-direction:column;gap:20px}
+.card{background:#0f0f0f;border:1px solid #1a1a1a;border-radius:12px;padding:24px;transition:border-color .2s}
+.card:hover{border-color:#333}
+.card .date{color:#4fc3f7;font-size:.8em;font-weight:600;margin-bottom:6px}
+.card .tag{display:inline-block;background:#1a1a2e;color:#ab47bc;padding:2px 8px;border-radius:4px;font-size:.7em;margin-right:6px;margin-bottom:8px}
+.card h2{color:#fff;font-size:1.2em;margin-bottom:8px}
+.card h2 a{color:#fff;text-decoration:none}
+.card h2 a:hover{color:#4fc3f7}
+.card .excerpt{color:#999;font-size:.9em;line-height:1.6}
+.card .read-more{display:inline-block;margin-top:12px;color:#4fc3f7;text-decoration:none;font-size:.85em;font-weight:600}
+.card .read-more:hover{text-decoration:underline}
+.empty{text-align:center;padding:60px 20px;color:#555}
+.footer{text-align:center;padding:40px 20px;border-top:1px solid #111;margin-top:40px}
+.footer p{color:#444;font-size:.85em}
+.footer a{color:#4fc3f7;text-decoration:none}
+#loading{text-align:center;padding:40px;color:#555}
+</style>
+</head>
+<body>
+
+<div class="header">
+  <h1>🔭 Smart Intel</h1>
+  <p class="sub">AI-Powered Intelligence Feed</p>
+  <p class="meta">Auto-generated research by Scout — updated nightly</p>
+</div>
+
+<div class="nav" id="navFilters">
+  <a href="#" class="active" data-filter="all">All</a>
+  <a href="#" data-filter="tech">Technology</a>
+  <a href="#" data-filter="business">Business</a>
+  <a href="#" data-filter="geopolitics">Geopolitics</a>
+  <a href="#" data-filter="ai">AI & Agents</a>
+  <a href="#" data-filter="cloud">Cloud</a>
+  <a href="#" data-filter="security">Security</a>
+</div>
+
+<div class="container">
+  <div class="feed" id="feed">
+    <div id="loading">Loading intelligence feed...</div>
+  </div>
+</div>
+
+<div class="footer">
+  <p>Built by <a href="https://nl.linkedin.com/in/sameer-goel">Sameer Goel</a> with Scout 🔭 | <a href="https://github.com/sameer-goel/smart-intel">GitHub</a></p>
+</div>
+
+<script>
+// Load intel index and render cards
+async function loadFeed() {
+  const feed = document.getElementById('feed');
+  try {
+    const res = await fetch('./intel/index.json');
+    const data = await res.json();
+    if (!data.articles || data.articles.length === 0) {
+      feed.innerHTML = '<div class="empty">No intelligence reports yet. Check back tomorrow.</div>';
+      return;
+    }
+    window._articles = data.articles;
+    renderArticles(data.articles);
+  } catch(e) {
+    feed.innerHTML = '<div class="empty">Intelligence feed loading... First reports publish nightly.</div>';
+  }
+}
+
+function renderArticles(articles) {
+  const feed = document.getElementById('feed');
+  feed.innerHTML = articles.map(a => `
+    <div class="card" data-tags="${(a.tags||[]).join(' ')}">
+      <div class="date">${a.date}</div>
+      ${(a.tags||[]).map(t => `<span class="tag">${t}</span>`).join('')}
+      <h2><a href="./intel/${a.slug}.html">${a.title}</a></h2>
+      <p class="excerpt">${a.excerpt}</p>
+      <a href="./intel/${a.slug}.html" class="read-more">Read full report →</a>
+    </div>
+  `).join('');
+}
+
+// Filter by category
+document.getElementById('navFilters').addEventListener('click', e => {
+  if (e.target.tagName !== 'A') return;
+  e.preventDefault();
+  document.querySelectorAll('.nav a').forEach(a => a.classList.remove('active'));
+  e.target.classList.add('active');
+  const filter = e.target.dataset.filter;
+  if (filter === 'all') {
+    renderArticles(window._articles || []);
+  } else {
+    const filtered = (window._articles || []).filter(a => (a.tags||[]).includes(filter));
+    renderArticles(filtered.length ? filtered : window._articles || []);
+  }
+});
+
+loadFeed();
+</script>
+</body>
+</html>
