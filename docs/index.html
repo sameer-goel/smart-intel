@@ -44,7 +44,7 @@ body::before{content:'';position:fixed;top:0;left:0;right:0;bottom:0;
 @keyframes pulse{0%,100%{opacity:1}50%{opacity:.3}}
 
 /* Section */
-.section{max-width:1140px;margin:0 auto;padding:28px 28px 0;position:relative;z-index:1;opacity:0;transform:translateY(16px);animation:fadeUp .5s ease forwards}
+.section{max-width:1140px;margin:0 auto;padding:28px 28px 0;position:relative;z-index:1;opacity:0;transform:translateY(16px);animation:fadeUp .5s ease forwards;display:flex;flex-direction:column;align-items:center}
 .section:nth-child(2){animation-delay:.05s}
 .section:nth-child(3){animation-delay:.1s}
 .section:nth-child(4){animation-delay:.15s}
@@ -52,7 +52,7 @@ body::before{content:'';position:fixed;top:0;left:0;right:0;bottom:0;
 .section:nth-child(6){animation-delay:.25s}
 @keyframes fadeUp{to{opacity:1;transform:translateY(0)}}
 
-.section-head{display:flex;align-items:center;gap:10px;margin-bottom:14px}
+.section-head{display:flex;align-items:center;gap:10px;margin-bottom:14px;width:100%;max-width:1080px}
 .section-head .icon{font-size:1.2em;filter:drop-shadow(0 0 8px currentColor)}
 .section-head h2{font-size:.95em;font-weight:700;color:var(--heading);letter-spacing:-.01em}
 .section-head .badge{font-size:.65em;padding:3px 10px;border-radius:20px;font-weight:600;text-transform:uppercase;letter-spacing:.5px}
@@ -66,7 +66,7 @@ body::before{content:'';position:fixed;top:0;left:0;right:0;bottom:0;
 .badge-sec{background:rgba(248,113,113,.1);color:var(--sec);box-shadow:0 0 12px rgba(248,113,113,.1)}
 
 /* Insight grid */
-.insights{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}
+.insights{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;justify-items:center;max-width:1080px;margin:0 auto}
 
 /* LIQUID GLASS TILE */
 .glass-tile{
@@ -184,6 +184,7 @@ body::before{content:'';position:fixed;top:0;left:0;right:0;bottom:0;
   </div>
   <div class="links">
     <span class="updated" id="lastUpdated"></span>
+    <a href="subscribe.html" style="color:#60a5fa;font-weight:600;">📧 Subscribe</a>
     <a href="https://nl.linkedin.com/in/sameer-goel">LinkedIn</a>
     <a href="https://github.com/sameer-goel/smart-intel">GitHub</a>
   </div>
