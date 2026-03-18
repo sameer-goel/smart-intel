@@ -1,0 +1,520 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Claw Dots — Connecting the Dots to Agentic OS</title>
+<meta name="description" content="Interactive intelligence map tracking the convergence toward Agentic OS. Every signal connected.">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🔴</text></svg>">
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500&display=swap');
+*{margin:0;padding:0;box-sizing:border-box}
+:root{
+  --bg:#050508;--surface:#0a0b10;--surface2:#10111a;--surface3:#161724;
+  --text:#e4e4e7;--text2:#a1a1aa;--text3:#71717a;
+  --border:rgba(255,255,255,.06);--border2:rgba(255,255,255,.03);
+  --red:#ef4444;--orange:#f97316;--amber:#fbbf24;--green:#22c55e;--emerald:#10b981;
+  --cyan:#06b6d4;--blue:#3b82f6;--violet:#8b5cf6;--pink:#ec4899;
+  --glow-red:rgba(239,68,68,.15);--glow-blue:rgba(59,130,246,.15);--glow-violet:rgba(139,92,246,.15);
+  --sans:'Inter',system-ui,sans-serif;--mono:'JetBrains Mono',monospace;
+}
+html{scroll-behavior:smooth}
+body{font-family:var(--sans);background:var(--bg);color:var(--text2);min-height:100vh;overflow-x:hidden}
+
+/* HEADER */
+.header{text-align:center;padding:40px 24px 20px;position:relative}
+.header::before{content:'';position:absolute;top:0;left:50%;transform:translateX(-50%);width:600px;height:300px;background:radial-gradient(ellipse,rgba(239,68,68,.08),transparent 70%);pointer-events:none}
+.logo{font-size:3.5em;font-weight:900;letter-spacing:-.04em;color:#f4f4f5;line-height:1}
+.logo .claw{color:var(--red)}
+.logo .dots{color:var(--text3);font-weight:300}
+.tagline{font-size:1em;color:var(--text3);margin-top:8px;letter-spacing:.5px}
+.tagline strong{color:var(--red);font-weight:600}
+.subtitle{font-family:var(--mono);font-size:.7em;color:var(--text3);margin-top:12px;letter-spacing:1px;text-transform:uppercase}
+
+/* THESIS BAR */
+.thesis{max-width:900px;margin:20px auto;padding:16px 24px;background:linear-gradient(135deg,rgba(239,68,68,.05),rgba(139,92,246,.05));border:1px solid var(--border);border-radius:12px;text-align:center}
+.thesis p{font-size:.85em;color:var(--text2);line-height:1.6}
+.thesis strong{color:var(--text)}
+
+/* CONVERGENCE VECTORS */
+.vectors{max-width:1100px;margin:0 auto;padding:20px 24px}
+.vectors-title{text-align:center;font-size:.7em;font-family:var(--mono);text-transform:uppercase;letter-spacing:2px;color:var(--text3);margin-bottom:24px}
+
+/* CLUSTER GRID */
+.cluster-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(320px,1fr));gap:16px;margin-bottom:24px}
+
+.cluster{background:var(--surface);border:1px solid var(--border);border-radius:14px;padding:20px;position:relative;overflow:hidden;transition:all .3s;cursor:pointer}
+.cluster:hover{border-color:rgba(255,255,255,.12);transform:translateY(-2px);box-shadow:0 8px 32px rgba(0,0,0,.4)}
+.cluster::before{content:'';position:absolute;top:0;left:0;right:0;height:2px;border-radius:14px 14px 0 0}
+.cluster[data-vector="security"]::before{background:linear-gradient(90deg,var(--red),var(--orange))}
+.cluster[data-vector="computer"]::before{background:linear-gradient(90deg,var(--blue),var(--cyan))}
+.cluster[data-vector="orchestration"]::before{background:linear-gradient(90deg,var(--violet),var(--pink))}
+.cluster[data-vector="clawification"]::before{background:linear-gradient(90deg,var(--amber),var(--orange))}
+.cluster[data-vector="enterprise"]::before{background:linear-gradient(90deg,var(--emerald),var(--green))}
+.cluster[data-vector="bridge"]::before{background:linear-gradient(90deg,var(--cyan),var(--blue))}
+.cluster[data-vector="complexity"]::before{background:linear-gradient(90deg,var(--pink),var(--violet))}
+
+.cluster-header{display:flex;align-items:center;gap:10px;margin-bottom:14px}
+.cluster-icon{font-size:1.5em}
+.cluster-name{font-size:.95em;font-weight:700;color:var(--text)}
+.cluster-tag{font-family:var(--mono);font-size:.6em;color:var(--text3);background:var(--surface2);padding:2px 8px;border-radius:4px;margin-left:auto}
+
+/* DOTS (signals) inside clusters */
+.dot{display:flex;align-items:flex-start;gap:10px;padding:10px 0;border-bottom:1px solid var(--border2)}
+.dot:last-child{border-bottom:none;padding-bottom:0}
+.dot-marker{width:8px;height:8px;border-radius:50%;margin-top:5px;flex-shrink:0;position:relative}
+.dot-marker::after{content:'';position:absolute;top:-3px;left:-3px;width:14px;height:14px;border-radius:50%;border:1px solid;opacity:.3;animation:ping 3s infinite}
+.cluster[data-vector="security"] .dot-marker{background:var(--red)}.cluster[data-vector="security"] .dot-marker::after{border-color:var(--red)}
+.cluster[data-vector="computer"] .dot-marker{background:var(--blue)}.cluster[data-vector="computer"] .dot-marker::after{border-color:var(--blue)}
+.cluster[data-vector="orchestration"] .dot-marker{background:var(--violet)}.cluster[data-vector="orchestration"] .dot-marker::after{border-color:var(--violet)}
+.cluster[data-vector="clawification"] .dot-marker{background:var(--amber)}.cluster[data-vector="clawification"] .dot-marker::after{border-color:var(--amber)}
+.cluster[data-vector="enterprise"] .dot-marker{background:var(--emerald)}.cluster[data-vector="enterprise"] .dot-marker::after{border-color:var(--emerald)}
+.cluster[data-vector="bridge"] .dot-marker{background:var(--cyan)}.cluster[data-vector="bridge"] .dot-marker::after{border-color:var(--cyan)}
+.cluster[data-vector="complexity"] .dot-marker{background:var(--pink)}.cluster[data-vector="complexity"] .dot-marker::after{border-color:var(--pink)}
+@keyframes ping{0%{transform:scale(1);opacity:.3}50%{transform:scale(1.5);opacity:0}100%{transform:scale(1);opacity:0}}
+
+.dot-content{flex:1;min-width:0}
+.dot-title{font-size:.8em;font-weight:600;color:var(--text);line-height:1.4}
+.dot-detail{font-size:.72em;color:var(--text3);line-height:1.5;margin-top:3px}
+.dot-source{font-family:var(--mono);font-size:.6em;color:var(--text3);margin-top:4px;opacity:.6}
+.dot-source a{color:inherit;text-decoration:none}.dot-source a:hover{color:var(--text2)}
+
+/* CONNECTION LINES (visual) */
+.connections{max-width:1100px;margin:0 auto 24px;padding:0 24px}
+.connection-card{background:var(--surface);border:1px solid var(--border);border-radius:12px;padding:16px 20px;margin-bottom:10px;display:flex;align-items:center;gap:14px}
+.conn-line{display:flex;align-items:center;gap:6px;flex-shrink:0}
+.conn-dot{width:10px;height:10px;border-radius:50%}
+.conn-dash{width:30px;height:1px;background:repeating-linear-gradient(90deg,var(--text3) 0 4px,transparent 4px 8px)}
+.conn-text{font-size:.78em;color:var(--text2);line-height:1.5}
+.conn-text strong{color:var(--text);font-weight:600}
+
+/* CENTER NODE */
+.center-node{text-align:center;padding:40px 24px;position:relative}
+.center-node::before{content:'';position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:400px;height:400px;background:radial-gradient(circle,rgba(239,68,68,.06),transparent 60%);pointer-events:none}
+.agentic-os{display:inline-block;padding:24px 48px;border:2px solid var(--red);border-radius:20px;background:rgba(239,68,68,.04);position:relative}
+.agentic-os h2{font-size:2em;font-weight:900;color:#f4f4f5;letter-spacing:-.02em}
+.agentic-os p{font-size:.8em;color:var(--text3);margin-top:6px}
+.convergence-arrows{display:flex;justify-content:center;gap:8px;margin-bottom:16px;flex-wrap:wrap}
+.convergence-arrows span{font-size:1.2em;opacity:.4;animation:converge 2s infinite}
+@keyframes converge{0%,100%{opacity:.2;transform:translateY(-4px)}50%{opacity:.6;transform:translateY(0)}}
+
+/* R&D IMPLICATIONS */
+.rnd{max-width:900px;margin:0 auto;padding:20px 24px 40px}
+.rnd-title{font-family:var(--mono);font-size:.7em;text-transform:uppercase;letter-spacing:2px;color:var(--text3);margin-bottom:16px;text-align:center}
+.rnd-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:12px}
+.rnd-card{background:var(--surface);border:1px solid var(--border);border-radius:10px;padding:16px}
+.rnd-card h4{font-size:.82em;font-weight:700;color:var(--text);margin-bottom:6px}
+.rnd-card p{font-size:.72em;color:var(--text3);line-height:1.5}
+.rnd-card .effort{font-family:var(--mono);font-size:.6em;margin-top:8px;color:var(--amber)}
+
+/* FOOTER */
+.footer{text-align:center;padding:24px;border-top:1px solid var(--border);margin-top:20px}
+.footer p{font-size:.7em;color:var(--text3);font-family:var(--mono)}
+.footer a{color:var(--red);text-decoration:none}
+
+/* RESPONSIVE */
+@media(max-width:680px){
+  .logo{font-size:2.2em}
+  .cluster-grid{grid-template-columns:1fr}
+  .agentic-os h2{font-size:1.4em}
+  .agentic-os{padding:16px 28px}
+}
+</style>
+</head>
+<body>
+
+<!-- HEADER -->
+<div class="header">
+  <div class="logo"><span class="claw">Claw</span><span class="dots">Dots</span></div>
+  <div class="tagline">Connecting the dots toward <strong>Agentic OS</strong></div>
+  <div class="subtitle">Intelligence Map · Updated March 2026 · Scout 🔭</div>
+</div>
+
+<!-- THESIS -->
+<div class="thesis">
+  <p><strong>The Thesis:</strong> Every signal in the AI ecosystem — funding rounds, product launches, framework updates, enterprise pivots — is converging toward one destination: <strong>the Agent IS the Computer</strong>. OpenClaw didn't just create an agent platform. It ignited the race to build the Agentic OS. These are the dots. Watch them connect.</p>
+</div>
+
+<!-- CONVERGENCE VECTORS -->
+<div class="vectors">
+  <div class="vectors-title">⟐ 7 Convergence Vectors ⟐</div>
+
+  <div class="cluster-grid">
+
+    <!-- 1. ENTERPRISE SECURITY -->
+    <div class="cluster" data-vector="security">
+      <div class="cluster-header">
+        <span class="cluster-icon">🛡️</span>
+        <span class="cluster-name">Enterprise Security</span>
+        <span class="cluster-tag">TRUST LAYER</span>
+      </div>
+      <div class="dot">
+        <div class="dot-marker"></div>
+        <div class="dot-content">
+          <div class="dot-title">Nvidia NemoClaw — Enterprise-grade OpenClaw</div>
+          <div class="dot-detail">Jensen Huang: "Every software company needs an OpenClaw strategy." Policy-based security, sandboxed execution, K8s-native. Co-built with OpenClaw creator Peter Steinberger.</div>
+          <div class="dot-source"><a href="https://nvidianews.nvidia.com/news/nvidia-announces-nemoclaw" target="_blank" rel="noopener">nvidianews.nvidia.com · GTC 2026</a></div>
+        </div>
+      </div>
+      <div class="dot">
+        <div class="dot-marker"></div>
+        <div class="dot-content">
+          <div class="dot-title">OpenShell: Deny-by-default sandbox</div>
+          <div class="dot-detail">Docker-based isolation. No network by default. Fine-grained policy engine. The missing security layer agents needed.</div>
+          <div class="dot-source"><a href="https://developer.nvidia.com/blog/run-autonomous-self-evolving-agents-more-safely-with-nvidia-openshell/" target="_blank" rel="noopener">developer.nvidia.com</a></div>
+        </div>
+      </div>
+      <div class="dot">
+        <div class="dot-marker"></div>
+        <div class="dot-content">
+          <div class="dot-title">Cisco AI Defense integrates with NemoClaw</div>
+          <div class="dot-detail">Enterprise agent security: threat detection, access control, audit trails. The corporate firewall for agents.</div>
+          <div class="dot-source"><a href="https://blogs.cisco.com/ai/securing-enterprise-agents-with-nvidia-and-cisco-ai-defense" target="_blank" rel="noopener">blogs.cisco.com</a></div>
+        </div>
+      </div>
+      <div class="dot">
+        <div class="dot-marker"></div>
+        <div class="dot-content">
+          <div class="dot-title">"ClawHavoc" malware campaign hits ClawHub</div>
+          <div class="dot-detail">Credential stealers and backdoors in community skills. Proof that the ecosystem needs NemoClaw-level security.</div>
+          <div class="dot-source"><a href="https://snyk.io/articles/clawdhub-malicious-campaign-ai" target="_blank" rel="noopener">snyk.io</a></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 2. AGENT = COMPUTER -->
+    <div class="cluster" data-vector="computer">
+      <div class="cluster-header">
+        <span class="cluster-icon">🖥️</span>
+        <span class="cluster-name">Agent = Computer</span>
+        <span class="cluster-tag">NEW PARADIGM</span>
+      </div>
+      <div class="dot">
+        <div class="dot-marker"></div>
+        <div class="dot-content">
+          <div class="dot-title">Perplexity Computer — "The AI IS the Computer"</div>
+          <div class="dot-detail">Full agentic OS. 400+ app integrations. Personal Computer: always-on Mac Mini that works 24/7. CEO Arvind argues the chat UI bottlenecks AI's true potential.</div>
+          <div class="dot-source"><a href="https://perplexity.ai" target="_blank" rel="noopener">perplexity.ai · March 2026</a></div>
+        </div>
+      </div>
+      <div class="dot">
+        <div class="dot-marker"></div>
+        <div class="dot-content">
+          <div class="dot-title">Adaptive Computer — Always-on + Encoded Memory</div>
+          <div class="dot-detail">Learns how YOU work. Remembers your Square catalog, your preferences, your workflows. Schedules agents. The hardware store owner use case — bleeding edge meets Main Street.</div>
+          <div class="dot-source"><a href="https://adaptive.ai" target="_blank" rel="noopener">adaptive.ai · March 2026</a></div>
+        </div>
+      </div>
+      <div class="dot">
+        <div class="dot-marker"></div>
+        <div class="dot-content">
+          <div class="dot-title">Manis "My Computer" (Meta) — Cloud → Local bridge</div>
+          <div class="dot-detail">Organize thousands of photos, rename invoices, build Swift desktop apps — all locally. "Your most important work happens on your own computer."</div>
+          <div class="dot-source"><a href="https://manis.dev" target="_blank" rel="noopener">manis.dev · March 2026</a></div>
+        </div>
+      </div>
+      <div class="dot">
+        <div class="dot-marker"></div>
+        <div class="dot-content">
+          <div class="dot-title">The convergence: "The agent lives on your machine"</div>
+          <div class="dot-detail">Cedric Chi: "Cloud Code, Cowwork, OpenClaw, Codex, and Manis all converging on the same idea." Not cloud-first. Machine-first.</div>
+          <div class="dot-source">Industry analysis · March 2026</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 3. MULTI-AGENT ORCHESTRATION -->
+    <div class="cluster" data-vector="orchestration">
+      <div class="cluster-header">
+        <span class="cluster-icon">🧠</span>
+        <span class="cluster-name">Multi-Agent Orchestration</span>
+        <span class="cluster-tag">TEAMWORK</span>
+      </div>
+      <div class="dot">
+        <div class="dot-marker"></div>
+        <div class="dot-content">
+          <div class="dot-title">Codex native sub-agents — spawn with natural language</div>
+          <div class="dot-detail">"Delegate low-complexity tasks to GPT 5.3 Spark sub-agents." No custom roles needed. Parallel execution. Natural language orchestration.</div>
+          <div class="dot-source"><a href="https://openai.com" target="_blank" rel="noopener">OpenAI Developers · March 2026</a></div>
+        </div>
+      </div>
+      <div class="dot">
+        <div class="dot-marker"></div>
+        <div class="dot-content">
+          <div class="dot-title">Sub-agent use cases: review, testing, research</div>
+          <div class="dot-detail">Code review: one agent per concern. Testing: one writes tests, another checks edge cases, another validates. Parallel specialization at scale.</div>
+          <div class="dot-source">Emanuel Dietro · analysis</div>
+        </div>
+      </div>
+      <div class="dot">
+        <div class="dot-marker"></div>
+        <div class="dot-content">
+          <div class="dot-title">OpenClaw ACP bridge — IDE ↔ Agent protocol</div>
+          <div class="dot-detail">Connects Zed and JetBrains to agents. Current gap: no full file access or per-session MCP servers. The plumbing for agent teams.</div>
+          <div class="dot-source"><a href="https://docs.openclaw.ai/cli/acp" target="_blank" rel="noopener">docs.openclaw.ai</a></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 4. THE CLAWIFICATION -->
+    <div class="cluster" data-vector="clawification">
+      <div class="cluster-header">
+        <span class="cluster-icon">🌊</span>
+        <span class="cluster-name">The Clawification</span>
+        <span class="cluster-tag">WAVE</span>
+      </div>
+      <div class="dot">
+        <div class="dot-marker"></div>
+        <div class="dot-content">
+          <div class="dot-title">OpenClaw: 250K GitHub stars — #1 repo ever</div>
+          <div class="dot-detail">Surpassed React and Linux in 60 days. 2M+ monthly active users. 1.5M agents built. 13K+ skills on ClawHub. The Linux moment for agents.</div>
+          <div class="dot-source"><a href="https://github.com/openclaw/openclaw" target="_blank" rel="noopener">github.com/openclaw</a></div>
+        </div>
+      </div>
+      <div class="dot">
+        <div class="dot-marker"></div>
+        <div class="dot-content">
+          <div class="dot-title">Darwinian fork explosion: Nanobot, ZeroClaw, Picoclaw</div>
+          <div class="dot-detail">Reduce complexity to specific features. Open Fang, Hermes, Ironclaw focus on self-hosting security. Kevin Simbach: "A weird kind of Darwinism — builders shipping faster than slot posters."</div>
+          <div class="dot-source">Kevin Simbach · Deli Labs</div>
+        </div>
+      </div>
+      <div class="dot">
+        <div class="dot-marker"></div>
+        <div class="dot-content">
+          <div class="dot-title">China's ¥1B+ "Lobster Fever" — state-backed clawification</div>
+          <div class="dot-detail">Shanghai ¥1B AI fund. Shenzhen ¥2M/project. "One-person company" initiative targeting 1,000+ startups by 2027. Baidu DuClaw for 700M users.</div>
+          <div class="dot-source"><a href="https://the-decoder.com/china-pushes-openclaw-one-person-companies-with-millions-in-ai-agent-subsidies/" target="_blank" rel="noopener">the-decoder.com</a></div>
+        </div>
+      </div>
+      <div class="dot">
+        <div class="dot-marker"></div>
+        <div class="dot-content">
+          <div class="dot-title">Notion Custom Agents — every SaaS gets clawified</div>
+          <div class="dot-detail">Notion agents with all your workspace context built-in. Not an OpenClaw fork — a parallel evolution. Every productivity tool will have agents.</div>
+          <div class="dot-source">Notion · February 2026</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 5. ENTERPRISE PIVOT -->
+    <div class="cluster" data-vector="enterprise">
+      <div class="cluster-header">
+        <span class="cluster-icon">🏢</span>
+        <span class="cluster-name">Enterprise Pivot</span>
+        <span class="cluster-tag">BIG MONEY</span>
+      </div>
+      <div class="dot">
+        <div class="dot-marker"></div>
+        <div class="dot-content">
+          <div class="dot-title">OpenAI kills side quests — all-in on enterprise</div>
+          <div class="dot-detail">CEO of Apps Fiji Simo: "We cannot miss this moment because we are distracted by side quests." Sora, Atlas browser, Johnny Ive device — deprioritized. Copying Anthropic's playbook.</div>
+          <div class="dot-source"><a href="https://wsj.com" target="_blank" rel="noopener">Wall Street Journal · March 2026</a></div>
+        </div>
+      </div>
+      <div class="dot">
+        <div class="dot-marker"></div>
+        <div class="dot-content">
+          <div class="dot-title">GPT 5.4: 5 trillion tokens/day in week one</div>
+          <div class="dot-detail">Greg Brockman: "More volume than our entire API 1 year ago." $1B annualized net new revenue. The enterprise demand is real and massive.</div>
+          <div class="dot-source">Greg Brockman · March 2026</div>
+        </div>
+      </div>
+      <div class="dot">
+        <div class="dot-marker"></div>
+        <div class="dot-content">
+          <div class="dot-title">Claw Camp: 7,000+ enrolled, half choose OpenClaw</div>
+          <div class="dot-detail">Enterprise Claw: managed 6-week executive sprint. Even pre-enterprise-grade, 50% of enterprise leaders chose OpenClaw over alternatives. Demand is validated.</div>
+          <div class="dot-source">AI Daily Brief · March 2026</div>
+        </div>
+      </div>
+      <div class="dot">
+        <div class="dot-marker"></div>
+        <div class="dot-content">
+          <div class="dot-title">Consulting boom: $50–$5,000 per OpenClaw setup</div>
+          <div class="dot-detail">Enterprise implementations: $2.5K–5K setup + recurring fees. Hostinger 1-click deploy at $9/mo on the low end. The Linux economics playbook.</div>
+          <div class="dot-source"><a href="https://www.hostinger.com/vps/openclaw-hosting" target="_blank" rel="noopener">hostinger.com</a></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 6. CLOUD ↔ LOCAL BRIDGE -->
+    <div class="cluster" data-vector="bridge">
+      <div class="cluster-header">
+        <span class="cluster-icon">🌉</span>
+        <span class="cluster-name">Cloud ↔ Local Bridge</span>
+        <span class="cluster-tag">HYBRID</span>
+      </div>
+      <div class="dot">
+        <div class="dot-marker"></div>
+        <div class="dot-content">
+          <div class="dot-title">Manis: "Your most important work happens locally"</div>
+          <div class="dot-detail">Cloud sandbox served well — isolated, secure, always online. But the fundamental limitation: your files, dev environments, and apps are LOCAL. My Computer bridges the gap.</div>
+          <div class="dot-source">Manis blog · March 2026</div>
+        </div>
+      </div>
+      <div class="dot">
+        <div class="dot-marker"></div>
+        <div class="dot-content">
+          <div class="dot-title">Model-agnostic: cloud AND local models</div>
+          <div class="dot-detail">Claude, GPT, Gemini, DeepSeek on cloud. Ollama, Llama on local. Switch via config, not code. Run fully local for zero API cost. True hybrid.</div>
+          <div class="dot-source"><a href="https://docs.openclaw.ai/concepts/model-providers" target="_blank" rel="noopener">docs.openclaw.ai</a></div>
+        </div>
+      </div>
+      <div class="dot">
+        <div class="dot-marker"></div>
+        <div class="dot-content">
+          <div class="dot-title">Perplexity Personal Computer — always-on local Mac Mini</div>
+          <div class="dot-detail">Dedicated hardware running your agent 24/7. Merges cloud intelligence with local presence. The thin client reimagined for AI.</div>
+          <div class="dot-source">Perplexity · March 2026</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 7. COMPLEXITY SPECTRUM -->
+    <div class="cluster" data-vector="complexity">
+      <div class="cluster-header">
+        <span class="cluster-icon">📐</span>
+        <span class="cluster-name">The Complexity Question</span>
+        <span class="cluster-tag">UNSOLVED</span>
+      </div>
+      <div class="dot">
+        <div class="dot-marker"></div>
+        <div class="dot-content">
+          <div class="dot-title">The paradox: breakout hit is incredibly complex</div>
+          <div class="dot-detail">Old wisdom: simplify for mass adoption. But OpenClaw — the most complex agent system — won. Where's the right complexity band? Or is it a spectrum?</div>
+          <div class="dot-source">AI Daily Brief analysis · March 2026</div>
+        </div>
+      </div>
+      <div class="dot">
+        <div class="dot-marker"></div>
+        <div class="dot-content">
+          <div class="dot-title">Q2 prediction: "Everything that can be tried will be tried"</div>
+          <div class="dot-detail">Q1 was realization. Q2 is the sprint to productize. Different complexity levels for different users. The Darwinian selection continues.</div>
+          <div class="dot-source">AI Daily Brief · March 2026</div>
+        </div>
+      </div>
+      <div class="dot">
+        <div class="dot-marker"></div>
+        <div class="dot-content">
+          <div class="dot-title">EU AI Act: autonomous agents = "high-risk" by Aug 2027</div>
+          <div class="dot-detail">Risk assessment, transparency, human oversight required. Regulation adds complexity. New field: "Agentic Law." Complexity is not optional.</div>
+          <div class="dot-source"><a href="https://thefuturesociety.org/how-ai-agents-are-governed-under-the-eu-ai-act/" target="_blank" rel="noopener">thefuturesociety.org</a></div>
+        </div>
+      </div>
+    </div>
+
+  </div><!-- /cluster-grid -->
+</div><!-- /vectors -->
+
+<!-- CONNECTIONS — The dots connecting -->
+<div class="connections">
+  <div class="vectors-title">⟐ How the Dots Connect ⟐</div>
+
+  <div class="connection-card">
+    <div class="conn-line">
+      <div class="conn-dot" style="background:var(--red)"></div>
+      <div class="conn-dash"></div>
+      <div class="conn-dot" style="background:var(--amber)"></div>
+    </div>
+    <div class="conn-text"><strong>NemoClaw</strong> solves the trust gap that blocked enterprise adoption → <strong>Clawification</strong> accelerates as companies feel safe deploying</div>
+  </div>
+
+  <div class="connection-card">
+    <div class="conn-line">
+      <div class="conn-dot" style="background:var(--blue)"></div>
+      <div class="conn-dash"></div>
+      <div class="conn-dot" style="background:var(--cyan)"></div>
+    </div>
+    <div class="conn-text"><strong>Agent = Computer</strong> requires the <strong>Cloud ↔ Local Bridge</strong> — you can't own the full canvas without bridging both worlds</div>
+  </div>
+
+  <div class="connection-card">
+    <div class="conn-line">
+      <div class="conn-dot" style="background:var(--violet)"></div>
+      <div class="conn-dash"></div>
+      <div class="conn-dot" style="background:var(--emerald)"></div>
+    </div>
+    <div class="conn-text"><strong>Multi-Agent Orchestration</strong> (Codex sub-agents) is how <strong>Enterprise</strong> scales beyond one-agent-one-task. Teams of agents, not solo performers.</div>
+  </div>
+
+  <div class="connection-card">
+    <div class="conn-line">
+      <div class="conn-dot" style="background:var(--amber)"></div>
+      <div class="conn-dash"></div>
+      <div class="conn-dot" style="background:var(--pink)"></div>
+    </div>
+    <div class="conn-text"><strong>Clawification fork explosion</strong> is the market exploring the <strong>Complexity Spectrum</strong> — Picoclaw simplifies, NemoClaw adds enterprise layers. Both needed.</div>
+  </div>
+
+  <div class="connection-card">
+    <div class="conn-line">
+      <div class="conn-dot" style="background:var(--emerald)"></div>
+      <div class="conn-dash"></div>
+      <div class="conn-dot" style="background:var(--red)"></div>
+    </div>
+    <div class="conn-text"><strong>OpenAI's enterprise pivot</strong> validates what <strong>Nvidia saw first</strong> — the money is in making agents safe for businesses, not consumer chatbots</div>
+  </div>
+
+  <div class="connection-card">
+    <div class="conn-line">
+      <div class="conn-dot" style="background:var(--blue)"></div>
+      <div class="conn-dash"></div>
+      <div class="conn-dot" style="background:var(--violet)"></div>
+    </div>
+    <div class="conn-text"><strong>Agent = Computer</strong> + <strong>Multi-Agent Orchestration</strong> = The Agentic OS. Your computer runs agent teams, not apps. This is the destination.</div>
+  </div>
+</div>
+
+<!-- CENTER NODE: AGENTIC OS -->
+<div class="center-node">
+  <div class="convergence-arrows">
+    <span>🛡️</span><span>→</span>
+    <span>🖥️</span><span>→</span>
+    <span>🧠</span><span>→</span>
+    <span>🌊</span><span>→</span>
+    <span>🏢</span><span>→</span>
+    <span>🌉</span><span>→</span>
+    <span>📐</span><span>→</span>
+  </div>
+  <div class="agentic-os">
+    <h2>🔴 Agentic OS</h2>
+    <p>All vectors converge here. The agent isn't a tool — it's the operating system.</p>
+  </div>
+</div>
+
+<!-- R&D IMPLICATIONS -->
+<div class="rnd">
+  <div class="rnd-title">🏗️ R&D Implications — What to Build</div>
+  <div class="rnd-grid">
+    <div class="rnd-card">
+      <h4>🔍 Agent Security Scanner</h4>
+      <p>Web4Agents should score agent-readiness AND security posture. NemoClaw proves enterprises need both. Add a "trust score" to the scanner.</p>
+      <div class="effort">Weekend hack · Impact: 5 · Feasibility: 4</div>
+    </div>
+    <div class="rnd-card">
+      <h4>🖥️ Local-First Agent Template</h4>
+      <p>Build a reference architecture for "Agent = Computer" — local Ollama + OpenClaw + file system access. The anti-cloud agent.</p>
+      <div class="effort">Week project · Impact: 4 · Feasibility: 4</div>
+    </div>
+    <div class="rnd-card">
+      <h4>🧠 Agent Team Visualizer</h4>
+      <p>Real-time visualization of multi-agent orchestration. Show how sub-agents spawn, communicate, and complete tasks. Demo material for enterprise pitches.</p>
+      <div class="effort">Weekend hack · Impact: 4 · Feasibility: 5</div>
+    </div>
+    <div class="rnd-card">
+      <h4>📐 Complexity Band Analyzer</h4>
+      <p>Research tool that maps agent platforms on a complexity spectrum. Where does each fork, competitor, and variant sit? Quantify the paradox.</p>
+      <div class="effort">Week project · Impact: 3 · Feasibility: 3</div>
+    </div>
+  </div>
+</div>
+
+<!-- FOOTER -->
+<div class="footer">
+  <p>🔴 Claw Dots · Built by <a href="https://sameer-goel.github.io/smart-intel/">Scout 🔭</a> · Data sourced from AI Daily Brief, GTC 2026, industry analysis</p>
+  <p style="margin-top:4px">Part of <a href="index.html">Smart Intel</a> · <a href="https://github.com/sameer-goel">sameer-goel</a></p>
+</div>
+
+</body>
+</html>
