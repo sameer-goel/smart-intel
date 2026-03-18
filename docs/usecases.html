@@ -120,6 +120,12 @@ body{font-family:var(--sans);background:var(--bg);color:var(--ink2);min-height:1
     <input type="text" class="search-box" id="searchBox" placeholder="Search use cases...">
   </div>
   <div class="filter-section">
+    <div class="filter-label">Quick Filter</div>
+    <div class="pills">
+      <span class="pill" id="dailyPick" style="background:rgba(250,204,21,.1);border-color:rgba(250,204,21,.3);color:#facc15">⭐ Daily Practice Picks</span>
+    </div>
+  </div>
+  <div class="filter-section">
     <div class="filter-label">Category</div>
     <div class="pills" id="catPills"></div>
   </div>
@@ -187,6 +193,7 @@ let allData = [];
 let activeCat = 'all';
 let activeComplex = 'all';
 let searchTerm = '';
+let dailyOnly = false;
 
 function getCatColor(cat) { return CAT_COLORS[cat] || '#60a5fa'; }
 
@@ -199,7 +206,7 @@ function renderCard(uc) {
       '<span class="cat-dot" style="background:' + color + '"></span>' +
       '<span class="cat-label" style="color:' + color + '">' + uc.category + '</span>' +
     '</div>' +
-    '<div class="card-name">' + uc.name + '</div>' +
+    '<div class="card-name">' + (uc.daily_practice ? '⭐ ' : '') + uc.name + '</div>' +
     '<div class="card-desc">' + uc.description + '</div>' +
     (uc.why_it_matters ? '<div class="card-why">' + uc.why_it_matters + '</div>' : '') +
     '<div class="card-footer">' +
@@ -212,6 +219,7 @@ function renderCard(uc) {
 
 function render() {
   const filtered = allData.filter(uc => {
+    if (dailyOnly && !uc.daily_practice) return false;
     if (activeCat !== 'all' && uc.category !== activeCat) return false;
     if (activeComplex !== 'all' && uc.complexity !== activeComplex) return false;
     if (searchTerm) {
@@ -265,6 +273,19 @@ document.getElementById('complexPills').querySelectorAll('.pill').forEach(p => {
 
 document.getElementById('searchBox').addEventListener('input', (e) => {
   searchTerm = e.target.value;
+  render();
+});
+
+document.getElementById('dailyPick').addEventListener('click', function() {
+  dailyOnly = !dailyOnly;
+  this.classList.toggle('active');
+  if (dailyOnly) {
+    this.style.background = 'rgba(250,204,21,.25)';
+    this.style.borderColor = 'rgba(250,204,21,.5)';
+  } else {
+    this.style.background = 'rgba(250,204,21,.1)';
+    this.style.borderColor = 'rgba(250,204,21,.3)';
+  }
   render();
 });
 

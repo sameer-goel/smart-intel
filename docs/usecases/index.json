@@ -1,6 +1,6 @@
 {
   "last_updated": "2026-03-18",
-  "total": 77,
+  "total": 78,
   "usecases": [
     {
       "id": "daily-reddit-digest",
@@ -256,7 +256,8 @@
         "inbox",
         "triage"
       ],
-      "date_added": "2026-03-18"
+      "date_added": "2026-03-18",
+      "daily_practice": true
     },
     {
       "id": "personal-crm",
@@ -384,7 +385,8 @@
         "team",
         "roles"
       ],
-      "date_added": "2026-03-18"
+      "date_added": "2026-03-18",
+      "daily_practice": true
     },
     {
       "id": "desktop-cowork",
@@ -416,7 +418,8 @@
         "briefing",
         "daily"
       ],
-      "date_added": "2026-03-18"
+      "date_added": "2026-03-18",
+      "daily_practice": true
     },
     {
       "id": "automated-meeting-notes",
@@ -432,7 +435,8 @@
         "notes",
         "transcription"
       ],
-      "date_added": "2026-03-18"
+      "date_added": "2026-03-18",
+      "daily_practice": true
     },
     {
       "id": "habit-tracker-coach",
@@ -448,7 +452,8 @@
         "tracking",
         "coaching"
       ],
-      "date_added": "2026-03-18"
+      "date_added": "2026-03-18",
+      "daily_practice": true
     },
     {
       "id": "second-brain",
@@ -464,7 +469,8 @@
         "second-brain",
         "memory"
       ],
-      "date_added": "2026-03-18"
+      "date_added": "2026-03-18",
+      "daily_practice": true
     },
     {
       "id": "event-guest-confirmation",
@@ -800,7 +806,8 @@
         "overnight",
         "research"
       ],
-      "date_added": "2026-03-18"
+      "date_added": "2026-03-18",
+      "daily_practice": true
     },
     {
       "id": "google-ads-optimizer",
@@ -992,7 +999,8 @@
         "audit",
         "technical"
       ],
-      "date_added": "2026-03-18"
+      "date_added": "2026-03-18",
+      "daily_practice": true
     },
     {
       "id": "programmatic-seo-pipeline",
@@ -1056,7 +1064,8 @@
         "repurposing",
         "multi-format"
       ],
-      "date_added": "2026-03-18"
+      "date_added": "2026-03-18",
+      "daily_practice": true
     },
     {
       "id": "legal-document-review",
@@ -1233,6 +1242,24 @@
         "iot"
       ],
       "date_added": "2026-03-18"
+    },
+    {
+      "id": "overnight-coding",
+      "name": "Overnight Coding Sessions",
+      "category": "Developer Workflows",
+      "description": "Describe features via chat before bed, wake up to pull requests ready for review",
+      "why_it_matters": "Double development velocity — ship features while you sleep",
+      "source_url": "https://www.reddit.com/r/openclaw/",
+      "source_type": "community",
+      "complexity": "intermediate",
+      "tags": [
+        "coding",
+        "automation",
+        "github",
+        "pull-requests"
+      ],
+      "date_added": "2026-03-18",
+      "daily_practice": true
     }
   ]
 }
