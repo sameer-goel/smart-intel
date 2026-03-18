@@ -1,0 +1,1238 @@
+{
+  "last_updated": "2026-03-18",
+  "total": 77,
+  "usecases": [
+    {
+      "id": "daily-reddit-digest",
+      "name": "Daily Reddit Digest",
+      "category": "Research & Knowledge",
+      "description": "Automated daily summaries of top Reddit threads across chosen subreddits",
+      "why_it_matters": "Pattern for any feed-to-brief pipeline — replace Reddit with internal forums or Slack channels",
+      "source_url": "https://github.com/hesamsheikh/awesome-openclaw-usecases",
+      "source_type": "github",
+      "complexity": "beginner",
+      "tags": [
+        "reddit",
+        "digest",
+        "automation"
+      ],
+      "date_added": "2026-03-18"
+    },
+    {
+      "id": "daily-youtube-digest",
+      "name": "Daily YouTube Digest",
+      "category": "Content & Creative",
+      "description": "Summarizes new videos from subscribed channels with key takeaways",
+      "why_it_matters": "Content monitoring at scale — same pattern works for competitor video tracking",
+      "source_url": "https://github.com/hesamsheikh/awesome-openclaw-usecases",
+      "source_type": "github",
+      "complexity": "beginner",
+      "tags": [
+        "youtube",
+        "digest",
+        "summary"
+      ],
+      "date_added": "2026-03-18"
+    },
+    {
+      "id": "x-account-analysis",
+      "name": "X Account Analysis",
+      "category": "Research & Knowledge",
+      "description": "Deep analysis of any X/Twitter account — posting patterns, engagement, topics",
+      "why_it_matters": "Competitive intelligence and influencer vetting without expensive SaaS tools",
+      "source_url": "https://github.com/hesamsheikh/awesome-openclaw-usecases",
+      "source_type": "github",
+      "complexity": "intermediate",
+      "tags": [
+        "twitter",
+        "analysis",
+        "social"
+      ],
+      "date_added": "2026-03-18"
+    },
+    {
+      "id": "multi-source-tech-news",
+      "name": "Multi-Source Tech News Digest",
+      "category": "Research & Knowledge",
+      "description": "Aggregates and deduplicates tech news from 10+ sources into a single brief",
+      "why_it_matters": "The core pattern behind Smart Intel itself — proves the research agent model",
+      "source_url": "https://github.com/hesamsheikh/awesome-openclaw-usecases",
+      "source_type": "github",
+      "complexity": "intermediate",
+      "tags": [
+        "news",
+        "aggregation",
+        "research"
+      ],
+      "date_added": "2026-03-18"
+    },
+    {
+      "id": "x-twitter-automation",
+      "name": "X/Twitter Automation",
+      "category": "Content & Creative",
+      "description": "Scheduled posting, engagement tracking, and reply management on X",
+      "why_it_matters": "Social presence automation — lets one person run a brand account that looks like a team",
+      "source_url": "https://github.com/hesamsheikh/awesome-openclaw-usecases",
+      "source_type": "github",
+      "complexity": "intermediate",
+      "tags": [
+        "twitter",
+        "automation",
+        "social"
+      ],
+      "date_added": "2026-03-18"
+    },
+    {
+      "id": "goal-driven-autonomous-tasks",
+      "name": "Goal-Driven Autonomous Tasks",
+      "category": "Personal Productivity",
+      "description": "Set a high-level goal and let the agent break it into steps and execute autonomously",
+      "why_it_matters": "The agentic loop pattern — foundational for any complex multi-step workflow",
+      "source_url": "https://github.com/hesamsheikh/awesome-openclaw-usecases",
+      "source_type": "github",
+      "complexity": "advanced",
+      "tags": [
+        "autonomous",
+        "goals",
+        "planning"
+      ],
+      "date_added": "2026-03-18"
+    },
+    {
+      "id": "youtube-content-pipeline",
+      "name": "YouTube Content Pipeline",
+      "category": "Content & Creative",
+      "description": "End-to-end pipeline: research → script → thumbnail → upload → community post",
+      "why_it_matters": "Full content factory pattern — shows agent orchestration across creative + technical tools",
+      "source_url": "https://github.com/hesamsheikh/awesome-openclaw-usecases",
+      "source_type": "github",
+      "complexity": "advanced",
+      "tags": [
+        "youtube",
+        "pipeline",
+        "content"
+      ],
+      "date_added": "2026-03-18"
+    },
+    {
+      "id": "multi-agent-content-factory",
+      "name": "Multi-Agent Content Factory",
+      "category": "Content & Creative",
+      "description": "Multiple specialized agents (writer, editor, designer, publisher) collaborating on content",
+      "why_it_matters": "Multi-agent architecture in production — the pattern enterprises want for document workflows",
+      "source_url": "https://github.com/hesamsheikh/awesome-openclaw-usecases",
+      "source_type": "github",
+      "complexity": "advanced",
+      "tags": [
+        "multi-agent",
+        "content",
+        "factory"
+      ],
+      "date_added": "2026-03-18"
+    },
+    {
+      "id": "autonomous-game-dev",
+      "name": "Autonomous Game Dev Pipeline",
+      "category": "Developer Workflows",
+      "description": "Agent writes game code, tests it, iterates on bugs, and deploys playable builds",
+      "why_it_matters": "Proves autonomous coding loops work for creative software — not just CRUD apps",
+      "source_url": "https://github.com/hesamsheikh/awesome-openclaw-usecases",
+      "source_type": "github",
+      "complexity": "advanced",
+      "tags": [
+        "gamedev",
+        "autonomous",
+        "coding"
+      ],
+      "date_added": "2026-03-18"
+    },
+    {
+      "id": "podcast-production-pipeline",
+      "name": "Podcast Production Pipeline",
+      "category": "Content & Creative",
+      "description": "Research guests, generate questions, transcribe episodes, create show notes and clips",
+      "why_it_matters": "Media production automation — each step is a reusable agent pattern",
+      "source_url": "https://github.com/hesamsheikh/awesome-openclaw-usecases",
+      "source_type": "github",
+      "complexity": "advanced",
+      "tags": [
+        "podcast",
+        "production",
+        "media"
+      ],
+      "date_added": "2026-03-18"
+    },
+    {
+      "id": "n8n-workflow-orchestration",
+      "name": "n8n Workflow Orchestration",
+      "category": "Infrastructure & DevOps",
+      "description": "OpenClaw as the brain controlling n8n workflows — triggering, monitoring, and fixing automations",
+      "why_it_matters": "Bridges AI agents with existing automation infra — n8n handles integrations, agent handles decisions",
+      "source_url": "https://github.com/hesamsheikh/awesome-openclaw-usecases",
+      "source_type": "github",
+      "complexity": "intermediate",
+      "tags": [
+        "n8n",
+        "orchestration",
+        "devops"
+      ],
+      "date_added": "2026-03-18"
+    },
+    {
+      "id": "self-healing-home-server",
+      "name": "Self-Healing Home Server",
+      "category": "Infrastructure & DevOps",
+      "description": "Agent monitors server health, detects failures, and automatically applies fixes",
+      "why_it_matters": "Self-healing infrastructure pattern — directly applicable to production SRE workflows",
+      "source_url": "https://github.com/hesamsheikh/awesome-openclaw-usecases",
+      "source_type": "github",
+      "complexity": "advanced",
+      "tags": [
+        "server",
+        "self-healing",
+        "monitoring"
+      ],
+      "date_added": "2026-03-18"
+    },
+    {
+      "id": "autonomous-project-management",
+      "name": "Autonomous Project Management",
+      "category": "Business Automation",
+      "description": "Agent manages project boards, assigns tasks, tracks deadlines, sends status updates",
+      "why_it_matters": "PM automation frees architects from status-tracking overhead",
+      "source_url": "https://github.com/hesamsheikh/awesome-openclaw-usecases",
+      "source_type": "github",
+      "complexity": "intermediate",
+      "tags": [
+        "project-management",
+        "automation",
+        "tasks"
+      ],
+      "date_added": "2026-03-18"
+    },
+    {
+      "id": "multi-channel-customer-service",
+      "name": "Multi-Channel AI Customer Service",
+      "category": "Business Automation",
+      "description": "Single agent handling customer queries across email, chat, and social simultaneously",
+      "why_it_matters": "Multi-channel support without per-channel bot configs — one agent, many interfaces",
+      "source_url": "https://github.com/hesamsheikh/awesome-openclaw-usecases",
+      "source_type": "github",
+      "complexity": "advanced",
+      "tags": [
+        "customer-service",
+        "multi-channel",
+        "support"
+      ],
+      "date_added": "2026-03-18"
+    },
+    {
+      "id": "phone-personal-assistant",
+      "name": "Phone-Based Personal Assistant",
+      "category": "Personal Productivity",
+      "description": "Voice-controlled assistant via phone — manages calendar, sends messages, looks things up",
+      "why_it_matters": "Mobile-first agent UX — the interface most people actually want",
+      "source_url": "https://github.com/hesamsheikh/awesome-openclaw-usecases",
+      "source_type": "github",
+      "complexity": "intermediate",
+      "tags": [
+        "phone",
+        "voice",
+        "assistant"
+      ],
+      "date_added": "2026-03-18"
+    },
+    {
+      "id": "inbox-declutter",
+      "name": "Inbox De-clutter",
+      "category": "Personal Productivity",
+      "description": "Agent triages email inbox — archives noise, flags important, drafts replies for review",
+      "why_it_matters": "Email is still the #1 time sink — automated triage saves hours per week",
+      "source_url": "https://github.com/hesamsheikh/awesome-openclaw-usecases",
+      "source_type": "github",
+      "complexity": "beginner",
+      "tags": [
+        "email",
+        "inbox",
+        "triage"
+      ],
+      "date_added": "2026-03-18"
+    },
+    {
+      "id": "personal-crm",
+      "name": "Personal CRM",
+      "category": "Business Automation",
+      "description": "Tracks contacts, follow-ups, meeting notes, and relationship history automatically",
+      "why_it_matters": "Relationship management without SaaS fees — agent updates the CRM from your conversations",
+      "source_url": "https://github.com/hesamsheikh/awesome-openclaw-usecases",
+      "source_type": "github",
+      "complexity": "intermediate",
+      "tags": [
+        "crm",
+        "contacts",
+        "relationships"
+      ],
+      "date_added": "2026-03-18"
+    },
+    {
+      "id": "health-symptom-tracker",
+      "name": "Health & Symptom Tracker",
+      "category": "Lifestyle & Smart Home",
+      "description": "Log symptoms via chat, get trend analysis, prep summaries for doctor visits",
+      "why_it_matters": "Personal health data pipeline — same pattern applies to any longitudinal tracking",
+      "source_url": "https://github.com/hesamsheikh/awesome-openclaw-usecases",
+      "source_type": "github",
+      "complexity": "beginner",
+      "tags": [
+        "health",
+        "tracking",
+        "wellness"
+      ],
+      "date_added": "2026-03-18"
+    },
+    {
+      "id": "multi-channel-personal-assistant",
+      "name": "Multi-Channel Personal Assistant",
+      "category": "Personal Productivity",
+      "description": "Same agent accessible via Telegram, Discord, WhatsApp, and web — unified context",
+      "why_it_matters": "Channel-agnostic agent design — the architecture pattern every enterprise needs",
+      "source_url": "https://github.com/hesamsheikh/awesome-openclaw-usecases",
+      "source_type": "github",
+      "complexity": "intermediate",
+      "tags": [
+        "multi-channel",
+        "assistant",
+        "unified"
+      ],
+      "date_added": "2026-03-18"
+    },
+    {
+      "id": "project-state-management",
+      "name": "Project State Management",
+      "category": "Developer Workflows",
+      "description": "Agent maintains project context across sessions — decisions, blockers, progress",
+      "why_it_matters": "Persistent state for agents is the unsolved problem — this shows a working approach",
+      "source_url": "https://github.com/hesamsheikh/awesome-openclaw-usecases",
+      "source_type": "github",
+      "complexity": "intermediate",
+      "tags": [
+        "state",
+        "project",
+        "memory"
+      ],
+      "date_added": "2026-03-18"
+    },
+    {
+      "id": "dynamic-dashboard",
+      "name": "Dynamic Dashboard",
+      "category": "Business Automation",
+      "description": "Agent generates and updates dashboards based on natural language requests",
+      "why_it_matters": "Self-service BI without dashboard tools — agent queries data and builds the viz",
+      "source_url": "https://github.com/hesamsheikh/awesome-openclaw-usecases",
+      "source_type": "github",
+      "complexity": "intermediate",
+      "tags": [
+        "dashboard",
+        "analytics",
+        "visualization"
+      ],
+      "date_added": "2026-03-18"
+    },
+    {
+      "id": "todoist-task-manager",
+      "name": "Todoist Task Manager",
+      "category": "Personal Productivity",
+      "description": "Agent syncs with Todoist — creates tasks from conversations, manages priorities, sends reminders",
+      "why_it_matters": "Task management integration pattern — works with any task API",
+      "source_url": "https://github.com/hesamsheikh/awesome-openclaw-usecases",
+      "source_type": "github",
+      "complexity": "beginner",
+      "tags": [
+        "todoist",
+        "tasks",
+        "productivity"
+      ],
+      "date_added": "2026-03-18"
+    },
+    {
+      "id": "family-calendar-household",
+      "name": "Family Calendar & Household Assistant",
+      "category": "Lifestyle & Smart Home",
+      "description": "Manages family schedules, chore assignments, grocery lists, and school events",
+      "why_it_matters": "Multi-user agent with role-based context — the household is a mini-enterprise",
+      "source_url": "https://github.com/hesamsheikh/awesome-openclaw-usecases",
+      "source_type": "github",
+      "complexity": "intermediate",
+      "tags": [
+        "family",
+        "calendar",
+        "household"
+      ],
+      "date_added": "2026-03-18"
+    },
+    {
+      "id": "multi-agent-specialized-team",
+      "name": "Multi-Agent Specialized Team",
+      "category": "Developer Workflows",
+      "description": "Team of agents with distinct roles — architect, coder, reviewer, deployer",
+      "why_it_matters": "The multi-agent team pattern that every enterprise AI strategy deck talks about — actually built",
+      "source_url": "https://github.com/hesamsheikh/awesome-openclaw-usecases",
+      "source_type": "github",
+      "complexity": "advanced",
+      "tags": [
+        "multi-agent",
+        "team",
+        "roles"
+      ],
+      "date_added": "2026-03-18"
+    },
+    {
+      "id": "desktop-cowork",
+      "name": "Desktop Cowork",
+      "category": "Personal Productivity",
+      "description": "Agent watches your screen and proactively offers help, context, and suggestions",
+      "why_it_matters": "Ambient computing pattern — agent as a pair programmer who never sleeps",
+      "source_url": "https://github.com/hesamsheikh/awesome-openclaw-usecases",
+      "source_type": "github",
+      "complexity": "advanced",
+      "tags": [
+        "desktop",
+        "cowork",
+        "ambient"
+      ],
+      "date_added": "2026-03-18"
+    },
+    {
+      "id": "custom-morning-brief",
+      "name": "Custom Morning Brief",
+      "category": "Personal Productivity",
+      "description": "Personalized morning briefing: weather, calendar, news, tasks, and market updates",
+      "why_it_matters": "The daily brief is the killer app for personal agents — proves immediate, tangible value",
+      "source_url": "https://github.com/hesamsheikh/awesome-openclaw-usecases",
+      "source_type": "github",
+      "complexity": "beginner",
+      "tags": [
+        "morning",
+        "briefing",
+        "daily"
+      ],
+      "date_added": "2026-03-18"
+    },
+    {
+      "id": "automated-meeting-notes",
+      "name": "Automated Meeting Notes & Action Items",
+      "category": "Business Automation",
+      "description": "Joins meetings, transcribes, extracts action items, and distributes summaries",
+      "why_it_matters": "Meeting overhead is the #1 enterprise time waste — automated notes change the ROI math",
+      "source_url": "https://github.com/hesamsheikh/awesome-openclaw-usecases",
+      "source_type": "github",
+      "complexity": "intermediate",
+      "tags": [
+        "meetings",
+        "notes",
+        "transcription"
+      ],
+      "date_added": "2026-03-18"
+    },
+    {
+      "id": "habit-tracker-coach",
+      "name": "Habit Tracker & Accountability Coach",
+      "category": "Lifestyle & Smart Home",
+      "description": "Tracks daily habits, sends reminders, provides streak data and motivational nudges",
+      "why_it_matters": "Behavioral loop pattern — agent as a persistent, personalized nudge engine",
+      "source_url": "https://github.com/hesamsheikh/awesome-openclaw-usecases",
+      "source_type": "github",
+      "complexity": "beginner",
+      "tags": [
+        "habits",
+        "tracking",
+        "coaching"
+      ],
+      "date_added": "2026-03-18"
+    },
+    {
+      "id": "second-brain",
+      "name": "Second Brain",
+      "category": "Research & Knowledge",
+      "description": "Agent as a knowledge management system — captures, links, and retrieves information contextually",
+      "why_it_matters": "RAG + personal context = the knowledge worker productivity multiplier",
+      "source_url": "https://github.com/hesamsheikh/awesome-openclaw-usecases",
+      "source_type": "github",
+      "complexity": "intermediate",
+      "tags": [
+        "knowledge",
+        "second-brain",
+        "memory"
+      ],
+      "date_added": "2026-03-18"
+    },
+    {
+      "id": "event-guest-confirmation",
+      "name": "Event Guest Confirmation",
+      "category": "Business Automation",
+      "description": "Manages RSVPs, sends reminders, handles dietary preferences and logistics",
+      "why_it_matters": "Event management automation — multi-step communication workflow with state tracking",
+      "source_url": "https://github.com/hesamsheikh/awesome-openclaw-usecases",
+      "source_type": "github",
+      "complexity": "beginner",
+      "tags": [
+        "events",
+        "rsvp",
+        "communication"
+      ],
+      "date_added": "2026-03-18"
+    },
+    {
+      "id": "phone-call-notifications",
+      "name": "Phone Call Notifications",
+      "category": "Personal Productivity",
+      "description": "Agent screens calls, provides context about callers, and sends smart notifications",
+      "why_it_matters": "Call screening as an agent skill — bridges telephony and AI",
+      "source_url": "https://github.com/hesamsheikh/awesome-openclaw-usecases",
+      "source_type": "github",
+      "complexity": "intermediate",
+      "tags": [
+        "phone",
+        "notifications",
+        "screening"
+      ],
+      "date_added": "2026-03-18"
+    },
+    {
+      "id": "local-crm-framework",
+      "name": "Local CRM Framework",
+      "category": "Business Automation",
+      "description": "Fully local CRM that runs on your machine — no cloud dependency, full data ownership",
+      "why_it_matters": "Data sovereignty for small businesses — CRM without SaaS lock-in",
+      "source_url": "https://github.com/hesamsheikh/awesome-openclaw-usecases",
+      "source_type": "github",
+      "complexity": "intermediate",
+      "tags": [
+        "crm",
+        "local",
+        "framework"
+      ],
+      "date_added": "2026-03-18"
+    },
+    {
+      "id": "ai-earnings-tracker",
+      "name": "AI Earnings Tracker",
+      "category": "Research & Knowledge",
+      "description": "Tracks AI company earnings, extracts key metrics, and generates investment briefs",
+      "why_it_matters": "Financial intelligence automation — same pattern for any sector earnings analysis",
+      "source_url": "https://github.com/hesamsheikh/awesome-openclaw-usecases",
+      "source_type": "github",
+      "complexity": "intermediate",
+      "tags": [
+        "earnings",
+        "finance",
+        "tracking"
+      ],
+      "date_added": "2026-03-18"
+    },
+    {
+      "id": "personal-knowledge-base-rag",
+      "name": "Personal Knowledge Base (RAG)",
+      "category": "Research & Knowledge",
+      "description": "RAG-powered knowledge base that indexes your documents and answers questions with citations",
+      "why_it_matters": "The RAG pattern made personal — enterprise search for individuals",
+      "source_url": "https://github.com/hesamsheikh/awesome-openclaw-usecases",
+      "source_type": "github",
+      "complexity": "intermediate",
+      "tags": [
+        "rag",
+        "knowledge-base",
+        "search"
+      ],
+      "date_added": "2026-03-18"
+    },
+    {
+      "id": "market-research-product-factory",
+      "name": "Market Research & Product Factory",
+      "category": "Research & Knowledge",
+      "description": "End-to-end market research: competitor analysis, user interviews synthesis, product briefs",
+      "why_it_matters": "Research-to-decision pipeline — the pattern PMs and strategists need",
+      "source_url": "https://github.com/hesamsheikh/awesome-openclaw-usecases",
+      "source_type": "github",
+      "complexity": "advanced",
+      "tags": [
+        "market-research",
+        "product",
+        "strategy"
+      ],
+      "date_added": "2026-03-18"
+    },
+    {
+      "id": "pre-build-idea-validator",
+      "name": "Pre-Build Idea Validator",
+      "category": "Research & Knowledge",
+      "description": "Validates product ideas before building: market size, competitors, technical feasibility",
+      "why_it_matters": "Due diligence automation — saves weeks of manual research per idea",
+      "source_url": "https://github.com/hesamsheikh/awesome-openclaw-usecases",
+      "source_type": "github",
+      "complexity": "intermediate",
+      "tags": [
+        "validation",
+        "ideas",
+        "research"
+      ],
+      "date_added": "2026-03-18"
+    },
+    {
+      "id": "semantic-memory-search",
+      "name": "Semantic Memory Search",
+      "category": "Research & Knowledge",
+      "description": "Vector-based memory that finds relevant past conversations and documents by meaning",
+      "why_it_matters": "Semantic search is the foundation of agent memory — this makes it practical",
+      "source_url": "https://github.com/hesamsheikh/awesome-openclaw-usecases",
+      "source_type": "github",
+      "complexity": "advanced",
+      "tags": [
+        "semantic",
+        "memory",
+        "vectors"
+      ],
+      "date_added": "2026-03-18"
+    },
+    {
+      "id": "arxiv-paper-reader",
+      "name": "arXiv Paper Reader",
+      "category": "Research & Knowledge",
+      "description": "Monitors arXiv categories, summarizes new papers, and flags relevant ones for deep reading",
+      "why_it_matters": "Research monitoring at scale — stay current without reading 50 papers a week",
+      "source_url": "https://github.com/hesamsheikh/awesome-openclaw-usecases",
+      "source_type": "github",
+      "complexity": "intermediate",
+      "tags": [
+        "arxiv",
+        "papers",
+        "research"
+      ],
+      "date_added": "2026-03-18"
+    },
+    {
+      "id": "latex-paper-writing",
+      "name": "LaTeX Paper Writing",
+      "category": "Research & Knowledge",
+      "description": "Agent writes and compiles LaTeX papers — handles bibliography, figures, and formatting",
+      "why_it_matters": "Academic writing automation — from outline to submission-ready PDF",
+      "source_url": "https://github.com/hesamsheikh/awesome-openclaw-usecases",
+      "source_type": "github",
+      "complexity": "advanced",
+      "tags": [
+        "latex",
+        "writing",
+        "academic"
+      ],
+      "date_added": "2026-03-18"
+    },
+    {
+      "id": "polymarket-autopilot",
+      "name": "Polymarket Autopilot",
+      "category": "Research & Knowledge",
+      "description": "Monitors prediction markets, analyzes probabilities, and suggests or executes trades",
+      "why_it_matters": "Autonomous trading agent pattern — high-stakes decision-making with real money",
+      "source_url": "https://github.com/hesamsheikh/awesome-openclaw-usecases",
+      "source_type": "github",
+      "complexity": "advanced",
+      "tags": [
+        "polymarket",
+        "trading",
+        "prediction"
+      ],
+      "date_added": "2026-03-18"
+    },
+    {
+      "id": "email-cleanup-10k",
+      "name": "Email Cleanup (10K Day 1)",
+      "category": "Personal Productivity",
+      "description": "Cleaned 10,000 emails on day one — auto-archive, unsubscribe, categorize at scale",
+      "why_it_matters": "Proves agent throughput — 10K actions in a session is enterprise-grade batch processing",
+      "source_url": "https://openclaw.ai/showcase",
+      "source_type": "showcase",
+      "complexity": "beginner",
+      "tags": [
+        "email",
+        "cleanup",
+        "batch"
+      ],
+      "date_added": "2026-03-18"
+    },
+    {
+      "id": "site-rebuild-telegram",
+      "name": "Site Rebuild via Telegram",
+      "category": "Developer Workflows",
+      "description": "Rebuilt entire website by chatting with agent on Telegram while watching Netflix",
+      "why_it_matters": "Mobile-first development — the phone becomes the IDE for agent-driven coding",
+      "source_url": "https://openclaw.ai/showcase",
+      "source_type": "showcase",
+      "complexity": "intermediate",
+      "tags": [
+        "telegram",
+        "website",
+        "mobile-dev"
+      ],
+      "date_added": "2026-03-18"
+    },
+    {
+      "id": "raspberry-pi-cloudflare",
+      "name": "Raspberry Pi + Cloudflare Deployment",
+      "category": "Edge Hardware",
+      "description": "Full agent runtime on a Raspberry Pi with Cloudflare tunnel for public access",
+      "why_it_matters": "Edge AI deployment on $35 hardware — proves agents dont need cloud instances",
+      "source_url": "https://openclaw.ai/showcase",
+      "source_type": "showcase",
+      "complexity": "intermediate",
+      "tags": [
+        "raspberry-pi",
+        "cloudflare",
+        "edge"
+      ],
+      "date_added": "2026-03-18"
+    },
+    {
+      "id": "meal-planning-notion",
+      "name": "Meal Planning System in Notion",
+      "category": "Lifestyle & Smart Home",
+      "description": "Agent manages weekly meal plans, generates shopping lists, and syncs to Notion",
+      "why_it_matters": "Lifestyle automation with real tool integration — not a toy demo",
+      "source_url": "https://openclaw.ai/showcase",
+      "source_type": "showcase",
+      "complexity": "beginner",
+      "tags": [
+        "meals",
+        "notion",
+        "planning"
+      ],
+      "date_added": "2026-03-18"
+    },
+    {
+      "id": "solo-founder-4-agent-team",
+      "name": "Solo Founder 4-Agent Team",
+      "category": "Business Automation",
+      "description": "One founder running strategy, dev, marketing, and business agents as virtual team",
+      "why_it_matters": "The solo-founder-as-CEO pattern — agents as department heads, human as strategist",
+      "source_url": "https://openclaw.ai/showcase",
+      "source_type": "showcase",
+      "complexity": "advanced",
+      "tags": [
+        "founder",
+        "multi-agent",
+        "startup"
+      ],
+      "date_added": "2026-03-18"
+    },
+    {
+      "id": "garmin-obsidian-github",
+      "name": "Garmin + Obsidian + GitHub Integration",
+      "category": "Lifestyle & Smart Home",
+      "description": "Syncs Garmin fitness data to Obsidian notes and GitHub for health tracking",
+      "why_it_matters": "Cross-platform data pipeline — agent as the universal API bridge",
+      "source_url": "https://openclaw.ai/showcase",
+      "source_type": "showcase",
+      "complexity": "intermediate",
+      "tags": [
+        "garmin",
+        "obsidian",
+        "fitness"
+      ],
+      "date_added": "2026-03-18"
+    },
+    {
+      "id": "railway-voice-debugging",
+      "name": "Railway Deployment Debugging via Voice",
+      "category": "Infrastructure & DevOps",
+      "description": "Debugged Railway deployment by voice while walking the dog",
+      "why_it_matters": "Voice-first DevOps — proves agents work in zero-screen contexts",
+      "source_url": "https://openclaw.ai/showcase",
+      "source_type": "showcase",
+      "complexity": "intermediate",
+      "tags": [
+        "railway",
+        "voice",
+        "debugging"
+      ],
+      "date_added": "2026-03-18"
+    },
+    {
+      "id": "macos-menu-bar-app",
+      "name": "Swift macOS Menu Bar App",
+      "category": "Edge Hardware",
+      "description": "Native macOS menu bar app for quick OpenClaw access — built with Swift",
+      "why_it_matters": "Native OS integration — agent becomes a first-class desktop citizen",
+      "source_url": "https://openclaw.ai/showcase",
+      "source_type": "showcase",
+      "complexity": "advanced",
+      "tags": [
+        "macos",
+        "swift",
+        "menu-bar"
+      ],
+      "date_added": "2026-03-18"
+    },
+    {
+      "id": "15-agent-army",
+      "name": "15+ Agent Army Across 3 Machines",
+      "category": "Infrastructure & DevOps",
+      "description": "Fleet of 15+ specialized agents distributed across 3 machines, coordinated centrally",
+      "why_it_matters": "Distributed agent orchestration — the architecture pattern for scaling agent workloads",
+      "source_url": "https://openclaw.ai/showcase",
+      "source_type": "showcase",
+      "complexity": "advanced",
+      "tags": [
+        "fleet",
+        "distributed",
+        "orchestration"
+      ],
+      "date_added": "2026-03-18"
+    },
+    {
+      "id": "idea-to-decision-pipeline",
+      "name": "Idea-to-Decision Pipeline with Overnight Cron",
+      "category": "Research & Knowledge",
+      "description": "Submit ideas before bed, wake up to validated research with go/no-go recommendations",
+      "why_it_matters": "Async agent work — overnight batch processing turns sleeping hours into productive ones",
+      "source_url": "https://openclaw.ai/showcase",
+      "source_type": "showcase",
+      "complexity": "intermediate",
+      "tags": [
+        "cron",
+        "overnight",
+        "research"
+      ],
+      "date_added": "2026-03-18"
+    },
+    {
+      "id": "google-ads-optimizer",
+      "name": "Google Ads Optimization",
+      "category": "Enterprise",
+      "description": "Agent monitors Google Ads campaigns, adjusts bids, pauses underperformers, generates reports",
+      "why_it_matters": "PPC automation with AI judgment — not just rules, actual contextual optimization",
+      "source_url": "https://openclaw.ai/showcase",
+      "source_type": "showcase",
+      "complexity": "advanced",
+      "tags": [
+        "google-ads",
+        "ppc",
+        "optimization"
+      ],
+      "date_added": "2026-03-18"
+    },
+    {
+      "id": "jira-ga4-gsc-skills",
+      "name": "Jira/GA4/GSC Skills",
+      "category": "Enterprise",
+      "description": "Custom skills for Jira ticket management, Google Analytics 4, and Google Search Console",
+      "why_it_matters": "Enterprise tool integration via skills — the plugin architecture that makes agents useful at work",
+      "source_url": "https://openclaw.ai/showcase",
+      "source_type": "showcase",
+      "complexity": "intermediate",
+      "tags": [
+        "jira",
+        "analytics",
+        "seo"
+      ],
+      "date_added": "2026-03-18"
+    },
+    {
+      "id": "sdk-docs-visual-refresh",
+      "name": "SDK Docs Visual Refresh",
+      "category": "Developer Workflows",
+      "description": "Agent redesigned SDK documentation site — updated styling, fixed navigation, improved UX",
+      "why_it_matters": "Documentation maintenance by agent — the most neglected dev task, now automated",
+      "source_url": "https://openclaw.ai/showcase",
+      "source_type": "showcase",
+      "complexity": "intermediate",
+      "tags": [
+        "docs",
+        "design",
+        "sdk"
+      ],
+      "date_added": "2026-03-18"
+    },
+    {
+      "id": "ai-teaching-assistant",
+      "name": "AI Teaching Assistant",
+      "category": "Education",
+      "description": "Automated grading, lesson plan generation, student progress tracking, and parent communication",
+      "why_it_matters": "Education is ripe for agent automation — teachers spend 50% of time on admin, not teaching",
+      "source_url": "https://allclaw.org",
+      "source_type": "community",
+      "complexity": "intermediate",
+      "tags": [
+        "education",
+        "grading",
+        "teaching"
+      ],
+      "date_added": "2026-03-18"
+    },
+    {
+      "id": "student-tutoring-agent",
+      "name": "Student Tutoring Agent",
+      "category": "Education",
+      "description": "Voice-based Q&A tutoring agent that adapts to student level and learning style",
+      "why_it_matters": "Personalized education at scale — one agent per student, available 24/7",
+      "source_url": "https://allclaw.org",
+      "source_type": "community",
+      "complexity": "intermediate",
+      "tags": [
+        "tutoring",
+        "voice",
+        "education"
+      ],
+      "date_added": "2026-03-18"
+    },
+    {
+      "id": "course-content-auto-updater",
+      "name": "Course Content Auto-Updater",
+      "category": "Education",
+      "description": "Monitors industry changes and automatically updates course materials to stay current",
+      "why_it_matters": "Content freshness automation — courses go stale fast, agents keep them current",
+      "source_url": "https://allclaw.org",
+      "source_type": "community",
+      "complexity": "intermediate",
+      "tags": [
+        "courses",
+        "content",
+        "education"
+      ],
+      "date_added": "2026-03-18"
+    },
+    {
+      "id": "patient-appointment-scheduling",
+      "name": "Patient Appointment Scheduling",
+      "category": "Healthcare",
+      "description": "EHR-integrated scheduling with no-show prediction and automated reminders",
+      "why_it_matters": "Healthcare scheduling is a $150B problem — AI reduces no-shows by 30-40%",
+      "source_url": "https://allclaw.org",
+      "source_type": "community",
+      "complexity": "advanced",
+      "tags": [
+        "healthcare",
+        "scheduling",
+        "ehr"
+      ],
+      "date_added": "2026-03-18"
+    },
+    {
+      "id": "digital-patient-intake",
+      "name": "Digital Patient Intake",
+      "category": "Healthcare",
+      "description": "WhatsApp-based patient intake forms with automatic EHR population",
+      "why_it_matters": "Patient experience meets automation — intake on the channel patients already use",
+      "source_url": "https://allclaw.org",
+      "source_type": "community",
+      "complexity": "intermediate",
+      "tags": [
+        "healthcare",
+        "whatsapp",
+        "intake"
+      ],
+      "date_added": "2026-03-18"
+    },
+    {
+      "id": "ai-care-coordinator",
+      "name": "AI Care Coordinator",
+      "category": "Healthcare",
+      "description": "Coordinates between specialists, manages referrals, tracks treatment plans",
+      "why_it_matters": "Care coordination failures cost lives — agent ensures nothing falls through cracks",
+      "source_url": "https://allclaw.org",
+      "source_type": "community",
+      "complexity": "advanced",
+      "tags": [
+        "healthcare",
+        "coordination",
+        "care"
+      ],
+      "date_added": "2026-03-18"
+    },
+    {
+      "id": "automated-trading-system",
+      "name": "Automated Trading System",
+      "category": "Financial",
+      "description": "Sentiment analysis + technical indicators driving automated buy/sell decisions",
+      "why_it_matters": "Autonomous financial agents — the compliance and risk implications architects must understand",
+      "source_url": "https://allclaw.org",
+      "source_type": "community",
+      "complexity": "advanced",
+      "tags": [
+        "trading",
+        "finance",
+        "sentiment"
+      ],
+      "date_added": "2026-03-18"
+    },
+    {
+      "id": "quant-investment-workflow",
+      "name": "Quant Investment Workflow",
+      "category": "Financial",
+      "description": "Backtesting strategies, portfolio optimization, and risk analysis via agent pipeline",
+      "why_it_matters": "Quant workflows democratized — what hedge funds build internally, now accessible",
+      "source_url": "https://allclaw.org",
+      "source_type": "community",
+      "complexity": "advanced",
+      "tags": [
+        "quant",
+        "backtesting",
+        "investment"
+      ],
+      "date_added": "2026-03-18"
+    },
+    {
+      "id": "technical-seo-auditor",
+      "name": "Technical SEO Auditor",
+      "category": "SEO & Marketing",
+      "description": "Crawls sites, identifies SEO issues, generates fix recommendations with priority scoring",
+      "why_it_matters": "SEO audits cost $5K+ from agencies — agent does it continuously for free",
+      "source_url": "https://allclaw.org",
+      "source_type": "community",
+      "complexity": "intermediate",
+      "tags": [
+        "seo",
+        "audit",
+        "technical"
+      ],
+      "date_added": "2026-03-18"
+    },
+    {
+      "id": "programmatic-seo-pipeline",
+      "name": "Programmatic SEO Pipeline",
+      "category": "SEO & Marketing",
+      "description": "Generates hundreds of SEO-optimized pages from templates and data sources",
+      "why_it_matters": "Programmatic SEO at scale — the growth hack that built Zapier and Canva landing pages",
+      "source_url": "https://allclaw.org",
+      "source_type": "community",
+      "complexity": "advanced",
+      "tags": [
+        "seo",
+        "programmatic",
+        "content"
+      ],
+      "date_added": "2026-03-18"
+    },
+    {
+      "id": "link-building-automation",
+      "name": "Link Building Automation",
+      "category": "SEO & Marketing",
+      "description": "Finds link opportunities, drafts outreach emails, tracks responses and placements",
+      "why_it_matters": "Link building is 80% research and outreach — perfect for agent automation",
+      "source_url": "https://allclaw.org",
+      "source_type": "community",
+      "complexity": "intermediate",
+      "tags": [
+        "seo",
+        "link-building",
+        "outreach"
+      ],
+      "date_added": "2026-03-18"
+    },
+    {
+      "id": "social-media-scheduler",
+      "name": "Social Media Scheduler",
+      "category": "SEO & Marketing",
+      "description": "Creates, schedules, and cross-posts content across multiple social platforms",
+      "why_it_matters": "Buffer/Hootsuite alternative with AI content generation built in",
+      "source_url": "https://allclaw.org",
+      "source_type": "community",
+      "complexity": "beginner",
+      "tags": [
+        "social-media",
+        "scheduling",
+        "content"
+      ],
+      "date_added": "2026-03-18"
+    },
+    {
+      "id": "content-repurposing-engine",
+      "name": "Content Repurposing Engine",
+      "category": "SEO & Marketing",
+      "description": "Takes one piece of content and transforms it into 10+ formats: threads, reels scripts, blog posts, newsletters",
+      "why_it_matters": "Content multiplication — the 1-to-many pattern every content team needs",
+      "source_url": "https://allclaw.org",
+      "source_type": "community",
+      "complexity": "intermediate",
+      "tags": [
+        "content",
+        "repurposing",
+        "multi-format"
+      ],
+      "date_added": "2026-03-18"
+    },
+    {
+      "id": "legal-document-review",
+      "name": "Legal Document Review",
+      "category": "Legal",
+      "description": "Clause extraction, version diffing, risk flagging, and compliance checking for contracts",
+      "why_it_matters": "Legal review costs $500+/hour — agent handles first-pass review at near-zero marginal cost",
+      "source_url": "https://allclaw.org",
+      "source_type": "community",
+      "complexity": "advanced",
+      "tags": [
+        "legal",
+        "contracts",
+        "review"
+      ],
+      "date_added": "2026-03-18"
+    },
+    {
+      "id": "compliance-monitoring",
+      "name": "Compliance Monitoring",
+      "category": "Legal",
+      "description": "Monitors regulatory changes, maps them to internal policies, flags required updates",
+      "why_it_matters": "Compliance drift is expensive — continuous monitoring beats annual audits",
+      "source_url": "https://allclaw.org",
+      "source_type": "community",
+      "complexity": "advanced",
+      "tags": [
+        "compliance",
+        "regulation",
+        "monitoring"
+      ],
+      "date_added": "2026-03-18"
+    },
+    {
+      "id": "home-assistant-voice-control",
+      "name": "Home Assistant Voice Control",
+      "category": "Smart Home",
+      "description": "Natural language control of Home Assistant devices — lights, thermostat, locks, cameras",
+      "why_it_matters": "Voice + smart home without Alexa/Google lock-in — fully private, fully customizable",
+      "source_url": "https://allclaw.org",
+      "source_type": "community",
+      "complexity": "intermediate",
+      "tags": [
+        "home-assistant",
+        "voice",
+        "iot"
+      ],
+      "date_added": "2026-03-18"
+    },
+    {
+      "id": "scene-automation",
+      "name": "Scene Automation",
+      "category": "Smart Home",
+      "description": "Context-aware home scenes — movie mode, bedtime, work-from-home, guest mode",
+      "why_it_matters": "Contextual automation beyond simple schedules — agent understands intent",
+      "source_url": "https://allclaw.org",
+      "source_type": "community",
+      "complexity": "beginner",
+      "tags": [
+        "scenes",
+        "automation",
+        "smart-home"
+      ],
+      "date_added": "2026-03-18"
+    },
+    {
+      "id": "security-monitor",
+      "name": "Security Monitor",
+      "category": "Smart Home",
+      "description": "AI-powered camera monitoring with person detection, alerts, and event logging",
+      "why_it_matters": "Computer vision + agent = smart security without monthly subscriptions",
+      "source_url": "https://allclaw.org",
+      "source_type": "community",
+      "complexity": "advanced",
+      "tags": [
+        "security",
+        "cameras",
+        "monitoring"
+      ],
+      "date_added": "2026-03-18"
+    },
+    {
+      "id": "energy-optimization",
+      "name": "Energy Optimization",
+      "category": "Smart Home",
+      "description": "Monitors energy usage, optimizes HVAC schedules, tracks solar production, reduces bills",
+      "why_it_matters": "Energy management is a climate and cost problem — agents optimize continuously",
+      "source_url": "https://allclaw.org",
+      "source_type": "community",
+      "complexity": "intermediate",
+      "tags": [
+        "energy",
+        "optimization",
+        "solar"
+      ],
+      "date_added": "2026-03-18"
+    },
+    {
+      "id": "picoclaw-pi-zero",
+      "name": "PicoClaw (Pi Zero)",
+      "category": "Edge Hardware",
+      "description": "Minimal agent runtime on Raspberry Pi Zero — ultra-low-power always-on assistant",
+      "why_it_matters": "Edge AI at the extreme — proves agents run on $15 hardware with 512MB RAM",
+      "source_url": "https://allclaw.org",
+      "source_type": "community",
+      "complexity": "advanced",
+      "tags": [
+        "pi-zero",
+        "edge",
+        "minimal"
+      ],
+      "date_added": "2026-03-18"
+    },
+    {
+      "id": "linkedin-outreach",
+      "name": "LinkedIn Outreach",
+      "category": "Enterprise",
+      "description": "Automated LinkedIn connection requests, follow-ups, and engagement tracking",
+      "why_it_matters": "Sales outreach automation — the most requested enterprise agent use case",
+      "source_url": "https://allclaw.org",
+      "source_type": "community",
+      "complexity": "intermediate",
+      "tags": [
+        "linkedin",
+        "outreach",
+        "sales"
+      ],
+      "date_added": "2026-03-18"
+    },
+    {
+      "id": "airbnb-guest-management",
+      "name": "Airbnb Guest Management",
+      "category": "Enterprise",
+      "description": "Automated guest communication, check-in instructions, review responses, and pricing",
+      "why_it_matters": "Property management automation — one agent replaces a property manager for small hosts",
+      "source_url": "https://allclaw.org",
+      "source_type": "community",
+      "complexity": "intermediate",
+      "tags": [
+        "airbnb",
+        "property",
+        "hospitality"
+      ],
+      "date_added": "2026-03-18"
+    },
+    {
+      "id": "invoice-automation",
+      "name": "Invoice Automation",
+      "category": "Enterprise",
+      "description": "Generates, sends, and tracks invoices — chases overdue payments automatically",
+      "why_it_matters": "Cash flow automation for freelancers and small businesses — money in faster",
+      "source_url": "https://allclaw.org",
+      "source_type": "community",
+      "complexity": "beginner",
+      "tags": [
+        "invoicing",
+        "automation",
+        "finance"
+      ],
+      "date_added": "2026-03-18"
+    },
+    {
+      "id": "raspberry-pi-ai-hub",
+      "name": "Raspberry Pi AI Hub",
+      "category": "Edge Hardware",
+      "description": "Central AI hub on Raspberry Pi coordinating IoT devices, running local models",
+      "why_it_matters": "Edge computing hub pattern — local inference, global coordination",
+      "source_url": "https://allclaw.org",
+      "source_type": "community",
+      "complexity": "intermediate",
+      "tags": [
+        "raspberry-pi",
+        "hub",
+        "iot"
+      ],
+      "date_added": "2026-03-18"
+    }
+  ]
+}
