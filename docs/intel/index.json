@@ -1,46 +1,39 @@
 {
   "articles": [
     {
+      "slug": "fibonacci-universe-research",
+      "title": "Fibonacci Patterns in the Universe: A Comprehensive Analysis",
+      "date": "March 2026",
+      "excerpt": "Research compiled from peer-reviewed journals analyzing Fibonacci sequences, golden ratio properties, and their emergence across mathematics, biology, physics, and astronomy",
+      "tags": ["tech", "science", "research"]
+    },
+    {
+      "slug": "agent-org-structure",
+      "title": "Agent Organization Structure - Design Research",
+      "date": "2026-03-18",
+      "excerpt": "Research synthesizing human organizational theory, multi-agent system architecture, and startup department design to propose an organizational structure for a growing AI agent team",
+      "tags": ["ai", "tech", "business"]
+    },
+    {
       "slug": "openclaw-360-briefing",
-      "title": "OpenClaw — 360° Intelligence Briefing",
+      "title": "OpenClaw - 360 Degree Intelligence Briefing",
       "date": "March 17, 2026",
-      "excerpt": "An open-source autonomous AI agent OS created by Peter Steinberger . Started as \"Clawdbot\" , renamed to OpenClaw . Now run by an independent foundation after Steinberger was hired by OpenAI .",
-      "tags": [
-        "geopolitics",
-        "tech",
-        "business",
-        "ai",
-        "cloud",
-        "security"
-      ]
+      "excerpt": "An open-source autonomous AI agent OS created by Peter Steinberger. Started as Clawdbot, renamed to OpenClaw. Now run by an independent foundation after Steinberger was hired by OpenAI.",
+      "tags": ["geopolitics", "tech", "business", "ai", "cloud", "security"]
     },
     {
       "slug": "openclaw-business-report",
       "title": "OpenClaw: Business & Money Report",
       "date": "2026-03-14",
-      "excerpt": "- Previous company: Co-founded and was CEO of PSPDFKit, a PDF SDK company that received a €100M+ strategic growth investment from Insight Partners in September 2021. PSPDFKit later rebranded as Nutrie...",
-      "tags": [
-        "geopolitics",
-        "tech",
-        "business",
-        "ai",
-        "cloud",
-        "security"
-      ]
+      "excerpt": "Business analysis and financial background on OpenClaw, including founder PSPDFKit history and strategic positioning.",
+      "tags": ["geopolitics", "tech", "business", "ai", "cloud", "security"]
     },
     {
       "slug": "european-sovereign-cloud-briefing-2026-03",
-      "title": "🔭 European Sovereign Cloud — Strategic Briefing",
+      "title": "European Sovereign Cloud - Strategic Briefing",
       "date": "2025-11-12",
-      "excerpt": "Prepared for: Solutions Architects advising European enterprise customers",
-      "tags": [
-        "geopolitics",
-        "tech",
-        "business",
-        "ai",
-        "cloud",
-        "security"
-      ]
+      "excerpt": "Strategic analysis prepared for Solutions Architects advising European enterprise customers on sovereign cloud initiatives.",
+      "tags": ["geopolitics", "tech", "business", "ai", "cloud", "security"]
     }
   ]
 }
