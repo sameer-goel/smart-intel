@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>📂 OpenClaw File Browser</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: 'Monaco', 'Consolas', monospace;
+            background: #0a0a0a;
+            color: #e0e0e0;
+            padding: 2rem;
+            font-size: 14px;
+        }
+        h1 {
+            color: #667eea;
+            margin-bottom: 0.5rem;
+        }
+        .subtitle {
+            color: #888;
+            margin-bottom: 2rem;
+        }
+        .search {
+            margin-bottom: 2rem;
+            padding: 1rem;
+            background: #1a1a1a;
+            border-radius: 8px;
+        }
+        input[type="text"] {
+            width: 100%;
+            padding: 0.5rem;
+            background: #0a0a0a;
+            border: 1px solid #2a2a2a;
+            color: #e0e0e0;
+            border-radius: 4px;
+            font-family: inherit;
+        }
+        .tree {
+            background: #1a1a1a;
+            border: 1px solid #2a2a2a;
+            border-radius: 8px;
+            padding: 1.5rem;
+            overflow-x: auto;
+            max-height: 80vh;
+            overflow-y: auto;
+        }
+        .folder {
+            color: #3b82f6;
+            font-weight: bold;
+            margin: 0.5rem 0;
+            cursor: pointer;
+        }
+        .folder:hover {
+            color: #60a5fa;
+        }
+        .file {
+            color: #10b981;
+            margin-left: 1.5rem;
+            padding: 0.25rem 0;
+        }
+        .file.md { color: #f59e0b; }
+        .file.js { color: #eab308; }
+        .file.json { color: #8b5cf6; }
+        .file.sh { color: #06b6d4; }
+        .file:hover {
+            background: #2a2a2a;
+            cursor: pointer;
+        }
+        .indent { margin-left: 1.5rem; }
+        .hidden { display: none; }
+        .badge {
+            display: inline-block;
+            padding: 0.1rem 0.5rem;
+            border-radius: 4px;
+            font-size: 0.7rem;
+            margin-left: 0.5rem;
+        }
+        .badge-new { background: #10b98130; color: #10b981; }
+        .badge-important { background: #ef444430; color: #ef4444; }
+        pre {
+            background: #0a0a0a;
+            padding: 1rem;
+            border-radius: 4px;
+            overflow-x: auto;
+            margin-top: 1rem;
+        }
+    </style>
+</head>
+<body>
+    <h1>📂 OpenClaw File Browser</h1>
+    <p class="subtitle">Scout's workspace files & documentation</p>
+
+    <div class="search">
+        <input type="text" id="searchInput" placeholder="Search files... (try: kiro, cost, memory, agent)" onkeyup="searchFiles()">
+    </div>
+
+    <div class="tree" id="fileTree">
+        <div class="folder" onclick="toggle('workspace')">
+            📁 <strong>workspace/</strong> <span class="badge badge-new">Your main workspace</span>
+            <div id="workspace" class="indent">
+                
+                <div class="folder" onclick="toggle('coworking')">
+                    📁 coworking/ <span class="badge badge-new">Team & agent docs</span>
+                    <div id="coworking" class="indent">
+                        <div class="file md" onclick="showFile('coworking/README.md')">📄 README.md</div>
+                        <div class="file md" onclick="showFile('coworking/QUICK-START.md')">📄 QUICK-START.md</div>
+                        <div class="file md" onclick="showFile('coworking/how-to-use-kiro.md')">📄 how-to-use-kiro.md <span class="badge badge-new">NEW</span></div>
+                        <div class="file md" onclick="showFile('coworking/kiro-agent-spec.md')">📄 kiro-agent-spec.md</div>
+                        <div class="file md" onclick="showFile('coworking/scout-kiro-architecture.md')">📄 scout-kiro-architecture.md</div>
+                        <div class="file md" onclick="showFile('coworking/kiro-free-economics.md')">📄 kiro-free-economics.md <span class="badge badge-new">NEW</span></div>
+                        <div class="file md" onclick="showFile('coworking/agent-model-allocation.md')">📄 agent-model-allocation.md</div>
+                        <div class="file md" onclick="showFile('coworking/agent-model-test-results.md')">📄 agent-model-test-results.md</div>
+                        <div class="file md" onclick="showFile('coworking/cost-dept-status.md')">📄 cost-dept-status.md</div>
+                        <div class="file md" onclick="showFile('coworking/cost-optimization-dept.md')">📄 cost-optimization-dept.md</div>
+                        <div class="file md" onclick="showFile('coworking/project-status.md')">📄 project-status.md</div>
+                    </div>
+                </div>
+
+                <div class="file md" onclick="showFile('SOUL.md')">📄 SOUL.md <span class="badge badge-important">Core identity</span></div>
+                <div class="file md" onclick="showFile('USER.md')">📄 USER.md <span class="badge badge-important">About Sameer</span></div>
+                <div class="file md" onclick="showFile('MEMORY.md')">📄 MEMORY.md <span class="badge badge-important">Long-term memory</span></div>
+                <div class="file md" onclick="showFile('AGENTS.md')">📄 AGENTS.md</div>
+                <div class="file md" onclick="showFile('TOOLS.md')">📄 TOOLS.md</div>
+                <div class="file md" onclick="showFile('HEARTBEAT.md')">📄 HEARTBEAT.md</div>
+                <div class="file md" onclick="showFile('IDENTITY.md')">📄 IDENTITY.md</div>
+
+                <div class="folder" onclick="toggle('scripts')">
+                    📁 scripts/ <span class="badge badge-new">Automation</span>
+                    <div id="scripts" class="indent hidden">
+                        <div class="file sh" onclick="showFile('scripts/daily-standup.sh')">📄 daily-standup.sh</div>
+                        <div class="file sh" onclick="showFile('scripts/watson-token-audit.sh')">📄 watson-token-audit.sh</div>
+                        <div class="file sh" onclick="showFile('scripts/project-status-reports.sh')">📄 project-status-reports.sh</div>
+                        <div class="file sh" onclick="showFile('scripts/kiro-watcher.sh')">📄 kiro-watcher.sh <span class="badge badge-new">NEW</span></div>
+                        <div class="file sh" onclick="showFile('scripts/browse-files.sh')">📄 browse-files.sh</div>
+                    </div>
+                </div>
+
+                <div class="folder" onclick="toggle('memory')">
+                    📁 memory/ <span class="badge">Daily notes</span>
+                    <div id="memory" class="indent hidden">
+                        <div class="file md" onclick="showFile('memory/2026-03-23.md')">📄 2026-03-23.md</div>
+                        <div class="file md" onclick="showFile('memory/2026-03-22.md')">📄 2026-03-22.md</div>
+                        <div class="file md" onclick="showFile('memory/2026-03-21.md')">📄 2026-03-21.md</div>
+                    </div>
+                </div>
+
+                <div class="folder" onclick="toggle('kiro')">
+                    📁 kiro-queue/ <span class="badge badge-new">Kiro messages</span>
+                    <div id="kiro" class="indent hidden">
+                        <div class="file json" onclick="showFile('kiro-queue/2026-03-23T104500Z-limits.json')">📄 2026-03-23T104500Z-limits.json</div>
+                    </div>
+                </div>
+
+                <div class="folder" onclick="toggle('research')">
+                    📁 research/ <span class="badge">R&D output</span>
+                    <div id="research" class="indent hidden">
+                        <div class="file md">📄 Various research files...</div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+    <pre id="fileContent" style="display:none;">
+File content would appear here...
+Click a file to view it.
+    </pre>
+
+    <script>
+        function toggle(id) {
+            const element = document.getElementById(id);
+            if (element.classList.contains('hidden')) {
+                element.classList.remove('hidden');
+            } else {
+                element.classList.add('hidden');
+            }
+        }
+
+        function showFile(path) {
+            document.getElementById('fileContent').style.display = 'block';
+            document.getElementById('fileContent').textContent = 
+                `File: ${path}\n\nTo view this file, use:\n  cat ~/.openclaw/workspace/${path}\n\nOr in Scout:\n  "Show me ${path}"`;
+        }
+
+        function searchFiles() {
+            const query = document.getElementById('searchInput').value.toLowerCase();
+            const files = document.querySelectorAll('.file, .folder');
+            
+            files.forEach(file => {
+                const text = file.textContent.toLowerCase();
+                if (text.includes(query) || query === '') {
+                    file.style.display = 'block';
+                } else {
+                    file.style.display = 'none';
+                }
+            });
+        }
+    </script>
+</body>
+</html>
