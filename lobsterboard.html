@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>🦞 Scout AI Dashboard - LobsterBoard Style</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            background: #0a0a0a;
+            color: #e0e0e0;
+            overflow: hidden;
+        }
+        .dashboard {
+            width: 1920px;
+            height: 1080px;
+            position: relative;
+            transform-origin: top left;
+        }
+        .widget {
+            position: absolute;
+            background: #1a1a1a;
+            border: 1px solid #2a2a2a;
+            border-radius: 8px;
+            padding: 1rem;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.3);
+        }
+        .widget h2 {
+            font-size: 1.2rem;
+            margin-bottom: 0.5rem;
+            color: #667eea;
+        }
+        .widget-title {
+            font-size: 2rem;
+            font-weight: bold;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            padding: 1rem;
+        }
+        .metric {
+            display: flex;
+            justify-content: space-between;
+            padding: 0.5rem 0;
+            border-bottom: 1px solid #2a2a2a;
+        }
+        .metric:last-child { border-bottom: none; }
+        .metric-label { color: #888; }
+        .metric-value { 
+            font-weight: bold;
+            color: #10b981;
+        }
+        .status-ok { color: #10b981; }
+        .status-warn { color: #f59e0b; }
+        .status-critical { color: #ef4444; }
+        .agent-list {
+            list-style: none;
+            padding: 0;
+        }
+        .agent-list li {
+            padding: 0.5rem 0;
+            border-bottom: 1px solid #2a2a2a;
+        }
+        .agent-list li:last-child { border-bottom: none; }
+        .links {
+            display: flex;
+            gap: 1rem;
+            flex-wrap: wrap;
+        }
+        .links a {
+            color: #667eea;
+            text-decoration: none;
+            padding: 0.5rem 1rem;
+            background: #1a1a1a;
+            border: 1px solid #667eea;
+            border-radius: 4px;
+            transition: all 0.2s;
+        }
+        .links a:hover {
+            background: #667eea;
+            color: white;
+        }
+        .badge {
+            display: inline-block;
+            padding: 0.25rem 0.5rem;
+            border-radius: 4px;
+            font-size: 0.85rem;
+            font-weight: 600;
+        }
+        .badge-success { background: #10b98130; color: #10b981; }
+        .badge-info { background: #3b82f630; color: #3b82f6; }
+        
+        /* Responsive scaling */
+        @media (max-width: 1920px) {
+            .dashboard {
+                transform: scale(0.8);
+            }
+        }
+        @media (max-width: 1536px) {
+            .dashboard {
+                transform: scale(0.6);
+            }
+        }
+        @media (max-width: 1152px) {
+            .dashboard {
+                transform: scale(0.4);
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="dashboard">
+        <!-- Title -->
+        <div class="widget" style="left: 20px; top: 20px; width: 600px; height: 80px;">
+            <div class="widget-title">🦞 Scout AI Dashboard</div>
+        </div>
+
+        <!-- System Status -->
+        <div class="widget" style="left: 20px; top: 120px; width: 380px; height: 240px;">
+            <h2>System Status</h2>
+            <div class="metric">
+                <span class="metric-label">Disk Usage</span>
+                <span class="metric-value">84%</span>
+            </div>
+            <div class="metric">
+                <span class="metric-label">Memory Free</span>
+                <span class="metric-value">179Mi</span>
+            </div>
+            <div class="metric">
+                <span class="metric-label">Uptime</span>
+                <span class="metric-value">4d 21h</span>
+            </div>
+            <div class="metric">
+                <span class="metric-label">Status</span>
+                <span class="metric-value status-ok">✅ Nominal</span>
+            </div>
+        </div>
+
+        <!-- Active Projects -->
+        <div class="widget" style="left: 420px; top: 120px; width: 380px; height: 240px;">
+            <h2>Active Projects</h2>
+            <ul class="agent-list">
+                <li>🎮 AgenticOS Gamified Learning <span class="badge badge-success">Active</span></li>
+                <li>📰 Smart Intel Research <span class="badge badge-success">Active</span></li>
+                <li>🕸️ Web4Agents Scanner <span class="badge badge-info">Testing</span></li>
+                <li>🆓 Free Model 24h Test <span class="badge badge-info">Running</span></li>
+                <li>🏢 Coworking Space <span class="badge badge-success">Active</span></li>
+            </ul>
+        </div>
+
+        <!-- Team Agents -->
+        <div class="widget" style="left: 820px; top: 120px; width: 380px; height: 240px;">
+            <h2>Team Agents</h2>
+            <ul class="agent-list">
+                <li>🔭 Scout - Chief of Staff</li>
+                <li>🔍 Sherlock - Investigator</li>
+                <li>💰 Watson - Financial Analyst</li>
+                <li>🖥️ Infra - System Monitor</li>
+                <li>🛡️ Sentinel - Security</li>
+                <li>🔥 Phoenix - DR & Backup</li>
+            </ul>
+        </div>
+
+        <!-- Monthly Costs -->
+        <div class="widget" style="left: 20px; top: 380px; width: 380px; height: 200px;">
+            <h2>Monthly Costs</h2>
+            <div class="metric">
+                <span class="metric-label">EC2</span>
+                <span class="metric-value">$44</span>
+            </div>
+            <div class="metric">
+                <span class="metric-label">Bedrock</span>
+                <span class="metric-value">$19</span>
+            </div>
+            <div class="metric">
+                <span class="metric-label">Total</span>
+                <span class="metric-value status-ok">$63</span>
+            </div>
+            <div class="metric">
+                <span class="metric-label">Budget</span>
+                <span class="metric-value status-ok">✅ 18% used</span>
+            </div>
+        </div>
+
+        <!-- Workspace Tokens -->
+        <div class="widget" style="left: 420px; top: 380px; width: 380px; height: 200px;">
+            <h2>Workspace Tokens</h2>
+            <div class="metric">
+                <span class="metric-label">Total</span>
+                <span class="metric-value">9,200</span>
+            </div>
+            <div class="metric">
+                <span class="metric-label">Context</span>
+                <span class="metric-value">4.6%</span>
+            </div>
+            <div class="metric">
+                <span class="metric-label">Threshold</span>
+                <span class="metric-value">15,000</span>
+            </div>
+            <div class="metric">
+                <span class="metric-label">Status</span>
+                <span class="metric-value status-ok">✅ Lean</span>
+            </div>
+        </div>
+
+        <!-- Free Model Test -->
+        <div class="widget" style="left: 820px; top: 380px; width: 380px; height: 200px;">
+            <h2>Free Model Test</h2>
+            <div class="metric">
+                <span class="metric-label">Progress</span>
+                <span class="metric-value">180/288 (62.5%)</span>
+            </div>
+            <div class="metric">
+                <span class="metric-label">Success Rate</span>
+                <span class="metric-value status-ok">100%</span>
+            </div>
+            <div class="metric">
+                <span class="metric-label">Rate Limits</span>
+                <span class="metric-value status-ok">0</span>
+            </div>
+            <div class="metric">
+                <span class="metric-label">Avg Latency</span>
+                <span class="metric-value">9.9s</span>
+            </div>
+        </div>
+
+        <!-- Quick Links -->
+        <div class="widget" style="left: 20px; top: 600px; width: 1180px; height: 100px;">
+            <h2>Quick Links</h2>
+            <div class="links">
+                <a href="https://sameer-goel.github.io/smart-intel/" target="_blank">📰 Smart Intel</a>
+                <a href="https://sameer-goel.github.io/AgenticOS-Gamified-Learning/" target="_blank">🎮 AgenticOS Game</a>
+                <a href="https://sameer-goel.github.io/smart-intel/coworking.html" target="_blank">🏢 Coworking</a>
+                <a href="https://github.com/sameer-goel" target="_blank">💻 GitHub</a>
+                <a href="https://todoist.com/app/project/6gC3grCxXcCfWvmH" target="_blank">📋 Todoist</a>
+                <a href="https://github.com/curbob/LobsterBoard" target="_blank">🦞 LobsterBoard</a>
+            </div>
+        </div>
+
+        <!-- Footer -->
+        <div class="widget" style="left: 20px; top: 720px; width: 1180px; height: 60px;">
+            <div style="text-align: center; color: #666;">
+                <p>Scout AI Team Dashboard • Powered by LobsterBoard Style • Last updated: <span id="timestamp">2026-03-23 09:50 UTC</span></p>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Auto-scale dashboard to fit viewport
+        function scaleDashboard() {
+            const dashboard = document.querySelector('.dashboard');
+            const scaleX = window.innerWidth / 1920;
+            const scaleY = window.innerHeight / 1080;
+            const scale = Math.min(scaleX, scaleY);
+            dashboard.style.transform = `scale(${scale})`;
+        }
+        
+        scaleDashboard();
+        window.addEventListener('resize', scaleDashboard);
+        
+        // Update timestamp
+        document.getElementById('timestamp').textContent = new Date().toISOString().slice(0, 19).replace('T', ' ') + ' UTC';
+    </script>
+</body>
+</html>
