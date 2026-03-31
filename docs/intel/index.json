@@ -1,6 +1,13 @@
 {
   "articles": [
     {
+      "slug": "mukt-test",
+      "title": "Research Department - mukt Testing",
+      "date": "2026-03-23",
+      "excerpt": "Query 3 different research questions across free models to see which handles what best. Competitive analysis testing...",
+      "tags": ["ai", "tech", "research"]
+    },
+    {
       "slug": "fibonacci-universe-research",
       "title": "Fibonacci Patterns in the Universe: A Comprehensive Analysis",
       "date": "March 2026",
