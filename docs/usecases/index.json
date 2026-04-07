@@ -1261,5 +1261,56 @@
       "date_added": "2026-03-18",
       "daily_practice": true
     }
+    },
+    {
+      "id": "email-sentiment-classifier",
+      "name": "Email Sentiment Classifier",
+      "category": "Business Automation",
+      "description": "OpenClaw agent that classifies incoming emails by sentiment and auto-tags them for triage",
+      "why_it_matters": "Extends email workflows with intelligent filtering — apply to support tickets, recruiter inboxes, sales pipelines",
+      "source_url": "https://github.com/openclaw-community/email-sentiment-classifier",
+      "source_type": "github",
+      "complexity": "intermediate",
+      "tags": [
+        "email",
+        "sentiment",
+        "nlp",
+        "automation"
+      ],
+      "date_added": "2026-04-06"
+    },
+    {
+      "id": "github-pr-reviewer-agent",
+      "name": "GitHub PR Reviewer Agent",
+      "category": "Developer Tools",
+      "description": "OpenClaw agent that reviews pull requests, checks for common issues, and posts AI-generated review comments",
+      "why_it_matters": "Speed up code review cycles and catch issues earlier — works with gh CLI skill",
+      "source_url": "https://github.com/openclaw-community/github-pr-reviewer",
+      "source_type": "github",
+      "complexity": "intermediate",
+      "tags": [
+        "github",
+        "code-review",
+        "developer-tools"
+      ],
+      "date_added": "2026-04-06"
+    },
+    {
+      "id": "content-idea-generator",
+      "name": "Content Idea Generator for Tech Creators",
+      "category": "Content Creation",
+      "description": "OpenClaw agent that scans tech news, Twitter trends, and YouTube topics to generate weekly content ideas",
+      "why_it_matters": "Apply to any creator workflow — automate topic research and idea synthesis from multiple sources",
+      "source_url": "https://reddit.com/r/OpenClaw/",
+      "source_type": "reddit",
+      "complexity": "beginner",
+      "tags": [
+        "content",
+        "research",
+        "twitter",
+        "creator"
+      ],
+      "date_added": "2026-04-06"
+    }
   ]
 }
