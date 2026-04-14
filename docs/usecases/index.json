@@ -1,6 +1,6 @@
 {
-  "last_updated": "2026-03-18",
-  "total": 78,
+  "last_updated": "2026-04-13",
+  "total": 81,
   "usecases": [
     {
       "id": "daily-reddit-digest",
@@ -1311,6 +1311,44 @@
         "creator"
       ],
       "date_added": "2026-04-06"
+    }
+  ]
+    },
+    {
+      "id": "agent-health-monitoring",
+      "name": "OpenClaw Agent Health Monitoring",
+      "category": "DevOps & Infrastructure",
+      "description": "Real-time monitoring dashboard for agent execution metrics, error rates, and performance SLAs. Tracks agent uptime, skill usage patterns, and cost optimization.",
+      "why_it_matters": "Production agent deployments need observability. Pattern applies to any fleet-wide monitoring scenario.",
+      "source_url": "https://github.com/openclaw/samples",
+      "source_type": "github",
+      "complexity": "intermediate",
+      "tags": ["monitoring", "devops", "agents", "metrics"],
+      "date_added": "2026-04-13"
+    },
+    {
+      "id": "skill-marketplace-analyzer",
+      "name": "Skill Marketplace Analyzer",
+      "category": "Agent Development",
+      "description": "Automated tool to analyze ClawHub skill quality, usage stats, downloads, and security audit scores. Recommends high-value skills for specific use cases.",
+      "why_it_matters": "With 200+ skills available, discovery and vetting is critical. Pattern extends to any plugin/extension marketplace.",
+      "source_url": "https://discourse.openclaw.io",
+      "source_type": "forum",
+      "complexity": "intermediate",
+      "tags": ["skills", "marketplace", "discovery"],
+      "date_added": "2026-04-13"
+    },
+    {
+      "id": "multi-agent-debate-framework",
+      "name": "Multi-Agent Debate Framework",
+      "category": "AI & Decision Making",
+      "description": "Orchestrate multiple agents with different perspectives to debate a topic, reach consensus, and generate a decision report with dissenting views.",
+      "why_it_matters": "Mirrors human decision-making. Reduces groupthink errors and surfaces hidden assumptions in complex decisions.",
+      "source_url": "https://twitter.com/search?q=openclaw+multi-agent",
+      "source_type": "twitter",
+      "complexity": "advanced",
+      "tags": ["multi-agent", "debate", "consensus", "reasoning"],
+      "date_added": "2026-04-13"
     }
   ]
 }
