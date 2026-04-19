@@ -1,0 +1,209 @@
+# Smart Intel Configuration
+# Edit this to customize your job search
+
+candidate:
+  name: "Sameer Goel"
+  target_comp: "EUR 150K-200K"
+  location: "Netherlands"
+
+keywords:
+  positive:
+    - "AI"
+    - "GenAI"
+    - "Generative AI"
+    - "Agentic"
+    - "AI Agent"
+    - "Multi-Agent"
+    - "LLM"
+    - "ML"
+    - "MLOps"
+    - "LLMOps"
+    - "NLP"
+    - "AI Research"
+    - "Applied AI"
+    - "Solutions Architect"
+    - "AI Architect"
+    - "Forward Deployed"
+    - "Head of AI"
+    - "AI Lead"
+    - "Developer Advocate"
+    - "AI Education"
+    - "Platform Engineer"
+    - "Automation"
+    - "Orchestration"
+  negative:
+    - "Junior"
+    - "Intern"
+    - "iOS"
+    - "Android"
+    - "PHP"
+    - "Ruby"
+    - "Embedded"
+    - "Blockchain"
+    - "Web3"
+    - "COBOL"
+    - "Mainframe"
+  seniority_boost:
+    - "Senior"
+    - "Staff"
+    - "Principal"
+    - "Lead"
+    - "Head"
+    - "Director"
+
+location_filter:
+  include:
+    - "amsterdam"
+    - "netherlands"
+    - "the hague"
+    - "den haag"
+    - "eindhoven"
+    - "rotterdam"
+    - "utrecht"
+    - "remote"
+    - "europe"
+    - "emea"
+    - "berlin"
+    - "munich"
+    - "london"
+    - "dublin"
+    - "paris"
+  exclude:
+    - "china"
+    - "india only"
+    - "japan only"
+
+# Greenhouse API companies (JSON API at boards-api.greenhouse.io)
+greenhouse_companies:
+  - slug: anthropic
+    name: Anthropic
+  - slug: celonis
+    name: Celonis
+  - slug: intercom
+    name: Intercom
+  - slug: airtable
+    name: Airtable
+  - slug: vercel
+    name: Vercel
+  - slug: runwayml
+    name: Runway
+  - slug: hightouch
+    name: Hightouch
+  - slug: arizeai
+    name: Arize AI
+  - slug: gleanwork
+    name: Glean
+  - slug: humeai
+    name: Hume AI
+  - slug: temporal
+    name: Temporal
+  - slug: runpod
+    name: RunPod
+  - slug: stabilityai
+    name: Stability AI
+  - slug: wayve
+    name: Wayve
+  - slug: isomorphiclabs
+    name: Isomorphic Labs
+  - slug: physicsx
+    name: PhysicsX
+  - slug: speechmatics
+    name: Speechmatics
+  - slug: blackforestlabs
+    name: Black Forest Labs
+  - slug: helsing
+    name: Helsing
+  - slug: contentful
+    name: Contentful
+  - slug: getyourguide
+    name: GetYourGuide
+  - slug: hellofresh
+    name: HelloFresh
+  - slug: n26
+    name: N26
+  - slug: traderepublicbank
+    name: Trade Republic
+  - slug: sumup
+    name: SumUp
+  - slug: scandit
+    name: Scandit
+  - slug: amplemarket
+    name: Amplemarket
+  - slug: polyai
+    name: PolyAI
+    api_base: https://boards-api.greenhouse.io/v1/boards
+  - slug: parloa
+    name: Parloa
+    api_base: https://boards-api.greenhouse.io/v1/boards
+  - slug: planetscale
+    name: PlanetScale
+  - slug: factorial
+    name: Factorial
+
+# Lever API companies (JSON at api.lever.co)
+lever_companies:
+  - slug: mistral
+    name: Mistral AI
+  - slug: wandb
+    name: Weights & Biases
+  - slug: palantir
+    name: Palantir
+  - slug: qonto
+    name: Qonto
+  - slug: forto
+    name: Forto
+  - slug: pigment
+    name: Pigment
+  - slug: spotify
+    name: Spotify
+  - slug: vinted
+    name: Vinted
+  - slug: clarity-ai
+    name: Clarity AI
+
+# Ashby companies (GraphQL at jobs.ashbyhq.com)
+ashby_companies:
+  - slug: langchain
+    name: LangChain
+  - slug: elevenlabs
+    name: ElevenLabs
+  - slug: deepgram
+    name: Deepgram
+  - slug: cohere
+    name: Cohere
+  - slug: pinecone
+    name: Pinecone
+  - slug: n8n
+    name: n8n
+  - slug: zapier
+    name: Zapier
+  - slug: sierra
+    name: Sierra
+  - slug: decagon
+    name: Decagon
+  - slug: perplexity
+    name: Perplexity
+  - slug: claylabs
+    name: Clay Labs
+  - slug: workos
+    name: WorkOS
+  - slug: supabase
+    name: Supabase
+  - slug: lovable
+    name: Lovable
+  - slug: synthesia
+    name: Synthesia
+  - slug: faculty
+    name: Faculty
+  - slug: AlephAlpha
+    name: Aleph Alpha
+  - slug: DeepL
+    name: DeepL
+  - slug: "lakera.ai"
+    name: Lakera
+  - slug: attio
+    name: Attio
+  - slug: vapi
+    name: Vapi
+  - slug: bland
+    name: Bland AI
