@@ -1,0 +1,13 @@
+{
+  "name": "smart-intel",
+  "version": "1.0.0",
+  "description": "Sameer's AI Job Dashboard - daily automated scan and publish",
+  "type": "module",
+  "scripts": {
+    "scan": "node scan-and-build.mjs",
+    "start": "node scan-and-build.mjs && open index.html"
+  },
+  "dependencies": {
+    "yaml": "^2.7.1"
+  }
+}
