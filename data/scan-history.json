@@ -2,5 +2,12 @@
   "2026-04-19": {
     "total": 275,
     "withSalary": 24
+  },
+  "2026-04-20": {
+    "total": 275,
+    "withSalary": 24,
+    "status": "cached-from-previous-run",
+    "timestamp": "2026-04-20T04:00:00Z",
+    "reason": "Node.js unavailable in sandbox"
   }
 }
